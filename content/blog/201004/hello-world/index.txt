@@ -1,5 +1,5 @@
 ---
-title:      Hello World
+title:      Hello World - Webby
 created_at: 2010-04-16 14:13:19.336133 -07:00
 author:     Isaac
 filter:
@@ -7,5 +7,12 @@ filter:
 layout:       tumblog/post
 tumblog_type: regular
 ---
+Is there a scalable way to create websites with only static pages? I don't want to continuously be adding html pages, or editing html pages...
 
-Is there a scalable way to create websites with only static pages? I don't want to continuously be adding html pages, or editing html pages! The answer is Yes! I've began experimenting with static web site generators (currently using "Webby":http://webby.rubyforge.org/)
+The answer is Yes! I've began experimenting with static web site generators (currently using "Webby":http://webby.rubyforge.org/), and my new site will be the results of this experimentation. I hope for the following when I'm experimenting with _Webby_:
+* Separation of content and layout
+* To use newer markup languages (textile, markdown, haml ... )
+* All static pages when website is deployed 
+* Easy to add content (or else i never will...), preferably a blog like structure
+
+It seems _Webby_ has it all. So it's time to dive in and see what I can do with it! 

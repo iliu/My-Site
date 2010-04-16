@@ -18,8 +18,8 @@ filter:    erb
 <body>
 
   <h1>
-    <a href="/">Fowl Friends</a>
-    <a href="/tumblog/rss.xml"><img src="/images/tumblog/rss.gif" id="rss" alt="RSS" /></a>
+    <a href="/">Blog Entries</a>
+    <a href="/blog/rss.xml"><img src="/images/tumblog/rss.gif" id="rss" alt="RSS" /></a>
   </h1>
 
   <div id="content">
