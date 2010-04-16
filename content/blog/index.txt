@@ -1,6 +1,6 @@
 ---
-title:  A Mother Clucker
-author: Tim Pease
+title:  Blog Entries
+author: Isaac Liu
 layout: tumblog/default
 filter: erb
 dirty:  true

@@ -20,7 +20,7 @@ filter:
 <body>
 
   <h1>
-    <a href="/">Blog Entries</a>
+    <a href="/"><%= h(@page.title) %></a>
     <a href="/blog/rss.xml"><img src="/images/tumblog/rss.gif" id="rss" alt="RSS" /></a>
   </h1>
 
