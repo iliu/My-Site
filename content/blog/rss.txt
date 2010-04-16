@@ -1,9 +1,8 @@
 ---
-title:     A Mother Clucker
-subtitle:  raising chickens in the city
-site:      example.com
-author:    Tim Pease
-email:     author@example.com
+title:     Blog Feed
+subtitle:  Isaac Liu's Blog Feed
+site:      isaacliu.info
+author:    Isaac Liu
 extension: xml
 layout:    nil
 dirty:     true

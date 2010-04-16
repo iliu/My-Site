@@ -1,0 +1,11 @@
+---
+title:      Hello World
+created_at: 2010-04-16 14:13:19.336133 -07:00
+author:     Isaac
+filter:
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+---
+
+Is there a scalable way to create websites with only static pages? I don't want to continuously be adding html pages, or editing html pages! The answer is Yes! I've began experimenting with static web site generators (currently using "Webby":http://webby.rubyforge.org/)
