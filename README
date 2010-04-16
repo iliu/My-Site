@@ -1,0 +1,29 @@
+Author: Isaac Liu
+Last Modified: 04-16-10
+Respository: http://github.com/iliu/My-Site.git
+
+CONTENTS OF THIS FILE
+---------------------
+ * Introduction
+ * Installation
+ * Links
+
+
+INTRODUCTION
+------------
+This repository is used to store the source of my personal
+website. The website is in experimental stage, and it's being created
+using Webby (http://webby.rubyforge.org/) which automatically
+generates static pages from dynamic content. With the source on a
+repository and static, i can easily deploy the site on any webhost.
+
+
+INSTALLATION
+------------
+Download the "output" folder from the repository, which contains the
+full static website.
+
+
+LINKS
+-----
+* Webby - http://webby.rubyforge.org/
