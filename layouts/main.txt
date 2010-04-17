@@ -45,21 +45,6 @@ filter:
 		</div>		
 		
 		<div id="header-image" class="grid_8 omega">
-		<div id="about-me">
-		<p>
-		  <img src="/images/me.jpg" width="80" height="94" alt="My Pic" class="float-left" />
-		  <b>Isaac Liu</b> 
-		  is currently a Ph.D student at the University of California, Berkeley. 
-		  He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. 
-		  His research interests are in real time systems, parallel architectures and programming models.
-		  His current research project is on real time computer architectures (PREcision Timed Machines - PRET) 
-		  <a href="#">... more</a>
-		</p>
-		<p>
-		  <b>office</b> 545K Cory Hall, Berkeley, CA, 94720 <br />
-		  <b>email</b> liuisaac (at) berkeley (dot) edu 
-		</p>
-		</div>
 		</div> 		
 		
 		<form id="quick-search" action="index.html" method="get" >
@@ -78,28 +63,26 @@ filter:
 	<div id="content-outer"><div id="content-wrapper" class="container_16">
 	
 		<!-- main -->
-		<div id="main" class="grid_12 alpha">
+		<div id="main" class="grid_11 alpha">
                        <%= @content %>
 		<!-- main ends -->
 		</div>
 		<!-- left-columns starts -->
- 			<div id = "left-columns" class="grid_4 omega"> 
-				<h3>Featured</h3>
-			
+ 			<div id = "left-columns" class="grid_5 omega"> 
 				<div class="featured-post">
-				
-					<h4><a href="index.html">Lorem ipsum dolor sit</a></h4>
-					<p class="post-info">Posted by <a href="index.html">erwin</a> on 09/26/08 </p>
-					<p>
-					<a href="http://getfirefox.com/"><img src="images/image.gif" width="160" height="100" alt="firefox" class="float-left" /></a>
-					Vestibulum venenatis. Nulla vel ipsum. Proin rutrum, urna sit amet bibendum
-					pellentesque, ante sapien varius turpis, eu nonummy nunc urna scelerisque ante.
-					Nunc sed leo at dolor pharetra facilisis. Sed sed lectus at justo dapibus tristique.
-					Morbi molestie pulvinar elit. Donec dictum nibh nec est. Aliquam sagittis, lacus
-					a pharetra tempor, enim justo tempor nisi, at aliquet nulla metus sed augue.
-					</p>
-				
-					<p><a class="more-link" href="index.html">continue reading</a></p>
+				  <p >
+				    <img src="images/me.jpg" width="80" height="94" alt="firefox" class="float-left" />
+				    <b>Isaac Liu</b> 
+				    is currently a Ph.D student at the University of California, Berkeley. 
+				    He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. 
+				    His research interests are in real time systems, parallel architectures and programming models.
+				    His current research project is on real time computer architectures (PREcision Timed Machines - PRET).
+				    <br /><a href="#">read more...</a>
+				  </p>
+				  <p>
+				    <b>office</b> 545K Cory Hall, Berkeley, CA, 94720 <br />
+				    <b>email</b> liuisaac (at) berkeley (dot) edu 
+				  </p>
 				
 				</div>
 		
@@ -199,7 +182,7 @@ filter:
 		<div id="footer-bottom">
 	
 			<p class="bottom-left">			
-			&nbsp; &copy;2010 Isaac Liu &nbsp; &nbsp;
+			&nbsp; &copy; 2010 designed by <a href="http://isaacliu.info">Isaac Liu</a> &nbsp; &nbsp;
 			powered by <a href="http://webby.rubyforge.org/">webby</a>&nbsp; &nbsp;
 			<a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
 
