@@ -5,12 +5,21 @@
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-04-17T00:29:50-07:00</updated>
+  <updated>2010-04-17T00:57:34-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
   </author>
   <id>http://isaacliu.info/</id>
+  
+  <entry>
+    <title>Lots to Do..</title>
+    <link href="/blog/201004/lots-to-do-dot/" />
+    <id>tag:isaacliu.info,2010-04-17:1271490310</id>
+    <updated>2010-04-17T00:45:10-07:00</updated>
+    <content type="html">&lt;p&gt;I have just setup the main frame of the site, and added a little personal touch to it so at least people know who&amp;#8217;s site this is. There is still plenty of work to be done, but I&amp;#8217;ll take it one step at a time, and slowly migrate all the content from my previous site here. But I think this is enough to deploy.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;m also trying to be more efficient when I&amp;#8217;m deploying the site, so I&amp;#8217;m trying out &lt;a href=&quot;http://git-scm.com/&quot;&gt;git&lt;/a&gt; + &lt;a href=&quot;http://webby.rubyforge.org/&quot;&gt;webby&lt;/a&gt;. I am going to keep all my source code and output folder in &lt;a href=&quot;http://github.com/iliu/My-Site&quot;&gt;github&lt;/a&gt;, then just do a repository clone on the server. To update I just need to pull updates from github on my server, and it&amp;#8217;s done! So far so good.&lt;/p&gt;</content>
+  </entry>
   
   <entry>
     <title>Hello World - Webby</title>
