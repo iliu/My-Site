@@ -47,14 +47,18 @@ filter:
 		<div id="header-image" class="grid_8 omega">
 		<div id="about-me">
 		<p>
-		  <img src="images/gravatar.jpg" width="40" height="40" alt="My Pic" class="float-left" />
-		  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-		  Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-		  posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
-		  odio, ac blandit ante orci ut diam.</p>
+		  <img src="/images/me.jpg" width="80" height="94" alt="My Pic" class="float-left" />
+		  <b>Isaac Liu</b> 
+		  is currently a Ph.D student at the University of California, Berkeley. 
+		  He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. 
+		  His research interests are in real time systems, parallel architectures and programming models.
+		  His current research project is on real time computer architectures (PREcision Timed Machines - PRET) 
+		  <a href="#">...Learn more...</a>
+		</p>
 		<p>
-		  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-		  Cras id urna. <a href="index.html">Learn more...</a></p>
+		  <b>office</b> 545K Cory Hall, Berkeley, CA, 94720 <br />
+		  <b>email</b> liuisaac (at) berkeley (dot) edu 
+		</p>
 		</div>
 		</div> 		
 		

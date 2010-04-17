@@ -312,8 +312,14 @@ input.button {
 	background: transparent url(../images/right-tab.gif) no-repeat right top;	
 }
 
+/* header about me */
 #header #about-me {
 	margin-top: 60px; 
+}
+
+#header #about-me img {
+    padding: 0;
+    border: 0px; 
 }
 
 /* main column */
