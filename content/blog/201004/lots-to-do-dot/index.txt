@@ -1,0 +1,12 @@
+---
+title:      Lots to Do..
+created_at: 2010-04-17 00:45:10.093126 -07:00
+author:     Isaac Liu
+filter:
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+---
+I have just setup the main frame of the site, and added a little personal touch to it so at least people know who's site this is. There is still plenty of work to be done, but I'll take it one step at a time, and slowly migrate all the content from my previous site here. But I think this is enough to deploy. 
+
+I'm also trying to be more efficient when I'm deploying the site, so I'm trying out "git":http://git-scm.com/ + "webby":http://webby.rubyforge.org/. I am going to keep all my source code and output folder in "github":http://github.com/iliu/My-Site, then just do a repository clone on the server. To update I just need to pull updates from github on my server, and it's done! So far so good.
