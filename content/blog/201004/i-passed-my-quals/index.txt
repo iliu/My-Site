@@ -7,4 +7,4 @@ filter:
 layout:       tumblog/post
 tumblog_type: regular
 ---
-I passed my quals!
+Yup, as the title said, today I passed my qualifying exam for my Ph.D studies at Berkeley! Now all that's left is the thesis and thesis defense!! (like those are easy tasks... ==-_-==) 

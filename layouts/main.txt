@@ -199,8 +199,10 @@ filter:
 		<div id="footer-bottom">
 	
 			<p class="bottom-left">			
-			&nbsp; &copy;2010 All your copyright info here &nbsp; &nbsp;
+			&nbsp; &copy;2010 Isaac Liu &nbsp; &nbsp;
+			powered by <a href="http://webby.rubyforge.org/">webby</a>&nbsp; &nbsp;
 			<a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
+
 			</p>	
 			
 			<p class="bottom-right" >

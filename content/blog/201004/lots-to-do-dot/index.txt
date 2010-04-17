@@ -1,5 +1,5 @@
 ---
-title:      Lots to Do..
+title:      Lots to Do...
 created_at: 2010-04-17 00:45:10.093126 -07:00
 author:     Isaac Liu
 filter:
