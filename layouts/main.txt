@@ -53,7 +53,7 @@ filter:
 		  He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. 
 		  His research interests are in real time systems, parallel architectures and programming models.
 		  His current research project is on real time computer architectures (PREcision Timed Machines - PRET) 
-		  <a href="#">...Learn more...</a>
+		  <a href="#">... more</a>
 		</p>
 		<p>
 		  <b>office</b> 545K Cory Hall, Berkeley, CA, 94720 <br />
