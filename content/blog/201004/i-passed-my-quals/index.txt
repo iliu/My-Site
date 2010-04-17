@@ -1,0 +1,10 @@
+---
+title:      I Passed My Quals!
+created_at: 2010-04-12 18:53:30.593570 -07:00
+author:     Isaac
+filter:
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+---
+I passed my quals!
