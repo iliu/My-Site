@@ -13,7 +13,7 @@
     <meta name="googlebot" content="noarchive" />
 
     <link href="css/screen.css" rel="stylesheet" type="text/css" media="screen" />
-
+    <link href="css/coderay.css" rel="stylesheet" type="text/css" media="screen" />
   </head>
   <body>
     <!-- header starts-->
@@ -25,7 +25,6 @@
 	<!-- navigation -->
 	<div id="nav">
 	  <ul>
-	    <!-- 		    <li id="current"><a href="index.html">Home</a></li> -->
 	    
 	    <li><li><a href="index.html">Home</a></li></li>
 	    
@@ -99,14 +98,33 @@
 			<strong>strong text</strong> and 
 			<del>deleted text</del>.
          </p>
-			
+	 			
 			<h3>Code</h3>				
-			<p><code>
-			code-sample { <br />
-			font-weight: bold;<br />
-			font-style: italic;<br />				
-			}		
-			</code></p>	
+			<div class="CodeRay">
+<pre><span class="no"> 1</span>           <span class="c"># call-seq:</span>
+<span class="no"> 2</span>           <span class="c">#    render_page    =&gt; string</span>
+<span class="no"> 3</span>           <span class="c">#</span>
+<span class="no"> 4</span>           <span class="c"># Apply the desired filters to the page. The filters to apply are</span>
+<span class="no"> 5</span>           <span class="c"># determined from the page's meta-data.</span>
+<span class="no"> 6</span>           <span class="c">#</span>
+<span class="no"> 7</span>           <span class="r">def</span> <span class="fu">render_page</span>
+<span class="no"> 8</span>             ary = []
+<span class="no"> 9</span>             str = ::<span class="co">Webby</span>::<span class="co">File</span>.read(<span class="iv">@page</span>.path)
+<span class="no"><strong>10</strong></span>             <span class="iv">@page</span>.filter.to_a.each <span class="r">do</span> |filter|
+<span class="no">11</span>               str = <span class="pc">self</span>.send(filter + <span class="s"><span class="dl">'</span><span class="k">_filter</span><span class="dl">'</span></span>, str)
+<span class="no">12</span>             <span class="r">end</span>
+<span class="no">13</span>             str
+<span class="no">14</span>           <span class="r">end</span>
+<span class="no">15</span>       </pre>
+</div>
+			<p>
+			<div class="CodeRay">
+<pre><span class="no">1</span>       <span class="ty">code-sample</span> { 
+<span class="no">2</span>       <span class="ke">font-weight</span>: <span class="vl">bold</span>;
+<span class="no">3</span>       <span class="ke">font-style</span>: <span class="vl">italic</span>;
+<span class="no">4</span>       }    
+<span class="no">5</span>       </pre>
+</div></p>	
 				
 			<h3>Example Lists</h3>
 			
@@ -334,7 +352,7 @@ His current research project is on real time computer architectures (PREcision T
 	<p class="bottom-right">
 	  <a href="index.html">Home</a> |
 	  <a href="index.html">Sitemap</a> |
-	  <a href="index.html">RSS Feed</a> |						
+	  <a href="blog/rss.xml">RSS Feed</a> |						
 	  <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
 	  <a href="http://validator.w3.org/check/referer">XHTML</a>
 	</p>

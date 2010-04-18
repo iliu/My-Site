@@ -19,7 +19,7 @@ filter:
     <meta name="googlebot" content="noarchive" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
-
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/coderay.css" />
   </head>
   <body>
     <!-- header starts-->
@@ -31,7 +31,6 @@ filter:
 	<!-- navigation -->
 	<div  id="nav">
 	  <ul>
-	    <!-- 		    <li id="current"><a href="index.html">Home</a></li> -->
 	    <% @pages.find( :in_directory => '',
 	    :recursive => false ) do |page| -%>
 	    <li><%= layouthelper_get_menu_links(@page.title, page) %></li>
@@ -171,7 +170,7 @@ filter:
 	<p class="bottom-right" >
 	  <a href="index.html">Home</a> |
 	  <a href="index.html">Sitemap</a> |
-	  <a href="index.html">RSS Feed</a> |						
+	  <a href="blog/rss.xml">RSS Feed</a> |						
 	  <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
 	  <a href="http://validator.w3.org/check/referer">XHTML</a>
 	</p>

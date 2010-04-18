@@ -2,6 +2,7 @@
 title:  Style
 author: Isaac Liu
 layout: main
+filter: erb
 dirty:  true
 ---
 	
@@ -48,14 +49,32 @@ dirty:  true
 			<strong>strong text</strong> and 
 			<del>deleted text</del>.
          </p>
-			
+	 			
 			<h3>Code</h3>				
-			<p><code>
-			code-sample { <br />
-			font-weight: bold;<br />
-			font-style: italic;<br />				
+			<% coderay(:lang => "ruby", :line_numbers => "inline", :tab_width => "2") do -%>
+          # call-seq:
+          #    render_page    => string
+          #
+          # Apply the desired filters to the page. The filters to apply are
+          # determined from the page's meta-data.
+          #
+          def render_page
+            ary = []
+            str = ::Webby::File.read(@page.path)
+            @page.filter.to_a.each do |filter|
+              str = self.send(filter + '_filter', str)
+            end
+            str
+          end
+			<% end -%>
+
+			<p>
+			<% coderay(:lang => "css", :line_numbers => "inline", :tab_width => "2") do -%>
+			code-sample { 
+			font-weight: bold;
+			font-style: italic;
 			}		
-			</code></p>	
+			<% end -%></p>	
 				
 			<h3>Example Lists</h3>
 			
