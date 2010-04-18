@@ -33,7 +33,7 @@ filter:
 	  <ul>
 	    <% @pages.find( :in_directory => '',
 	    :recursive => false ) do |page| -%>
-	    <li><%= layouthelper_get_menu_links(@page.title, page) %></li>
+	    <%= layouthelper_get_menu_links(@page.title, page) %>
 	    <% end -%>
 	  </ul>		
 	</div>		
