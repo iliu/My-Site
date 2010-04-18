@@ -1,0 +1,7 @@
+---
+title:  About
+author: Isaac Liu
+layout: main
+dirty:  true
+---
+About me...

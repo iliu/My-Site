@@ -1,0 +1,16 @@
+---
+filter: erb
+---
+<p>
+<img src="images/me.jpg" width="80" height="94" alt="firefox" class="float-left" />
+<b>Isaac Liu</b> 
+is currently a Ph.D student at the University of California, Berkeley. 
+He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. 
+His research interests are in real time systems, parallel architectures and programming models.
+His current research project is on real time computer architectures (PREcision Timed Machines - PRET).
+<br /><a href="#">read more...</a>
+</p>
+<p>
+<b>office</b> 545K Cory Hall, Berkeley, CA, 94720 <br />
+<b>email</b> liuisaac (at) berkeley (dot) edu 
+</p>
