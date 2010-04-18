@@ -26,7 +26,7 @@ filter:
     <div id="header-wrap"><div id="header" class="container_16">						
 	
 	<h1 id="logo-text"><a href="index.html" title="">Keep It Simple</a></h1>
-	<p id="intro">Put your favorite slogan here...</p>
+	<p id="intro">Still under construction...</p>
 
 	<!-- navigation -->
 	<div  id="nav">
@@ -77,8 +77,6 @@ filter:
 	      Morbi molestie pulvinar elit. Donec dictum nibh nec est. Aliquam sagittis, lacus
 	      a pharetra tempor, enim justo tempor nisi, at aliquet nulla metus sed augue.
 	    </p>
-	    
-	    <p><a class="more-link" href="/about.html">continue reading</a></p>
 	    
 	  </div>
 	  <!-- end left-columns -->

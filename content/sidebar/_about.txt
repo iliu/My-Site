@@ -4,7 +4,7 @@ filter:
  - textile
 ---
 <img src="images/me.jpg" width="80" height="94" alt="my pic" class="float-left" /> *Isaac Liu* is currently a Ph.D student at the University of California, Berkeley in the EECS department. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines - PRET).
-"read more...":/about.html
+"read more...":/research.html
 
 *office* 545K Cory Hall, Berkeley, CA, 94720
 *email* liuisaac (at) berkeley (dot) edu 
