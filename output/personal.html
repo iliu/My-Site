@@ -1,51 +1,50 @@
----
-extension: html
-filter:
- - erb
- - relpath
----
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
   <head>
-    <title><%= h(@page.title) %> - Isaac Liu's Website</title>
+    <title>Personal - Isaac Liu's Website</title>
 
-    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta content="application/xhtml+xml; charset=UTF-8" http-equiv="content-type" />
     <meta name="author" content="Isaac Liu" />
     <meta name="description" content="This is the website of Isaac Liu, a current Ph.D student at UC Berkeley" />
     <meta name="keywords" content="isaac, liu, real-time systems, computer architecture, basketball" />
     <meta name="robots" content="index, follow, noarchive" />
     <meta name="googlebot" content="noarchive" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/coderay.css" />
+    <link href="css/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/coderay.css" rel="stylesheet" type="text/css" media="screen" />
   </head>
   <body>
     <!-- header starts-->
-    <div id="header-wrap"><div id="header" class="container_16">						
+    <div id="header-wrap"><div class="container_16" id="header">						
 	
 	<h1 id="logo-text"><a href="index.html" title="">Keep It Simple</a></h1>
 	<p id="intro">Put your favorite slogan here...</p>
 
 	<!-- navigation -->
-	<div  id="nav">
+	<div id="nav">
 	  <ul>
-	    <% @pages.find( :in_directory => '',
-	    :recursive => false ) do |page| -%>
-	    <%= layouthelper_get_menu_links(@page.title, page) %>
-	    <% end -%>
+	    
+	    <li><a href="index.html">Home</a></li>
+	    
+	    <li><a href="research.html">Research</a></li>
+	    
+	    <li id="current"><a href="personal.html">Personal</a></li>
+	    
+	    <li><a href="style.html">Style</a></li>
+	    
 	  </ul>		
 	</div>		
 	
-	<div id="header-image" class="grid_8 omega">
+	<div class="grid_8 omega" id="header-image">
 	</div> 		
 	
-	<form id="quick-search" action="index.html" method="get" >
+	<form method="get" action="index.html" id="quick-search">
 	  <p>
 	    <label for="qsearch">Search:</label>
-	    <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
-	    <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="images/search.gif" />
+	    <input name="qsearch" class="tbox" title="Start typing and hit ENTER" id="qsearch" type="text" value="Search..." />
+	    <input name="searchsubmit" class="btn" title="Search" src="images/search.gif" type="image" alt="Search" />
 	  </p>
 	</form>					
 
@@ -53,17 +52,21 @@ filter:
     </div></div>
     
     <!-- content starts -->
-    <div id="content-outer"><div id="content-wrapper" class="container_16">
+    <div id="content-outer"><div class="container_16" id="content-wrapper">
 	
 	<!-- main -->
-	<div id="main" class="grid_11 alpha">
-          <%= @content %>
+	<div class="grid_11 alpha" id="main">
+          About me...
+
 	  <!-- main ends -->
 	</div>
 	<!-- left-columns starts -->
- 	<div id = "left-columns" class="grid_5 omega"> 
+ 	<div class="grid_5 omega" id="left-columns"> 
 	  <div class="featured-post">
-	    <%= render(:partial => "sidebar/about") %>
+	    <p><img class="float-left" src="images/me.jpg" height="94" alt="my pic" width="80" /> <strong>Isaac Liu</strong> is currently a Ph.D student at the University of California, Berkeley. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines &#8211; PRET).<br />
+<a href="about.html">read more&#8230;</a></p>
+<p><strong>office</strong> 545K Cory Hall, Berkeley, CA, 94720<br />
+<strong>email</strong> liuisaac (at) berkeley (dot) edu</p>
 	  </div>
 	  
 	  <div class="featured-post">
@@ -78,7 +81,7 @@ filter:
 	      a pharetra tempor, enim justo tempor nisi, at aliquet nulla metus sed augue.
 	    </p>
 	    
-	    <p><a class="more-link" href="/about.html">continue reading</a></p>
+	    <p><a href="about.html" class="more-link">continue reading</a></p>
 	    
 	  </div>
 	  <!-- end left-columns -->
@@ -88,7 +91,7 @@ filter:
     </div></div>
 
     <!-- footer starts here -->	
-    <div id="footer-wrapper" class="container_16">
+    <div class="container_16" id="footer-wrapper">
       
       <div id="footer-content">
 	
@@ -129,23 +132,23 @@ filter:
 	  
 	  <h3>Image Gallery </h3>					
 	  <p class="thumbs">
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>	
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>													
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>													
-	    <a href="index.html"><img src="images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>	
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
+	    <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
 	  </p>	
 	  
 	  <h3>About</h3>			
 	  <p>
-	    <a href="http://getfirefox.com/"><img src="images/gravatar.jpg" width="40" height="40" alt="firefox" class="float-left" /></a>
+	    <a href="http://getfirefox.com/"><img class="float-left" src="images/gravatar.jpg" height="40" alt="firefox" width="40" /></a>
 	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
 	    Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
 	    posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
@@ -167,7 +170,7 @@ filter:
 
 	</p>	
 	
-	<p class="bottom-right" >
+	<p class="bottom-right">
 	  <a href="index.html">Home</a> |
 	  <a href="index.html">Sitemap</a> |
 	  <a href="blog/rss.xml">RSS Feed</a> |						

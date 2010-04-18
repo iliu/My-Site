@@ -5,12 +5,20 @@
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-04-17T23:53:28-07:00</updated>
+  <updated>2010-04-18T00:50:50-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
   </author>
   <id>http://isaacliu.info/</id>
+  
+  <entry>
+    <title>Lots to Learn...</title>
+    <link href="/blog/201004/lots-to-learn-dot/" />
+    <id>tag:isaacliu.info,2010-04-18:1271574578</id>
+    <updated>2010-04-18T00:09:38-07:00</updated>
+    <content type="html">&lt;p&gt;&lt;em&gt;Webby&lt;/em&gt; turned out to be very addicting&amp;#8230; It&amp;#8217;s certainly as powerful as I imagined, with lots of room to play with. However, I haven&amp;#8217;t used &lt;em&gt;ruby&lt;/em&gt; in a while, so it&amp;#8217;s time to remember the syntax of ruby. I also learned to use &lt;em&gt;partials&lt;/em&gt; in my layout, so i can further separate content and layout. This is progressing along fairly nicely&amp;#8230;&lt;/p&gt;</content>
+  </entry>
   
   <entry>
     <title>Lots to Do...</title>
