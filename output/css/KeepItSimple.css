@@ -247,7 +247,7 @@ input.button {
 /* header quick search */
 #header form#quick-search {
 	position: absolute;
-	top: 10px; right: 0;
+	top: 10px; right: 60px;
 	padding: 0; margin: 0;
 	border: none;
 	width: 270px; height: 33px;
@@ -316,6 +316,15 @@ input.button {
 	background: transparent url(../images/right-tab.gif) no-repeat right top;	
 }
 
+#header img#feed-icon{
+    position: relative;
+    left: 440px;
+    background: transparent;
+    border: 0px;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
 /* header about me */
 #header #about-me {
 	margin-top: 60px; 
@@ -355,6 +364,12 @@ input.button {
 	margin: 12px 0 5px 0;
 }
 
+#left-columns img#icons {
+        border: 0px;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: -4px;
+}
 /* sidebar menu */
 .sidemenu ul {
 	text-align: left;
@@ -590,10 +605,10 @@ div.post div.date div.date_brick {
   overflow: hidden;
 }
 div.post img.permalink {
-  width: 14px;
-  height: 13px;
+/*   width: 14px; */
+/*   height: 13px; */
   border-width: 0px;
-  background-color: #fff;
+  background: transparent;
   display: none;
   position: absolute;
   right: 0px;
@@ -603,6 +618,7 @@ div.post img.permalink {
 div.post:hover img.permalink {
   display: inline;
 }
+
 /* div.post h2 { */
 /*   font: Bold 18px 'Trebuchet MS', Geneva, Arial, sans-serif; */
 /*   color: #6498CC; */

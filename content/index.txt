@@ -21,7 +21,6 @@ dirty:  true
   <% prev = p.created_at.strftime('%Y%m%d')
      end -%>
   <a href="<%= p.url %>">
-    <img src="/images/tumblog/permalink.gif" class="permalink" alt="permalink" />
   </a>
 
   <div class="<%= p.tumblog_type %>">
