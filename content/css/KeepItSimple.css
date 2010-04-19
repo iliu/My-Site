@@ -364,7 +364,7 @@ input.button {
 	margin: 12px 0 5px 0;
 }
 
-#left-columns img#icons {
+#left-columns .icons {
         border: 0px;
 	padding: 0px;
 	margin: 0px;

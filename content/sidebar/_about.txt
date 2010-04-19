@@ -9,4 +9,4 @@ filter:
 *office* 545K Cory Hall, Berkeley, CA, 94720
 *email* liuisaac (at) berkeley (dot) edu 
 *resume* "html":/ / "pdf":/docs/resume.pdf
-*others* !(#icons)/images/icons/facebook.png!:http://www.facebook.com/isaacliu !(#icons)/images/icons/linkedin.png!:http://www.linkedin.com/pub/isaac-liu/9/996/6a0 !(#icons)/images/icons/twitter.png!:http://twitter.com/isaacliu !(#icons)/images/icons/picasa.png!:http://picasaweb.google.com/liu.isaac
+*others* !(icons)/images/icons/facebook.png(facebook)!:http://www.facebook.com/isaacliu !(icons)/images/icons/linkedin.png(linkedin)!:http://www.linkedin.com/pub/isaac-liu/9/996/6a0 !(icons)/images/icons/twitter.png(twitter)!:http://twitter.com/isaacliu !(icons)/images/icons/picasa.png(picasa)!:http://picasaweb.google.com/liu.isaac !(icons)/images/icons/github.png(github)!:http://github.com/iliu

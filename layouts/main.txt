@@ -41,8 +41,8 @@ filter:
 	<div id="header-image" class="grid_8 omega">
 
 	</div> 		
-	<a href="/blog/rss.xml"> <img id="feed-icon" src="images/icons/feed.png"/></a>  
-	
+	<a href="/blog/rss.xml"> <img id="feed-icon" src="images/icons/feed.png" alt="feed"/></a>  
+ 	
 	<form id="quick-search" action="index.html" method="get" >
 	  <p>
 	    <label for="qsearch">Search:</label>

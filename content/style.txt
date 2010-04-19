@@ -68,13 +68,13 @@ dirty:  true
           end
 			<% end -%>
 
-			<p>
+			
 			<% coderay(:lang => "css", :line_numbers => "inline", :tab_width => "2") do -%>
 			code-sample { 
 			font-weight: bold;
 			font-style: italic;
 			}		
-			<% end -%></p>	
+			<% end -%>
 				
 			<h3>Example Lists</h3>
 			
