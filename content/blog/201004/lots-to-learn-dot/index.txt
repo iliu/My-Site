@@ -6,5 +6,6 @@ filter:
   - textile
 layout:       tumblog/post
 tumblog_type: regular
+content_type: tumblog
 ---
 _Webby_ turned out to be very addicting... It's certainly as powerful as I imagined, with lots of room to play with. However, I haven't used _ruby_ in a while, so it's time to remember the syntax of ruby. I also learned to use _partials_ in my layout, so i can further separate content and layout. This is progressing along fairly nicely...

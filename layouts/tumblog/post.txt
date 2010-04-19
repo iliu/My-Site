@@ -1,21 +1,12 @@
 ---
 filter: erb
-layout: tumblog/default
+layout: main
 ---
+<%= render(:partial => "partials/post", :locals => {:p => @page, :c => @content, :prev => ''}) %>
+
 <div class="post">
-  <%= tumblog_date(@page.created_at) %>
-  <a href="<%= @page.url %>">
-    <img src="/images/tumblog/permalink.gif" class="permalink" alt="permalink" />
-  </a>
-
-  <div class="<%= @page.tumblog_type %>">
-    <h2><%= link_to_page(@page) %></h2>
-    <%= @content %>
-  </div>
-</div>
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
   /**
     * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
     */
@@ -25,7 +16,10 @@ layout: tumblog/default
    dsq.src = 'http://isaacliu.disqus.com/embed.js';
    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=isaacliu">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=isaacliu">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
 

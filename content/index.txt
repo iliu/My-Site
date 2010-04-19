@@ -2,7 +2,6 @@
 title:  Home
 author: Isaac Liu
 layout: main
-extension: html
 filter: 
  - erb
 dirty:  true
@@ -10,29 +9,18 @@ dirty:  true
 <% prev = nil
    posts = @pages.find(
        :all,
-       :layout => 'tumblog/post',
+       :content_type => 'tumblog',
        :sort_by => :created_at,
        :reverse => true
    )
    paginate(posts, 4) do |p| -%>
-<div class="post">
+    <%= render(:partial => "partials/post", :locals => {:p => p, :c => '', :prev => prev}) %>
   <% if prev != p.created_at.strftime('%Y%m%d') -%>
-  <%= tumblog_date(p.created_at) %>
   <% prev = p.created_at.strftime('%Y%m%d')
      end -%>
-  <a href="<%= p.url %>">
-  </a>
-
-  <div class="<%= p.tumblog_type %>">
-    <% if p.title -%>
-    <h3><%= link_to_page(p) %></h3>
-    <% end -%>
-    <%= render(p) %>
-  </div>
-</div>
 <% end -%>
 
-<% content_for :footer do -%>
+
 <%= link_to("&#171; Prev", @pager.prev) if @pager.prev? %>
 <%= link_to("Next &#187;", @pager.next) if @pager.next? %>
-<% end -%>
+

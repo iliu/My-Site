@@ -1,0 +1,26 @@
+---
+filter: 
+ - erb
+ - textile
+---
+<div class="post">
+
+  <% if prev != p.created_at.strftime('%Y%m%d') -%>
+  <%= tumblog_date(p.created_at) %>
+  <% end -%>
+  
+  <div class="comment-link">
+    <a href="<%= p.url %>#disqus_thread">Comments</a>
+  </div>
+  <div class="<%= p.tumblog_type %>">
+    <% if p.title -%>
+    <h3><%= link_to_page(p) %></h3>
+    <% end -%>
+    <% if c == '' -%>
+    <%= render(p) %>
+    <% else -%>
+    <%= c %>
+    <% end -%>
+  </div>
+</div>
+

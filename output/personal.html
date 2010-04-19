@@ -75,19 +75,6 @@
 <strong>others</strong> <a href="http://www.facebook.com/isaacliu"><img class="icons" title="facebook" src="images/icons/facebook.png" alt="facebook" /></a> <a href="http://www.linkedin.com/pub/isaac-liu/9/996/6a0"><img class="icons" title="linkedin" src="images/icons/linkedin.png" alt="linkedin" /></a> <a href="http://twitter.com/isaacliu"><img class="icons" title="twitter" src="images/icons/twitter.png" alt="twitter" /></a> <a href="http://picasaweb.google.com/liu.isaac"><img class="icons" title="picasa" src="images/icons/picasa.png" alt="picasa" /></a> <a href="http://github.com/iliu"><img class="icons" title="github" src="images/icons/github.png" alt="github" /></a></p>
 	  </div>
 	  
-	  <div class="featured-post">
-	    
-	    <h4><a href="index.html">Lorem ipsum dolor sit</a></h4>
-	    <p class="post-info">Posted by <a href="index.html">erwin</a> on 09/26/08 </p>
-	    <p>
-	      Vestibulum venenatis. Nulla vel ipsum. Proin rutrum, urna sit amet bibendum
-	      pellentesque, ante sapien varius turpis, eu nonummy nunc urna scelerisque ante.
-	      Nunc sed leo at dolor pharetra facilisis. Sed sed lectus at justo dapibus tristique.
-	      Morbi molestie pulvinar elit. Donec dictum nibh nec est. Aliquam sagittis, lacus
-	      a pharetra tempor, enim justo tempor nisi, at aliquet nulla metus sed augue.
-	    </p>
-	    
-	  </div>
 	  <!-- end left-columns -->
 	</div>		
 	
@@ -186,6 +173,21 @@
       
     </div>
     <!-- footer ends here -->
+
+    <script type="text/javascript">
+      //<![CDATA[
+(function() {
+	var links = document.getElementsByTagName('a');
+	var query = '?';
+	for(var i = 0; i < links.length; i++) {
+	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	}
+	}
+	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/isaacliu/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+    </script>
 
   </body>
 </html>

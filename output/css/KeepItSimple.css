@@ -579,9 +579,18 @@ ol.commentlist {
 ------------------------------------------------- */ 
 div.post {
   position: relative;
-  margin-bottom: 40px;
+  margin: 0;
+  margin-bottom: 10px;
   padding-right: 20px;
   padding-left: 135px;
+}
+div.post div.comment-link{
+  position: absolute;
+  top: 64px;
+  left: -100px;
+  text-align: right;
+  valign: top;
+  width: 230px;
 }
 div.post div.date {
   position: absolute;
@@ -605,10 +614,6 @@ div.post div.date div.date_year{
     -webkit-transform:rotate(90deg);
     -moz-transform:rotate(90deg);
     white-space:nowrap;
-
-/*     float: right;  */
-/*     width: 1em; */
-/*     color:#aaaaaa; */
 }
 div.post div.date div.date_brick {
   float: right;
