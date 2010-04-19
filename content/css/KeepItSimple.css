@@ -66,6 +66,7 @@ em {
 	font-style:italic;
 }
 
+
 /* Images */
 img {
 	background: #FAFAFA;
@@ -324,6 +325,9 @@ input.button {
     margin: 10px 0 0 0;
     padding: 0;
 }
+#header #feed-icon-link a:hover{
+    border: none;
+}
 
 /* header about me */
 #header #about-me {
@@ -570,7 +574,9 @@ ol.commentlist {
 	background: #f8f8f8 
 }
 
-/* tumblog posting css */
+/* ----------------------------------------------
+   TUMBLOG ELEMENTS
+------------------------------------------------- */ 
 div.post {
   position: relative;
   margin-bottom: 40px;
@@ -582,6 +588,7 @@ div.post div.date {
   top: 13px;
   left: -100px;
   text-align: right;
+  valign: top;
   width: 230px;
   white-space: nowrap;
   font: Normal 34px Verdana, Geneva, Arial, sans-serif;
@@ -589,6 +596,19 @@ div.post div.date {
   color: #cccccc;
   text-transform: uppercase;
   line-height: 35px;
+}
+div.post div.date div.date_year{
+    position: absolute;
+    top: 7px; right: -20px;
+    font: Bold 14px Verdana, Geneva, Arial, sans-serif; 
+    writing-mode:tb-rl;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    white-space:nowrap;
+
+/*     float: right;  */
+/*     width: 1em; */
+/*     color:#aaaaaa; */
 }
 div.post div.date div.date_brick {
   float: right;
@@ -599,7 +619,8 @@ div.post div.date div.date_brick {
   font: Bold 12px Verdana, Geneva, Arial, sans-serif;
   text-align: center;
   line-height: 12px;
-  margin-left: 10px;
+  margin-left: 7px;
+  margin-right: 5px;
   padding-top: 5px;
   letter-spacing: 0px;
   overflow: hidden;

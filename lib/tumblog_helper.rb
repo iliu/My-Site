@@ -20,7 +20,8 @@ module TumblogHelper
         #{Time::RFC2822_MONTH_NAME.at(time.month-1)}<br />
         #{TumblogHelper::DAYS[time.day]}
       </div>
-        #{Time::RFC2822_DAY_NAME.at(time.wday)}
+        #{Time::RFC2822_DAY_NAME.at(time.wday)} 
+        <div class="date_year">#{time.year}</div>
     </div>
     HTML
   end

@@ -39,9 +39,11 @@ filter:
 	</div>		
 	
 	<div id="header-image" class="grid_8 omega">
-
 	</div> 		
-	<a href="/blog/rss.xml"> <img id="feed-icon" src="images/icons/feed.png" alt="feed"/></a>  
+
+	<div id="feed-icon-link">
+	  <a href="/blog/rss.xml"> <img id="feed-icon" src="images/icons/feed.png" alt="feed"/></a>  
+	</div>
  	
 	<form id="quick-search" action="index.html" method="get" >
 	  <p>
