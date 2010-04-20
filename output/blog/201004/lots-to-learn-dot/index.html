@@ -122,9 +122,38 @@
 <strong>others</strong> <a href="http://www.facebook.com/isaacliu"><img class="icons" title="facebook" src="../../../images/icons/facebook.png" alt="facebook" /></a> <a href="http://www.linkedin.com/pub/isaac-liu/9/996/6a0"><img class="icons" title="linkedin" src="../../../images/icons/linkedin.png" alt="linkedin" /></a> <a href="http://twitter.com/isaacliu"><img class="icons" title="twitter" src="../../../images/icons/twitter.png" alt="twitter" /></a> <a href="http://picasaweb.google.com/liu.isaac"><img class="icons" title="picasa" src="../../../images/icons/picasa.png" alt="picasa" /></a> <a href="http://github.com/iliu"><img class="icons" title="github" src="../../../images/icons/github.png" alt="github" /></a></p>
 	  </div>
 
-	  <div class="featured-post">
-	  <script src="http://l.yimg.com/a/i/us/pps/listbadge_1.3.js">{"pipe_id":"_qMA4mpP3BGf6xNp9IS63A","_btype":"list","pipe_params":{"facebook_rss":"http:\/\/www.facebook.com\/feeds\/status.php?id=652017593&amp;amp;amp;viewer=652017593&amp;amp;amp;key=8b68906683&amp;amp;amp;format=rss20"},"width":"250px"}</script>	  
-	  </div>
+	  <div class="featured-post" id="twitterstatus">
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 6000,
+  width: 250,
+  height: 250,
+  theme: {
+    shell: {
+      background: '#EFFAE6',
+      color: '#7BA857'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#666666',
+      links: '#AE855C'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: false,
+    hashtags: false,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('isaacliu').start();
+</script> </div>
 	  <!-- end left-columns -->
 	</div>		
 	
