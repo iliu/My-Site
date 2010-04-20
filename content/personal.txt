@@ -2,6 +2,18 @@
 title:  Personal
 author: Isaac Liu
 layout: main
+filter: 
+ - textile
 dirty:  true
 ---
-About me...
+h3. Background
+
+Born in Ithaca, New York, I have traveled through U.S. and Taiwan numerous times. Starting off with preschool in Taipei, Taiwan, I attended 1st and 2nd grade in Dallas, Texas. Then, I finished elementary school back in Taipei, Taiwan at "Long An":http://web.laes.tp.edu.tw/index.phtml elementary school and continued my middle school education at "Jinhua":http://www.chwjh.tp.edu.tw/ junior high school. During the summer of 1999, I moved to Fremont, California to attend "Mission San Jose High School":http://www.fremont.k12.ca.us/msjhs/site/default.asp. After graduating from Mission San Jose high school, I was accept by the "University of California, Santa Barbara":http://www.ucsb.edu, and earned my B.S. degree in "Computer Engineering":http://www.ce.ucsb.edu/ department, in which i was the top of my class in my department. I was then accepted into "University of California, Berkeley":http://berkeley.edu 's Ph.D program for the "EECS":http://eecs.berkeley.edu department, which I'm currently studying. Because of the re-locations to/from Taiwan, I am fluent in both English and Mandarin Chinese, able to both read and write very well. 
+
+h3. Career
+
+
+h3. Family
+
+
+

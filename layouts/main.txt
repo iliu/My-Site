@@ -25,8 +25,15 @@ filter:
     <!-- header starts-->
     <div id="header-wrap"><div id="header" class="container_16">						
 	
-	<h1 id="logo-text"><a href="/index.html" title="">Keep It Simple</a></h1>
-	<p id="intro">Still under construction...</p>
+<!-- 	<h1 id="logo-text"><a href="/index.html" title="">Keep It Simple</a></h1> -->
+      <div id="logo-quote" class="grid_9 alpha">
+	<blockquote>
+	  <p>Beauty of style and harmony and grace and good rhythm
+	    depends on simplicity.</p>
+	  <p class="align-right"> - Plato</p>
+	</blockquote>		
+      </div>
+<!-- 	<p id="intro">Still under construction...</p> -->
 
 	<!-- navigation -->
 	<div  id="nav">
