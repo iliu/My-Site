@@ -5,12 +5,21 @@
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-04-20T11:03:26-07:00</updated>
+  <updated>2010-04-20T11:59:39-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
   </author>
   <id>http://isaacliu.info/</id>
+  
+  <entry>
+    <title>Welcome Layton!</title>
+    <link href="/blog/201004/introducing-our-newest-family-member-layton/" />
+    <id>tag:isaacliu.info,2010-04-20:1271788222</id>
+    <updated>2010-04-20T11:30:22-07:00</updated>
+    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/photos/bigby_layton.jpg&quot; title=&quot;Welcome Layton!&quot; alt=&quot;Welcome Layton!&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;caption&quot;&gt;We just got a new puppy! The picture shows me holding our new baby while our elder one Bigby, the cat, is being introduced to him. Layton is a Labador Terrier mix. He&amp;#8217;s only 3 months old and was just rescued from Taiwan this weekend! He was about to be sent to a foster home before we picked him up. We named him Layton after Professor Layton from Nintendo DS. Hopefully your as smart as him Layton!&lt;/p&gt;</content>
+  </entry>
   
   <entry>
     <title>Lots to Learn...</title>

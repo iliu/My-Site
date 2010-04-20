@@ -1,0 +1,8 @@
+---
+filter: 
+ - erb
+ - textile
+---
+h3. About the Site
+
+This site was created using "webby":http://webby.rubyforge.org/, which is a dynamic generator for static websites. The purpose of this site was for me to experiment with website generators, ruby, lightweight markup languages ("textile":http://textism.com/tools/textile/, "Haml":http://haml-lang.com/, "Markdown":http://daringfireball.net/projects/markdown/ etc). I wanted to generate a blog like website where it was easy to update contents, it had content and layout separation, and it's only static html pages. Then i plan to integrate more dynamic features with javascript slowly. The source code of my experiment (this website) will be kept public and up to date on "github":http://github.com/iliu/My-Site/. By doing so, i can also easily deploy this website (since it's static and the pages are all in a source control repository) to any webhost. Feel free download the source to play with it and contact me if you have any questions or comments. 

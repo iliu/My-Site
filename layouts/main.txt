@@ -13,7 +13,7 @@ filter:
 
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
     <meta name="author" content="Isaac Liu" />
-    <meta name="description" content="This is the website of Isaac Liu, a current UC Berkeley Ph.D student in the EECS department" />
+    <meta name="description" content="Isaac Liu is currently a Ph.D student at the University of California, Berkeley in the EECS department. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines – PRET)." />
     <meta name="keywords" content="isaac, liu, real-time systems, computer architecture, basketball" />
     <meta name="robots" content="index, follow, noarchive" />
     <meta name="googlebot" content="noarchive" />
@@ -76,7 +76,10 @@ filter:
 	  <div class="featured-post">
 	    <%= render(:partial => "sidebar/about") %>
 	  </div>
-	  
+
+	  <div class="featured-post">
+	  <script src="http://l.yimg.com/a/i/us/pps/listbadge_1.3.js">{"pipe_id":"_qMA4mpP3BGf6xNp9IS63A","_btype":"list","pipe_params":{"facebook_rss":"http:\/\/www.facebook.com\/feeds\/status.php?id=652017593&amp;amp;amp;viewer=652017593&amp;amp;amp;key=8b68906683&amp;amp;amp;format=rss20"},"width":"250px"}</script>	  
+	  </div>
 	  <!-- end left-columns -->
 	</div>		
 	
@@ -122,6 +125,7 @@ filter:
 	</div>
 	
 	<div class="grid_8">
+	  <%= render(:partial => "sidebar/aboutthesite") %>
 	  
 	  <h3>Image Gallery </h3>					
 	  <p class="thumbs">
@@ -139,17 +143,7 @@ filter:
 	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
 	  </p>	
 	  
-	  <h3>About</h3>			
-	  <p>
-	    <a href="http://getfirefox.com/"><img src="/images/gravatar.jpg" width="40" height="40" alt="firefox" class="float-left" /></a>
-	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-	    Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-	    posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
-	    odio, ac blandit ante orci ut diam.</p>
-	  <p>
-	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-	    Cras id urna. <a href="index.html">Learn more...</a></p>
-	  
+
 	</div>	
 	
       </div>
