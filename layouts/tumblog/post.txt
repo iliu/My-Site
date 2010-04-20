@@ -4,7 +4,7 @@ layout: main
 ---
 <%= render(:partial => "partials/post", :locals => {:p => @page, :c => @content, :prev => ''}) %>
 
-<div class="post">
+<div class="postothers">
   <div id="disqus_thread"></div>
   <script type="text/javascript">
   /**

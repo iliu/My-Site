@@ -15,14 +15,11 @@ module TumblogHelper
 
   def tumblog_date( time )
     <<-HTML
-    <div class="date">
-      <div class="date_brick">
-        #{Time::RFC2822_MONTH_NAME.at(time.month-1)}<br />
-        #{TumblogHelper::DAYS[time.day]}
-      </div>
-        #{Time::RFC2822_DAY_NAME.at(time.wday)} 
-        <!-- <div class="date_year">#{time.year}</div> -->
-    </div>
+    <p class="postdate">
+      <strong class="day">#{TumblogHelper::DAYS[time.day]}</strong>
+      <strong class="month">#{Time::RFC2822_MONTH_NAME.at(time.month-1)}</strong>
+      <strong class="year">#{time.year}</strong>
+    </p>
     HTML
   end
 

@@ -4,18 +4,23 @@ filter:
  - textile
 ---
 <div class="post">
-
-  <% if prev != p.created_at.strftime('%Y%m%d') -%>
-  <%= tumblog_date(p.created_at) %>
-  <% end -%>
-  
-  <div class="comment-link">
-    <a href="<%= p.url %>#disqus_thread">Comments</a>
-  </div>
-  <div class="<%= p.tumblog_type %>">
+  <div class="posthead">
     <% if p.title -%>
-    <h3><%= link_to_page(p) %></h3>
+    <h2 class="posttitle">
+      <%= link_to_page(p) %>
+    </h2>
     <% end -%>
+
+    <% if prev != p.created_at.strftime('%Y%m%d') -%>
+    <%= tumblog_date(p.created_at) %>
+    <% end -%>
+
+    <div class="postmeta"> 
+      <span class="post-comment"><a href="<%= p.url %>#disqus_thread">Comments</a></span>&nbsp;
+      <span class="post-filed"><!-- insert tags --></span>
+    </div>
+  </div> <!-- end posthead -->
+  <div class="postcontents">
     <% if c == '' -%>
     <%= render(p) %>
     <% else -%>
