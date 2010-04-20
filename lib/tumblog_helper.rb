@@ -21,7 +21,7 @@ module TumblogHelper
         #{TumblogHelper::DAYS[time.day]}
       </div>
         #{Time::RFC2822_DAY_NAME.at(time.wday)} 
-        <div class="date_year">#{time.year}</div>
+        <!-- <div class="date_year">#{time.year}</div> -->
     </div>
     HTML
   end
