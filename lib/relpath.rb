@@ -34,6 +34,9 @@ class RelPath
         @attr_name ||= attr_rgxp.match(xpath)[1]
         a = element.get_attribute(@attr_name)
         element.set_attribute(@attr_name, a) if a.sub!(sub_rgxp, @prefix)
+        if a == "" then
+          element.set_attribute(@attr_name, "index.html") 
+        end
       end
     end
 

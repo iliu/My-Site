@@ -3,6 +3,7 @@ title:  Personal
 author: Isaac Liu
 layout: main
 filter: 
+ - erb
  - textile
 dirty:  true
 content_type: page
@@ -17,6 +18,8 @@ Born in Ithaca, New York, I have traveled through U.S. and Taiwan numerous times
 
 h3. Family
 
-My beloved family currently consists of myself, my lovely wife - Emily, our fiesty cat - Bigby (named after a character from the comic "Fables":http://www.dccomics.com/vertigo/graphic_novels/?gn=1606), and our friendly dog - Layton (named after the character in the nds game "Professor Layton":http://en.wikipedia.org/wiki/Professor_Layton).
+My beloved family currently consists of myself, my lovely wife - Emily, our fiesty cat - Bigby (named after a character from the comic "Fables":http://www.dccomics.com/vertigo/graphic_novels/?gn=1606), and our friendly dog - Layton (named after the character in the nds game "Professor Layton":http://en.wikipedia.org/wiki/Professor_Layton). The picture below was taken when Layton was first brought into the house. Bigby was trying to get to know him. No animals were hurt during the picture taking process.
+
+!/images/photos/bigby_layton.jpg(<%= h(@page.title) %>)!
 
 

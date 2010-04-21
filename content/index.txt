@@ -21,10 +21,9 @@ content_type: page
      end -%>
 <% end -%>
 
-<% if @pager.prev? || @pager.next? %>
 <div class="postothers">
-<%= link_to("&#171; Prev", @pager.prev) if @pager.prev? %>
-<%= link_to("Next &#187;", @pager.next) if @pager.next? %>
+ <%= link_to("&#171; Prev", @pager.prev) if @pager.prev? %>
+ <%= link_to("Next &#187;", @pager.next) if @pager.next? %>
 </div>
-<% end -%>
+
 

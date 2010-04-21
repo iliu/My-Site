@@ -2,6 +2,9 @@
 module LayoutHelper
 
   def layouthelper_get_menu_links(curr_page,result)
+#    puts "curpage = " + curr_page;
+#    puts "result = " + result.title;
+    
     if (curr_page == result.title) then
       linkval = "<li id=\"current\">";
     else
@@ -10,12 +13,12 @@ module LayoutHelper
     
     linkval += "<a href=\"";
     
-    if ( result.url == "/" ) then
+    if ( result.title == "Home" ) then
        linkval += "/index.html";
     else
        linkval += result.url;
     end
-    
+
     linkval += "\">" + result.title + "</a></li>";
   end
 
