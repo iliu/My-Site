@@ -5,6 +5,7 @@ layout: main
 filter: 
  - erb
 dirty:  true
+content_type: page
 ---
 <% prev = nil
    posts = @pages.find(

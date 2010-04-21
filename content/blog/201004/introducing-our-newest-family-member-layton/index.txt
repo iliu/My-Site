@@ -11,4 +11,4 @@ content_type: tumblog
 ---
 !/images/photos/bigby_layton.jpg(<%= h(@page.title) %>)!
 
-p(caption). We just got a new puppy! The picture shows me holding our new baby while our elder one Bigby, the cat, is being introduced to him. Layton is a Labador Terrier mix. He's only 3 months old and was just rescued from Taiwan this weekend! He was about to be sent to a foster home before we picked him up. We named him Layton after Professor Layton from Nintendo DS. Hopefully your as smart as him Layton!
+p(caption). We just got a new puppy! The picture shows me holding our new baby while our elder one Bigby, the cat, is being introduced to him. Layton is a Labador Terrier mix. He's only 3 months old and was just rescued from Taiwan this weekend! He was about to be sent to a foster home before we picked him up. We named him Layton after Professor Layton from Nintendo DS. Hopefully you're as smart as him Layton!

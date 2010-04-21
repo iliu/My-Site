@@ -38,8 +38,9 @@ filter:
 	<!-- navigation -->
 	<div  id="nav">
 	  <ul>
-	    <% @pages.find( :in_directory => '',
-	    :recursive => false ) do |page| -%>
+	    <% nav_items = @pages.find( :all, 
+	    :content_type => 'page') %>
+	    <% nav_items.each do |page| -%>
 	    <%= layouthelper_get_menu_links(@page.title, page) %>
 	    <% end -%>
 	  </ul>		
