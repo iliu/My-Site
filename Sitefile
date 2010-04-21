@@ -4,6 +4,4 @@ task :default => :autobuild
 desc 'deploy the site to the webserver'
 task :deploy => [:build, 'deploy:rsync']
 
-SITE.create_mode = 'directory'
-
 # EOF
