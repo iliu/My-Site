@@ -647,13 +647,6 @@ ol.commentlist {
     text-indent: -1em;
 }
 
-/* <table class='webrss' cellspacing='0' cellpadding='0' style='border:0px'>	 */
-/*   <tr>		 */
-/*     <td class='mysite_title1' valign='top' height='10' width='70%'>		<a class='mysite_title_link1' href='{=SOURCE_URL=}'>		{=SOURCE_TITLE=}</a>		 */
-/*     </td>		 */
-/*     <td class='mysite_title1' valign='middle' align='right'>		{=ADD_TO_MYSIT=}{=icon=}		</td>		</tr> */
-/*   <tr>		<td colspan='3'>		{=DATE=}		</td>	</tr></table>										 */
-
 /* alignment classes & additional classes*/
 .float-left  { float: left; }
 .float-right { float: right; }
