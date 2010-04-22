@@ -1,0 +1,14 @@
+---
+title:  Resume
+author: Isaac Liu
+layout: main
+filter: 
+ - erb
+ - textile
+dirty:  true
+---
+h3. Resume
+
+Download "pdf":/docs/resume.pdf version
+html version will be updated soon..
+
