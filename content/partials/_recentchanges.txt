@@ -1,5 +1,5 @@
 ---
 filter: 
  - erb
- - textile
 ---
+<p> <b>Recent Changes</b> </p>

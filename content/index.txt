@@ -27,6 +27,7 @@ changefreq: daily
 <div class="postothers">
  <%= link_to("&#171; Prev", @pager.prev) if @pager.prev? %>
  <%= link_to("Next &#187;", @pager.next) if @pager.next? %>
+ &nbsp;&nbsp; <a href="/blog/">Archives </a>
 </div>
 
 

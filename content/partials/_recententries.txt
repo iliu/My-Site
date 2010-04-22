@@ -1,0 +1,17 @@
+---
+filter: 
+ - erb
+---
+<h3> Recent Entries </h3>					
+<ul>
+<%  recent = @pages.find(
+       :all,
+       :content_type => 'tumblog',
+       :sort_by => :created_at,
+       :reverse => true
+   )
+   recent.each do |e| -%>
+<li><%= link_to_page(e) %></li>
+<% end -%>
+</ul>
+

@@ -1,6 +1,16 @@
 ---
-filter: erb
+filter: 
+ - erb
 extension: txt
 layout:
 ---
-Sitemap: /sitemap.xml
+<%  recent = @pages.find(
+       :all,
+       :content_type => 'sitemap',
+       :reverse => false
+   )
+   recent.each do |e| -%>
+   Sitemap: <%= Webby.site.base+e.url %>
+<% end -%>
+
+

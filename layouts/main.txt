@@ -73,115 +73,38 @@ filter:
 	  <div class="featured-post">
 	    <%= render(:partial => "partials/about") %>
 	  </div>
-
 	  <div class="featured-post">
-<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 4,
-  interval: 6000,
-  width: 250,
-  height: 250,
-  theme: {
-    shell: {
-      background: '#EFFAE6',
-      color: '#7BA857'
-    },
-    tweets: {
-      background: '#ffffff',
-      color: '#666666',
-      links: '#AE855C'
-    }
-  },
-  features: {
-    scrollbar: true,
-    loop: false,
-    live: false,
-    hashtags: false,
-    timestamp: true,
-    avatars: false,
-    behavior: 'all'
-  }
-}).render().setUser('isaacliu').start();
-</script> </div>
-
+	    <%= render(:partial => "partials/twitterfeed") %>
+	  </div>
 	  <div class="featured-post">
 	    <%= render(:partial => "partials/recentchanges") %>
 	  </div>
 	  <!-- end left-columns -->
 	</div>		
-	
 	<!-- contents end here -->	
     </div></div>
 
     <!-- footer starts here -->	
-    <div id="footer-wrapper" class="container_16">
+    <div id="footer-wrapper" class="container_12">
       
       <div id="footer-content">
 	
-	<div class="grid_8">
-	  
-	  <h3>Resource Links</h3>			
-	  <p>
-	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. 
-	    Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu 
-	    posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum 
-	    odio, ac blandit ante orci ut diam. <a href="index.html">Read more...</a>
-	  </p>
-
-	  <ul class="footer-list">				
-            <li><a href="http://www.dreamtemplate.com" title="Website Templates">DreamTemplate -
-                <span>Over 6,000+ Premium Web Templates</span></a>
-            </li>
-	    <li><a href="http://www.themelayouts.com" title="WordPress Themes">ThemeLayouts -
-                <span>Premium WordPress &amp; Joomla Themes</span></a>
-            </li>
-	    <li><a href="http://www.imhosted.com" title="Website Hosting">ImHosted.com -
-                <span>Affordable Web Hosting Provider</span></a>
-            </li>
-	    <li><a href="http://www.dreamstock.com" title="Stock Photos">DreamStock -
-                <span>Download Amazing Stock Photos</span></a>
-            </li>
-	    <li><a href="http://www.evrsoft.com" title="Website Builder">Evrsoft -
-                <span>Website Builder Software &amp; Tools</span></a>
-            </li>
-	    <li><a href="http://www.webhostingwp.com" title="Web Hosting">Web Hosting -
-                <span>Top 10 Hosting Reviews</span></a>
-            </li>
-	  </ul>			
-	  
+	<div class="grid_4">
+	  <%= render(:partial => "partials/recententries") %>
+	  <%= render(:partial => "partials/imagegallery") %>
 	</div>
-	
-	<div class="grid_8">
-	  <%= render(:partial => "partials/aboutthesite") %>
-	  
-	  <h3>Image Gallery </h3>					
-	  <p class="thumbs">
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>	
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>													
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>													
-	    <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-	  </p>	
-	  
-
+	<div class="grid_4">
+	  <%= render(:partial => "partials/sitemaplinks") %>
 	</div>	
-	
+	<div class="grid_4">
+	  <%= render(:partial => "partials/aboutthesite") %>
+	</div>
       </div>
       
       <div id="footer-bottom">
 	
 	<p class="bottom-left">			
-	  &nbsp; &copy; 2010 designed by <a href="http://isaacliu.info">Isaac Liu</a> &nbsp; &nbsp;
+	  &nbsp; &copy; 2010 designed by <a href="http://www.isaacliu.info">Isaac Liu</a> &nbsp; &nbsp;
 	  powered by <a href="http://webby.rubyforge.org/">webby</a>&nbsp; &nbsp;
 	  <a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
 
@@ -200,6 +123,7 @@ new TWTR.Widget({
     </div>
     <!-- footer ends here -->
 
+    <!-- Used for disqus -->
     <script type="text/javascript">
       //<![CDATA[
 (function() {
