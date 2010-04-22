@@ -631,6 +631,29 @@ ol.commentlist {
   margin: 0 30px 20px 30px;
 }
 
+/* ----------------------------------------------
+   WEBRSS
+------------------------------------------------- */ 
+#webrss_tr {
+    margin: 0px 0px 0px 0;
+    padding: 0px;
+    background-color: #00ff00;
+}
+
+.webrss ul{
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+/* <table class='webrss' cellspacing='0' cellpadding='0' style='border:0px'>	 */
+/*   <tr>		 */
+/*     <td class='mysite_title1' valign='top' height='10' width='70%'>		<a class='mysite_title_link1' href='{=SOURCE_URL=}'>		{=SOURCE_TITLE=}</a>		 */
+/*     </td>		 */
+/*     <td class='mysite_title1' valign='middle' align='right'>		{=ADD_TO_MYSIT=}{=icon=}		</td>		</tr> */
+/*   <tr>		<td colspan='3'>		{=DATE=}		</td>	</tr></table>										 */
+
 /* alignment classes & additional classes*/
 .float-left  { float: left; }
 .float-right { float: right; }

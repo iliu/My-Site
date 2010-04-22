@@ -15,8 +15,7 @@ filter:
     <meta name="author" content="Isaac Liu" />
     <meta name="description" content="Isaac Liu is currently a Ph.D student at the University of California, Berkeley in the EECS department. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines – PRET)." />
     <meta name="keywords" content="isaac liu, PRET, real-time systems, computer architecture, basketball, isaac, liu" />
-    <meta name="robots" content="index, follow, noarchive" />
-    <meta name="googlebot" content="noarchive" />
+    <meta name="robots" content="index, follow" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/coderay.css" />
@@ -73,7 +72,7 @@ filter:
 	<!-- left-columns starts -->
  	<div id = "left-columns" class="grid_5 omega"> 
 	  <div class="featured-post">
-	    <%= render(:partial => "sidebar/about") %>
+	    <%= render(:partial => "partials/about") %>
 	  </div>
 
 	  <div class="featured-post">
@@ -108,6 +107,10 @@ new TWTR.Widget({
   }
 }).render().setUser('isaacliu').start();
 </script> </div>
+
+	  <div class="featured-post">
+	    <%= render(:partial => "partials/recentchanges") %>
+	  </div>
 	  <!-- end left-columns -->
 	</div>		
 	
@@ -153,7 +156,7 @@ new TWTR.Widget({
 	</div>
 	
 	<div class="grid_8">
-	  <%= render(:partial => "sidebar/aboutthesite") %>
+	  <%= render(:partial => "partials/aboutthesite") %>
 	  
 	  <h3>Image Gallery </h3>					
 	  <p class="thumbs">
