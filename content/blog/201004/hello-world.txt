@@ -7,6 +7,9 @@ filter:
 layout:       tumblog/post
 tumblog_type: regular
 content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
 ---
 Is there a scalable way to create websites with only static pages? I don't want to continuously be adding html pages, or editing html pages...
 

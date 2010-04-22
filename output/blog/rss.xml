@@ -5,7 +5,7 @@
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-04-21T23:28:36-07:00</updated>
+  <updated>2010-04-22T00:53:14-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
@@ -14,7 +14,7 @@
   
   <entry>
     <title>Welcome Layton!</title>
-    <link href="/blog/201004/introducing-our-newest-family-member-layton/" />
+    <link href="/blog/201004/welcome-layton.html" />
     <id>tag:isaacliu.info,2010-04-20:1271788222</id>
     <updated>2010-04-20T11:30:22-07:00</updated>
     <content type="html">&lt;p&gt;&lt;img src=&quot;/images/photos/bigby_layton.jpg&quot; title=&quot;Welcome Layton!&quot; alt=&quot;Welcome Layton!&quot; /&gt;&lt;/p&gt;
@@ -23,7 +23,7 @@
   
   <entry>
     <title>Lots to Learn...</title>
-    <link href="/blog/201004/lots-to-learn-dot/" />
+    <link href="/blog/201004/lots-to-learn-dot.html" />
     <id>tag:isaacliu.info,2010-04-18:1271574578</id>
     <updated>2010-04-18T00:09:38-07:00</updated>
     <content type="html">&lt;p&gt;&lt;em&gt;Webby&lt;/em&gt; turned out to be very addicting&amp;#8230; It&amp;#8217;s certainly as powerful as I imagined, with lots of room to play with. However, I haven&amp;#8217;t used &lt;em&gt;ruby&lt;/em&gt; in a while, so it&amp;#8217;s time to remember the syntax of ruby. I also learned to use &lt;em&gt;partials&lt;/em&gt; in my layout, so i can further separate content and layout. This is progressing along fairly nicely&amp;#8230;&lt;/p&gt;</content>
@@ -31,7 +31,7 @@
   
   <entry>
     <title>Lots to Do...</title>
-    <link href="/blog/201004/lots-to-do-dot/" />
+    <link href="/blog/201004/lots-to-do-dot.html" />
     <id>tag:isaacliu.info,2010-04-17:1271490310</id>
     <updated>2010-04-17T00:45:10-07:00</updated>
     <content type="html">&lt;p&gt;I have just setup the main frame of the site, and added a little personal touch to it so at least people know who&amp;#8217;s site this is. There is still plenty of work to be done, but I&amp;#8217;ll take it one step at a time, and slowly migrate all the content from my previous site here. But I think this is enough to deploy.&lt;/p&gt;
@@ -40,7 +40,7 @@
   
   <entry>
     <title>Hello World - Webby</title>
-    <link href="/blog/201004/hello-world/" />
+    <link href="/blog/201004/hello-world.html" />
     <id>tag:isaacliu.info,2010-04-16:1271452399</id>
     <updated>2010-04-16T14:13:19-07:00</updated>
     <content type="html">&lt;p&gt;Is there a scalable way to create websites with only static pages? I don&amp;#8217;t want to continuously be adding html pages, or editing html pages&amp;#8230;&lt;/p&gt;
@@ -56,7 +56,7 @@
   
   <entry>
     <title>I Passed My Quals!</title>
-    <link href="/blog/201004/i-passed-my-quals/" />
+    <link href="/blog/201004/i-passed-my-quals.html" />
     <id>tag:isaacliu.info,2010-04-12:1271123610</id>
     <updated>2010-04-12T18:53:30-07:00</updated>
     <content type="html">&lt;p&gt;Yup, as the title said, today I passed my qualifying exam for my Ph.D studies at Berkeley! Now all that&amp;#8217;s left is the thesis and thesis defense!! (like those are easy tasks&amp;#8230; -_-)&lt;/p&gt;</content>

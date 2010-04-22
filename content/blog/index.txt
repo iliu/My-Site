@@ -4,6 +4,9 @@ author: Isaac Liu
 layout: main
 filter: erb
 dirty:  true
+sitemap: true
+priority: 0.9
+changefreq: daily
 ---
 <% prev = nil
   posts = @pages.find(

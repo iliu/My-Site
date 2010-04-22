@@ -7,6 +7,9 @@ filter:
 layout:       tumblog/post
 tumblog_type: regular
 content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
 ---
 I have just setup the main frame of the site, and added a little personal touch to it so at least people know who's site this is. There is still plenty of work to be done, but I'll take it one step at a time, and slowly migrate all the content from my previous site here. But I think this is enough to deploy. 
 

@@ -6,6 +6,10 @@ filter:
  - erb
  - textile
 dirty:  true
+content_type: page
+sitemap: true
+priority: 1.0
+changefreq: daily
 ---
 h3. Resume
 
