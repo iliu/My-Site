@@ -3,8 +3,14 @@ filter:
  - erb
 ---
 <h3> Sitemap </h3>
-<p>
-<% @pages.find( :all, :sitemap => true ).each do |page| %>
-<%= link_to_page(page) %> | 
+<p> | 
+<% @pages.find( :all, :sitemap => true ).each do |i| %>
+  <% if i.content_type != "tumblog" -%>
+   <% if i.title == "Home" && @pager then-%>
+      <span style="white-space: nowrap"><%= link_to("Home", "/index.html") %> | </span>
+   <% else -%>
+      <span style="white-space: nowrap"><%= link_to_page(i) %> | </span>
+   <% end -%>
+   <% end -%>
 <% end -%> 
 </p>
