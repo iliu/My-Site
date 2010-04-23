@@ -205,58 +205,7 @@ input.button {
 	position: relative;
 	margin: 0 auto;
 	background: url(../images/border.gif) repeat-x left bottom; 	
-	height: 230px;	
-}
-#header h1#logo-text { margin: 0; padding: 0; }
-#header h1#logo-text a {
-	position: absolute; 
-	margin: 0; padding: 0 5px 0 0;
-	font: normal 75px Georgia, 'Times New Roman', Times, serif;
-	letter-spacing: -6px;
-	color: #93b876;
-	text-decoration: none;
-		
-	/* change the values of top and left to adjust the position of the logo*/
-	top: 90px; left: 20px;	
-}
-#header h1#logo-text a:hover { border: none; }
-
-#header div#logo-quote {
-    position: absolute;
-    top: 70px; left: 20px;
-}
-
-#header div#logo-quote blockquote {
-    background: #fff url(../images/quote-clear.gif) no-repeat 12px 12px;
-    border: 3px dashed #EFFAE6;
-    font-size: 15px;
-    margin: 0px;
-}
-
-#header p#intro {
-	position: absolute;
-	margin: 0; padding: 0;
-	font-family: Georgia, 'Times New Roman', Times, Serif;
-	font-weight: normal;
-	font-size: 17px;
-	line-height: 1.6em;
-	font-style: italic;
-	letter-spacing: -.5px;
-	color: #7ba45b;
-	width: 400px;
-	
-	/* change the values of top and left to adjust the position */
-	top: 175px; left: 0px;		
-}
-#header #header-image {
-	position: absolute;
-	background: url(../images/header-image.gif) no-repeat top right;
-/* 	width: 371px; */
-	height: 225px;	
-	right: 10px; top: 0;	
-
-	text-align: left;
-
+	height: 70px;
 }
 
 /* header quick search */
@@ -489,7 +438,7 @@ input.button {
 	border-bottom: 1px solid #E6E6E6;
 }
 #footer-wrapper ul.footer-list li a {
-	display: block;
+	
 	width: 98%;
     line-height: 2em;
 	font-weight: bold;
@@ -498,6 +447,12 @@ input.button {
 	padding-left: 0;
 	color: #888;
 	border: none;
+}
+#footer-wrapper ul.footer-list li .date {
+    float: right;
+    font-size: 10px;
+    padding-top: 3px;
+    valign: bottom;
 }
 #footer-wrapper ul.footer-list li a span {
 	font-style: italic;
@@ -628,7 +583,7 @@ ol.commentlist {
 
 .post {
   position: relative;
-  margin: 0 30px 20px 30px;
+  margin: 20px 30px 0px 30px;
 }
 
 /* ----------------------------------------------
@@ -645,6 +600,13 @@ ol.commentlist {
     margin-left: 0;
     padding-left: 1em;
     text-indent: -1em;
+}
+
+/* ----------------------------------------------
+   RESUME TABLE
+------------------------------------------------- */ 
+.resume-table tr, .resume-table td, .resume-table {
+    border: 0px;
 }
 
 /* alignment classes & additional classes*/

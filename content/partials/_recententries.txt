@@ -3,7 +3,7 @@ filter:
  - erb
 ---
 <h3> Recent Entries </h3>					
-<ul>
+<ul class="footer-list">
 <%  recent = @pages.find(
        :all,
        :content_type => 'tumblog',
@@ -11,7 +11,8 @@ filter:
        :reverse => true
    )
    recent.each do |e| -%>
-<li><%= link_to_page(e) %></li>
+<li><%= link_to_page(e) %>
+  <div class="date">[<%= e.created_at.strftime('%m-%d-%Y') %>]</div></li>
 <% end -%>
 </ul>
 

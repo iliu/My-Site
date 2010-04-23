@@ -1,6 +1,10 @@
 
 task :default => :autobuild
 
+desc 'camera ready version'
+task :prepare do
+     `webby clobber; webby BASE='http://www.isaacliu.info'`
+end
 
 desc 'deploy the site to the webserver'
 task :deploy => [:build, 'deploy:rsync']

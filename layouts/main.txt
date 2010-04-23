@@ -2,7 +2,7 @@
 extension: html
 filter:
  - erb
- - basepath
+ - basepath_mod
 ---
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -23,14 +23,6 @@ filter:
     <!-- header starts-->
     <div id="header-wrap"><div id="header" class="container_16">						
 	
-      <div id="logo-quote" class="grid_9 alpha">
-	<blockquote>
-	  <p class="align-left">Eat anything sold in the meat market without raising questions of conscience, for, "The earth is the Lord's, and everything in it."</p>
-	  <p class="align-right"> - 1 Corithians 10:25-26 (NIV)</p>
-	</blockquote>		
-      </div>
-<!-- 	<p id="intro">Still under construction...</p> -->
-
 	<!-- navigation -->
 	<div  id="nav">
 	  <ul>
@@ -42,9 +34,6 @@ filter:
 	  </ul>		
 	</div>		
 	
-	<div id="header-image" class="grid_8 omega">
-	</div> 		
-
 	<div id="feed-icon-link">
 	  <a href="/blog/rss.xml"> <img id="feed-icon" src="/images/icons/feed.png" alt="feed"/></a>  
 	</div>
@@ -89,16 +78,19 @@ filter:
       
       <div id="footer-content">
 	
-	<div class="grid_4">
+	<div class="grid_4" >
 	  <%= render(:partial => "partials/recententries") %>
-	  <%= render(:partial => "partials/imagegallery") %>
+	  <%= render(:partial => "partials/sitemaplinks") %>	
 	</div>
+
 	<div class="grid_4">
-	  <%= render(:partial => "partials/sitemaplinks") %>
+	  <%= render(:partial => "partials/imagegallery") %>
 	</div>	
+
 	<div class="grid_4">
 	  <%= render(:partial => "partials/aboutthesite") %>
 	</div>
+
       </div>
       
       <div id="footer-bottom">

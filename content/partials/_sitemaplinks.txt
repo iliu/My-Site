@@ -3,8 +3,8 @@ filter:
  - erb
 ---
 <h3> Sitemap </h3>
-<ul>
+<p>
 <% @pages.find( :all, :sitemap => true ).each do |page| %>
-<li><%= link_to_page(page) %></li>
+<%= link_to_page(page) %> | 
 <% end -%> 
-</ul>
+</p>
