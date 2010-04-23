@@ -13,6 +13,14 @@ class BasePath_Mod
   def initialize( str, mode, path )
     @str = str
     @mode = mode.downcase.to_sym
+    dir = File.dirname(path)
+    depth = 0
+    while (parent = File.dirname(dir)) != dir
+      dir = parent
+      depth += 1
+    end
+    depth -= 1 # because of the 'content/' prefix
+    @prefix = "../" * depth
   end
 
   def filter
@@ -20,6 +28,7 @@ class BasePath_Mod
     base_path = ::Webby.site.base
     attr_rgxp = %r/\[@(\w+)\]$/o
     sub_rgxp = %r/\A(?=\/)/o
+    sub_rgxp_relpath = %r/\A\//o # <-- note this rgxp _consumes_ the "/"
 
     ::Webby.site.xpaths.each do |xpath|
       @attr_name = nil
@@ -29,6 +38,12 @@ class BasePath_Mod
         a = element.get_attribute(@attr_name)
         if @attr_name == "href" then
           element.set_attribute(@attr_name, a) if a.sub!(sub_rgxp, base_path)
+        else
+          element.set_attribute(@attr_name, a) if a.sub!(sub_rgxp_relpath, @prefix)
+          #This is my fix to relpath, where the index.html page would contain nothing, which will link to current page
+          if a == "" then
+            element.set_attribute(@attr_name, "index.html") 
+          end
         end
       end
     end
