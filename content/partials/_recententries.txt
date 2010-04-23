@@ -12,7 +12,7 @@ filter:
    )
    recent.each do |e| -%>
 <li><%= link_to_page(e) %>
-  <div class="date">[<%= e.created_at.strftime('%m-%d-%Y') %>]</div></li>
+  <div class="date">[<%= e.created_at.strftime("%b %d, %Y") %>]</div></li>
 <% end -%>
 </ul>
 
