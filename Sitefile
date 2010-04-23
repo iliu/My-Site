@@ -1,9 +1,9 @@
 
 task :default => :autobuild
 
-desc 'camera ready version'
-task :prepare do
-     `webby clobber; webby BASE='http://www.isaacliu.info'`
+desc 'rebuild and commit to repository'
+task :commit do
+     `sh .commit_script.sh`
 end
 
 desc 'deploy the site to the webserver'
