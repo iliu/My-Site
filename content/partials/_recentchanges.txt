@@ -2,4 +2,4 @@
 filter: 
  - erb
 ---
-<p> <b>Recent Changes</b> </p>
+<h3>Recent Changes</h3>

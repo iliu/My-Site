@@ -471,7 +471,9 @@ input.button {
 	font-family: Georgia, 'Times New Roman', Times, Serif;
 }
 #footer-wrapper ul.footer-list li a:hover,
-#footer-wrapper ul.footer-list li a:hover span {
+#footer-wrapper ul.footer-list li a:hover span,
+#left-columns ul.footer-list li a:hover, 
+#left-columns ul.footer-list li a:hover span {
 	color: #333;	
 }
 
