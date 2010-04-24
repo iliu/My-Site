@@ -32,11 +32,10 @@ class BasePath_Mod
 
     ::Webby.site.xpaths.each do |xpath|
       @attr_name = nil
-
       doc.search(xpath).each do |element|
         @attr_name ||= attr_rgxp.match(xpath)[1]
         a = element.get_attribute(@attr_name)
-        if @attr_name == "href" then
+        if (@attr_name == "href") && !(xpath.include? 'link') then
           element.set_attribute(@attr_name, a) if a.sub!(sub_rgxp, base_path)
         else
           element.set_attribute(@attr_name, a) if a.sub!(sub_rgxp_relpath, @prefix)

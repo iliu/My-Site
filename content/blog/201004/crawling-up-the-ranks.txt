@@ -1,0 +1,26 @@
+---
+title:      Crawling up the Ranks
+created_at: 2010-04-23 14:16:50.603921 -07:00
+author:     Isaac Liu
+filter:
+  - erb
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+---
+Finally, I'm back at the first hit when you google "isaac liu". Because of all the webhost changing and redesigning of my page, my page rank started dropping, until eventually my site completely disappeared from google search when querying "isaac liu"! I did some researching and found out that by using the _< meta refresh = "" >_ tag to do redirection, my page rank took a penalty, and maybe even prevented the google crawler to index my site. This is because normal spam sites use this method to redirect people to their spam sites. Thus, I went out to find how to do redirection the correct way, which was using 301 permanent move. What that means is, the http code that's sent back to the requesting client should be 301, which means "permanently moved site." The _< meta refresh="" >_ method sends back the code 200, which means "Request OK," and then later does the redirection. That is extremely not search engine friendly. To change this required tweaking of the .htaccess file on my web host, which is using the UC Berkeley EECS department's webhost. If your curious, i added the following code to my .htaccess file: 
+
+<notextile>
+<% coderay(:lang => "html", :line_numbers => "inline") do -%>
+RewriteEngine on
+RewriteRule  ^index\.html$  /~liuisaac/site/ [R=301,L]
+RewriteRule  ^$  /~liuisaac/site/ [R=301,L]
+<% end -%>
+</notextile>
+
+This uses the Apache mod_rewrite engine to rewrite all incoming requests to _index.html_ (line 2 and 3) to the _"site"_ subdirectory. Now all requests will be forwarded and the header message sent back will be 301 (specified by _R=301_ ), which is search engine friendly. Low and behold, I am back atop the google search for "isaac liu"! If you are using _< meta refresh="" >_ to do redirection, and don't know why your page isn't showing up on google, this might be the reason! A more indepth tutorial on mod_rewrite can be found "here":http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html.
+

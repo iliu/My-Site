@@ -20,7 +20,7 @@ filter:
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-  <div class="postcontents">
+    <div class="postcontents">
     <% if c == '' -%>
     <%= render(p) %>
     <% else -%>

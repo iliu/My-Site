@@ -326,6 +326,10 @@ input.button {
 	margin-bottom: -4px;
 }
 
+.left-columns-archive {
+    margin-right: 20px;
+}
+
 #twtr-widget-1{
     margin-left: 10px;
 }
@@ -428,19 +432,26 @@ input.button {
 }
 
 /* footer-list */
-#footer-wrapper ul.footer-list {
+#footer-wrapper ul.footer-list, #left-columns ul.footer-list{
 	border-top: 1px solid #E6E6E6;
 	list-style: none;
 	padding: 0;	
-	margin-left: 0;	
+	margin-left: 0px;	
 }
-#footer-wrapper ul.footer-list li {
+
+#left-columns ul.footer-list{
+    border-top: 0px;
+    margin-left: 10px;
+    padding-left: 5px;
+}
+
+#footer-wrapper ul.footer-list li, #left-columns ul.footer-list li{
 	border-bottom: 1px solid #E6E6E6;
 }
-#footer-wrapper ul.footer-list li a {
+#footer-wrapper ul.footer-list li a, #left-columns ul.footer-list li a {
 	
 	width: 98%;
-    line-height: 2em;
+	line-height: 2em;
 	font-weight: bold;
 	padding: 7px 0;
 	margin-left: 0;
@@ -448,7 +459,7 @@ input.button {
 	color: #888;
 	border: none;
 }
-#footer-wrapper ul.footer-list li .date {
+#footer-wrapper ul.footer-list li .date, #left-columns ul.footer-list li .date{
     float: right;
     font-size: 10px;
     padding-top: 3px;
@@ -586,6 +597,11 @@ ol.commentlist {
   margin: 20px 30px 0px 30px;
 }
 
+.post .CodeRay {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+}
 /* ----------------------------------------------
    WEBRSS
 ------------------------------------------------- */ 
@@ -608,6 +624,7 @@ ol.commentlist {
 .resume-table tr, .resume-table td, .resume-table {
     border: 0px;
 }
+
 
 /* alignment classes & additional classes*/
 .float-left  { float: left; }

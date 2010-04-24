@@ -5,12 +5,28 @@
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-04-23T11:16:14-07:00</updated>
+  <updated>2010-04-23T18:15:25-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
   </author>
   <id>http://isaacliu.info/</id>
+  
+  <entry>
+    <title>Crawling up the Ranks</title>
+    <link href="/blog/201004/crawling-up-the-ranks.html" />
+    <id>tag:isaacliu.info,2010-04-23:1272057410</id>
+    <updated>2010-04-23T14:16:50-07:00</updated>
+    <content type="html">&lt;p&gt;Finally, I&amp;#8217;m back at the first hit when you google &amp;#8220;isaac liu&amp;#8221;. Because of all the webhost changing and redesigning of my page, my page rank started dropping, until eventually my site completely disappeared from google search when querying &amp;#8220;isaac liu&amp;#8221;! I did some researching and found out that by using the &lt;em&gt;&amp;lt; meta refresh = &amp;quot;&amp;quot; &amp;gt;&lt;/em&gt; tag to do redirection, my page rank took a penalty, and maybe even prevented the google crawler to index my site. This is because normal spam sites use this method to redirect people to their spam sites. Thus, I went out to find how to do redirection the correct way, which was using 301 permanent move. What that means is, the http code that&amp;#8217;s sent back to the requesting client should be 301, which means &amp;#8220;permanently moved site.&amp;#8221; The &lt;em&gt;&amp;lt; meta refresh=&amp;quot;&amp;quot; &amp;gt;&lt;/em&gt; method sends back the code 200, which means &amp;#8220;Request OK,&amp;#8221; and then later does the redirection. That is extremely not search engine friendly. To change this required tweaking of the .htaccess file on my web host, which is using the UC Berkeley EECS department&amp;#8217;s webhost. If your curious, i added the following code to my .htaccess file:&lt;/p&gt;
+&lt;notextile&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; RewriteEngine on
+&lt;span class=&quot;no&quot;&gt;2&lt;/span&gt; RewriteRule  ^index\.html$  /~liuisaac/site/ [R=301,L]
+&lt;span class=&quot;no&quot;&gt;3&lt;/span&gt; RewriteRule  ^$  /~liuisaac/site/ [R=301,L]
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&lt;/notextile&gt;&lt;/p&gt;
+&lt;p&gt;This uses the Apache mod_rewrite engine to rewrite all incoming requests to &lt;em&gt;index.html&lt;/em&gt; (line 2 and 3) to the &lt;em&gt;&amp;#8220;site&amp;#8221;&lt;/em&gt; subdirectory. Now all requests will be forwarded and the header message sent back will be 301 (specified by &lt;em&gt;R=301&lt;/em&gt; ), which is search engine friendly. Low and behold, I am back atop the google search for &amp;#8220;isaac liu&amp;#8221;! If you are using &lt;em&gt;&amp;lt; meta refresh=&amp;quot;&amp;quot; &amp;gt;&lt;/em&gt; to do redirection, and don&amp;#8217;t know why your page isn&amp;#8217;t showing up on google, this might be the reason! A more indepth tutorial on mod_rewrite can be found &lt;a href=&quot;http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
   
   <entry>
     <title>Welcome Layton!</title>

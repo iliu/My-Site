@@ -3,7 +3,7 @@
   
   <url>
     <loc>http://www.isaacliu.info/</loc>
-    <lastmod>2010-04-22</lastmod>
+    <lastmod>2010-04-23</lastmod>
     
     <changefreq>daily</changefreq>
     
@@ -53,6 +53,17 @@
     
     
     <priority>0.9</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.isaacliu.info/blog/201004/crawling-up-the-ranks.html</loc>
+    <lastmod>2010-04-23</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.7</priority>
     
   </url>
   

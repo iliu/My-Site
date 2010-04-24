@@ -66,7 +66,8 @@ filter:
 	    <%= render(:partial => "partials/twitterfeed") %>
 	  </div>
 	  <div class="featured-post">
-	    <%= render(:partial => "partials/recentchanges") %>
+	    <%= render(:partial => "partials/recententries") %>
+
 	  </div>
 	  <!-- end left-columns -->
 	</div>		
@@ -79,7 +80,7 @@ filter:
       <div id="footer-content">
 	
 	<div class="grid_4" >
-	  <%= render(:partial => "partials/recententries") %>
+	  <%= render(:partial => "partials/recentchanges") %>
 	  <%= render(:partial => "partials/sitemaplinks") %>	
 	</div>
 
