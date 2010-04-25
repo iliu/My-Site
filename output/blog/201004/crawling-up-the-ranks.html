@@ -71,7 +71,7 @@
 </div>
 </div> <!-- end posthead -->
 <div class="postcontents">
-        <p>Finally, I&#8217;m back at the first hit when you google &#8220;isaac liu&#8221;. Because of all the webhost changing and redesigning of my page, my page rank started dropping, until eventually my site completely disappeared from google search when querying &#8220;isaac liu&#8221;! I did some researching and found out that by using the <em>&lt; meta refresh = &quot;&quot; &gt;</em> tag to do redirection, my page rank took a penalty, and maybe even prevented the google crawler to index my site. This is because normal spam sites use this method to redirect people to their spam sites. Thus, I went out to find how to do redirection the correct way, which was using 301 permanent move. What that means is, the http code that&#8217;s sent back to the requesting client should be 301, which means &#8220;permanently moved site.&#8221; The <em>&lt; meta refresh=&quot;&quot; &gt;</em> method sends back the code 200, which means &#8220;Request OK,&#8221; and then later does the redirection. That is extremely not search engine friendly. To change this required tweaking of the .htaccess file on my web host, which is using the UC Berkeley EECS department&#8217;s webhost. If your curious, i added the following code to my .htaccess file:</p>
+                        <p>Finally, I&#8217;m back at the first hit when you google &#8220;isaac liu&#8221;. Because of all the webhost changing and redesigning of my page, my page rank started dropping, until eventually my site completely disappeared from google search when querying &#8220;isaac liu&#8221;! I did some researching and found out that by using the <em>&lt; meta refresh = &quot;&quot; &gt;</em> tag to do redirection, my page rank took a penalty, and maybe even prevented the google crawler to index my site. This is because normal spam sites use this method to redirect people to their spam sites. Thus, I went out to find how to do redirection the correct way, which was using 301 permanent move. What that means is, the http code that&#8217;s sent back to the requesting client should be 301, which means &#8220;permanently moved site.&#8221; The <em>&lt; meta refresh=&quot;&quot; &gt;</em> method sends back the code 200, which means &#8220;Request OK,&#8221; and then later does the redirection. That is extremely not search engine friendly. To change this required tweaking of the .htaccess file on my web host, which is using the UC Berkeley EECS department&#8217;s webhost. If your curious, i added the following code to my .htaccess file:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> RewriteEngine on
 <span class="no">2</span> RewriteRule  ^index\.html$  /~liuisaac/site/ [R=301,L]
@@ -153,7 +153,9 @@ new TWTR.Widget({
 	    <p>
 <h4> Recent Blog Entries </h4>
 <ul class="footer-list">
-<li><a href="http://www.isaacliu.info/blog/201004/crawling-up-the-ranks.html">Crawling up the Ranks</a>
+<li><a href="http://www.isaacliu.info/blog/201004/birthday-freebies.html">Birthday Freebies!</a>
+  <div class="date">[Apr 25, 2010]</div></li>
+  <li><a href="http://www.isaacliu.info/blog/201004/crawling-up-the-ranks.html">Crawling up the Ranks</a>
   <div class="date">[Apr 23, 2010]</div></li>
   <li><a href="http://www.isaacliu.info/blog/201004/welcome-layton.html">Welcome Layton!</a>
   <div class="date">[Apr 20, 2010]</div></li>
@@ -163,8 +165,6 @@ new TWTR.Widget({
   <div class="date">[Apr 17, 2010]</div></li>
   <li><a href="http://www.isaacliu.info/blog/201004/hello-world.html">Hello World - Webby</a>
   <div class="date">[Apr 16, 2010]</div></li>
-  <li><a href="http://www.isaacliu.info/blog/201004/i-passed-my-quals.html">I Passed My Quals!</a>
-  <div class="date">[Apr 12, 2010]</div></li>
     
 
 </ul>
@@ -186,6 +186,7 @@ new TWTR.Widget({
 	<div class="grid_4">
 	  <h3>Recent Changes</h3>
 
+
 	  <h3> Sitemap </h3>
 <p> | 
 
@@ -199,6 +200,7 @@ new TWTR.Widget({
       
            <span style="white-space: nowrap"><a href="http://www.isaacliu.info/blog/">Blog Entries</a> | </span>
       
+  
   
   
   

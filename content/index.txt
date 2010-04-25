@@ -18,7 +18,7 @@ changefreq: daily
        :reverse => true
    )
    paginate(posts, 4) do |p| -%>
-    <%= render(:partial => "partials/post", :locals => {:p => p, :c => '', :prev => prev}) %>
+    <%= render(:partial => "partials/post", :locals => {:p => p, :c => '', :prev => prev, :displaycontents => true}) %>
   <% if prev != p.created_at.strftime('%Y%m%d') -%>
   <% prev = p.created_at.strftime('%Y%m%d')
      end -%>

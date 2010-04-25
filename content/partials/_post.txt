@@ -21,10 +21,12 @@ filter:
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents">
-    <% if c == '' -%>
-    <%= render(p) %>
-    <% else -%>
-    <%= c %>
+    <% if displaycontents then -%>
+        <% if c == '' -%>
+	    <%= render(p) %>
+	        <% else -%>
+            <%= c %>
+	<% end -%>
     <% end -%>
   </div>
 </div>

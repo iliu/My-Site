@@ -2,7 +2,7 @@
 filter: erb
 layout: main
 ---
-<%= render(:partial => "partials/post", :locals => {:p => @page, :c => @content, :prev => ''}) %>
+<%= render(:partial => "partials/post", :locals => {:p => @page, :c => @content, :prev => '', :displaycontents => true}) %>
 
 <div class="postothers">
   <div id="disqus_thread"></div>
