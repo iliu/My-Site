@@ -5,12 +5,66 @@
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-04-26T00:17:13-07:00</updated>
+  <updated>2010-04-26T10:53:47-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
   </author>
   <id>http://isaacliu.info/</id>
+  
+  <entry>
+    <title>Webby Tricks - JQuery</title>
+    <link href="/blog/201004/webby-tricks-jquery.html" />
+    <id>tag:isaacliu.info,2010-04-26:1272300292</id>
+    <updated>2010-04-26T16:44:52Z</updated>
+    <content type="html">&lt;p&gt;Since I&amp;#8217;ve had such a positive experience with &lt;a href=&quot;http://webby.rubyforge.org/&quot;&gt;Webby&lt;/a&gt;, I&amp;#8217;ve decided to blog a little about some stuff I&amp;#8217;ve figured out when using &lt;em&gt;webby&lt;/em&gt;. I know there are some amount of tutorial I&amp;#8217;ve found only for Webby, so I&amp;#8217;ll try to not repeat a lot of them. When I constructed this blog using webby, I wanted the dates to be in the format of &lt;em&gt;&amp;#8220;2 minutes ago&amp;#8221;&lt;/em&gt; or &lt;em&gt;&amp;#8220;1 month ago,&amp;#8221;&lt;/em&gt; instead of absolute dates. This cannot be achieved by using webby alone, since these dates can only be changed when the website is build. Thus, a little java script magic is needed. &lt;a href=&quot;http://jquery.com/&quot;&gt;JQuery&lt;/a&gt; is a javascript library that allows plugins and has several AJAX functions. In particular, I&amp;#8217;m using the &lt;a href=&quot;http://timeago.yarp.com/&quot;&gt;Timeago&lt;/a&gt; plugin for JQuery. What this javascript does is turn any date you wish on your page into the &amp;#8220;timeago&amp;#8221; format. It also auto updates itself, so it&amp;#8217;s perfect to be used with webby. First you want to follow the links above and download both the plugin and JQuery (go ahead and get the min version). In your main layout page (in the &lt;em&gt;layouts&lt;/em&gt; folder), add the following lines between the &amp;lt;head&amp;gt; tags:&lt;/p&gt;
+&lt;notextile&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;/scripts/jquery.min.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;text/javascript&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;/scripts/jquery.timeago.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;text/javascript&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;script&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;text/javascript&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;4&lt;/span&gt;   // initialize plugin code
+&lt;span class=&quot;no&quot;&gt;5&lt;/span&gt;   jQuery(document).ready(function() {
+&lt;span class=&quot;no&quot;&gt;6&lt;/span&gt;   jQuery(&amp;quot;abbr.timeago&amp;quot;).timeago();
+&lt;span class=&quot;no&quot;&gt;7&lt;/span&gt;   });
+&lt;span class=&quot;no&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&lt;/notextile&gt;&lt;/p&gt;
+&lt;p&gt;When using webby, I created a &lt;em&gt;scripts&lt;/em&gt; folder in my &lt;em&gt;contents&lt;/em&gt; folder to hold my javascripts. That&amp;#8217;s why the src of the &amp;lt;scripts&amp;gt; tag is &lt;em&gt;/scripts/jquery.*&lt;/em&gt;. After doing this, then the javascript will find all the tags with the following format:&lt;/p&gt;
+&lt;notextile&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;abbr&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;timeago&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;title&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;2008-07-17T09:24:17Z&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;gt;&lt;/span&gt;July 17, 2008&lt;span class=&quot;ta&quot;&gt;&amp;lt;/abbr&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&lt;/notextile&gt;&lt;/p&gt;
+&lt;p&gt;into this:&lt;/p&gt;
+&lt;notextile&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;abbr&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;timeago&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;title&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;July 17, 2008&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;gt;&lt;/span&gt;about a year ago&lt;span class=&quot;ta&quot;&gt;&amp;lt;/abbr&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&lt;/notextile&gt;&lt;/p&gt;
+&lt;p&gt;which will yields the following: &lt;strong&gt;&lt;abbr class=&quot;timeago&quot; title=&quot;2008-07-17T09:24:17Z&quot;&gt;July 17, 2008&lt;/abbr&gt;&lt;/strong&gt;. Notice the time format in the &amp;lt;abbr&amp;gt; tag must be in an &lt;a href=&quot;http://en.wikipedia.org/wiki/ISO_8601&quot;&gt;ISO8691&lt;/a&gt; timestamp. When using &lt;em&gt;webby&lt;/em&gt;, since you can use the erb filter, there are several ways to turn dates into the correct format. Here I show one way i used:&lt;/p&gt;
+&lt;notextile&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;il&quot;&gt;&lt;span class=&quot;idl&quot;&gt;&amp;lt;%&lt;/span&gt;  recent = &lt;span class=&quot;iv&quot;&gt;@pages&lt;/span&gt;.find(
+&lt;span class=&quot;no&quot;&gt; 2&lt;/span&gt;        &lt;span class=&quot;sy&quot;&gt;:limit&lt;/span&gt; =&amp;gt; &lt;span class=&quot;i&quot;&gt;6&lt;/span&gt;,
+&lt;span class=&quot;no&quot;&gt; 3&lt;/span&gt;        &lt;span class=&quot;sy&quot;&gt;:content_type&lt;/span&gt; =&amp;gt; &lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;tumblog&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;,
+&lt;span class=&quot;no&quot;&gt; 4&lt;/span&gt;        &lt;span class=&quot;sy&quot;&gt;:sort_by&lt;/span&gt; =&amp;gt; &lt;span class=&quot;sy&quot;&gt;:created_at&lt;/span&gt;,
+&lt;span class=&quot;no&quot;&gt; 5&lt;/span&gt;        &lt;span class=&quot;sy&quot;&gt;:reverse&lt;/span&gt; =&amp;gt; &lt;span class=&quot;pc&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 6&lt;/span&gt;    )
+&lt;span class=&quot;no&quot;&gt; 7&lt;/span&gt;    recent.each &lt;span class=&quot;r&quot;&gt;do&lt;/span&gt; |e| &lt;span class=&quot;idl&quot;&gt;-%&amp;gt;&lt;/span&gt;&lt;/span&gt;;
+&lt;span class=&quot;no&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;&lt;span class=&quot;il&quot;&gt;&lt;span class=&quot;idl&quot;&gt;&amp;lt;%=&lt;/span&gt; link_to_page(e); &lt;span class=&quot;idl&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;gt;&lt;/span&gt;[ &lt;span class=&quot;ta&quot;&gt;&amp;lt;abbr&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;timeago&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;an&quot;&gt;title&lt;/span&gt;=&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;il&quot;&gt;&lt;span class=&quot;idl&quot;&gt;&amp;lt;%=&lt;/span&gt; e.created_at.utc.strftime(&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;%Y-%m-%dT%H:%M:%SZ&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;) &lt;span class=&quot;idl&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;il&quot;&gt;&lt;span class=&quot;idl&quot;&gt;&amp;lt;%=&lt;/span&gt; e.created_at.strftime(&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;%b %d, %Y&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;) &lt;span class=&quot;idl&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;lt;/abbr&amp;gt;&lt;/span&gt; ]&lt;span class=&quot;ta&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;&lt;strong&gt;10&lt;/strong&gt;&lt;/span&gt; &lt;span class=&quot;il&quot;&gt;&lt;span class=&quot;idl&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;r&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;idl&quot;&gt;-%&amp;gt;&lt;/span&gt;&lt;/span&gt;  
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&lt;/notextile&gt;&lt;/p&gt;
+&lt;p&gt;The above code is what I used for the right column &lt;em&gt;recent entries&lt;/em&gt; section. I find all pages that are blog entries, and print out the linke and publish date. In particular, I used the following code to turn webby blog date format to the correct timestamp format. As you can see, all the dates on the right column are parsed into the &amp;#8220;timeago&amp;#8221; format.&lt;/p&gt;
+&lt;notextile&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;il&quot;&gt;&lt;span class=&quot;idl&quot;&gt;&amp;lt;%=&lt;/span&gt; e.created_at.utc.strftime(&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;%Y-%m-%dT%H:%M:%SZ&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;) &lt;span class=&quot;idl&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&lt;/notextile&gt;&lt;/p&gt;
+&lt;p&gt;As usual, all the source code for this website can be found in my &lt;a href=&quot;http://github.com/iliu/My-Site&quot;&gt;github&lt;/a&gt; repository. Feel free to check it out and play with it.&lt;/p&gt;</content>
+  </entry>
   
   <entry>
     <title>Birthday Freebies!</title>
@@ -75,7 +129,7 @@
     <title>Hello World - Webby</title>
     <link href="/blog/201004/hello-world.html" />
     <id>tag:isaacliu.info,2010-04-16:1271452399</id>
-    <updated>2010-04-16T21:13:19Z</updated>
+    <updated>2010-04-16T14:13:19-07:00</updated>
     <content type="html">&lt;p&gt;Is there a scalable way to create websites with only static pages? I don&amp;#8217;t want to continuously be adding html pages, or editing html pages&amp;#8230;&lt;/p&gt;
 &lt;p&gt;The answer is Yes! I&amp;#8217;ve began experimenting with static web site generators (currently using &lt;a href=&quot;http://webby.rubyforge.org/&quot;&gt;Webby&lt;/a&gt;), and my new site will be the results of this experimentation. I hope for the following when I&amp;#8217;m experimenting with &lt;em&gt;Webby&lt;/em&gt;:&lt;/p&gt;
 &lt;ul&gt;

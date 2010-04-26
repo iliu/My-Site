@@ -5,8 +5,7 @@ filter:
 <p>
 <h4> Recent Blog Entries </h4>
 <ul class="footer-list">
-<%  count = 0;
-    recent = @pages.find(
+<%  recent = @pages.find(
        :limit => 6,
        :content_type => 'tumblog',
        :sort_by => :created_at,
