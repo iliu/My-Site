@@ -3,4 +3,5 @@ filter:
  - erb
 ---
 <h3>Recent Changes</h3>
+<div id="githubfeed" class="fotter-wrapper"></div>
 

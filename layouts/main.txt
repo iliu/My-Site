@@ -19,6 +19,15 @@ filter:
     <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/coderay.css" />
 
+    <script src="/scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.timeago.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      // initialize plugin code
+      jQuery(document).ready(function() {
+      jQuery("abbr.timeago").timeago();
+      });
+    </script>
+
     <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAdrBnqlMHA9CUol9CpTYD2BQ_TdDJkbSLLkq43zUs0P1h9NacAxSpxdihNgcN_PfO5fdIAxIbBjoxeg"></script>
     <script type="text/javascript">
  
@@ -29,12 +38,21 @@ filter:
       feed.load(function(result) {
         if (!result.error) {
           var container = document.getElementById("githubfeed");
+          var listcontainer = document.createElement("ul");
+          listcontainer.className = "footer-list";
           for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
             var div = document.createElement("div");
-            div.appendChild(document.createTextNode(entry.title));
-            container.appendChild(div);
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.appendChild(document.createTextNode(entry.title));
+            a.href = entry.link;
+	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
+            li.appendChild(div);
+            li.appendChild(a);
+            listcontainer.appendChild(li);
           }
+          container.appendChild(listcontainer);
         }
       });
     }
@@ -78,6 +96,7 @@ filter:
 	
 	<!-- main -->
 	<div id="main" class="grid_11 alpha">
+
           <%= @content %>
 	  <!-- main ends -->
 	</div>
@@ -104,8 +123,8 @@ filter:
       <div id="footer-content">
 	
 	<div class="grid_4" >
-	  <div id="feed"></div>
-	  <!-- <%= render(:partial => "partials/recentchanges") %> -->
+
+	  <%= render(:partial => "partials/recentchanges") %>
 	  <%= render(:partial => "partials/sitemaplinks") %>	
 	</div>
 

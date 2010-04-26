@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/</loc>
+    <loc>http://www.isaacliu.info/</loc>
     <lastmod>2010-04-25</lastmod>
     
     <changefreq>daily</changefreq>
@@ -13,7 +13,7 @@
   </url>
   
   <url>
-    <loc>/personal.html</loc>
+    <loc>http://www.isaacliu.info/personal.html</loc>
     <lastmod>2010-04-22</lastmod>
     
     <changefreq>weekly</changefreq>
@@ -24,7 +24,7 @@
   </url>
   
   <url>
-    <loc>/research.html</loc>
+    <loc>http://www.isaacliu.info/research.html</loc>
     <lastmod>2010-04-22</lastmod>
     
     <changefreq>weekly</changefreq>
@@ -35,7 +35,7 @@
   </url>
   
   <url>
-    <loc>/resume.html</loc>
+    <loc>http://www.isaacliu.info/resume.html</loc>
     <lastmod>2010-04-22</lastmod>
     
     <changefreq>daily</changefreq>
@@ -46,7 +46,7 @@
   </url>
   
   <url>
-    <loc>/blog/</loc>
+    <loc>http://www.isaacliu.info/blog/</loc>
     <lastmod>2010-04-25</lastmod>
     
     <changefreq>daily</changefreq>
@@ -57,7 +57,7 @@
   </url>
   
   <url>
-    <loc>/blog/201004/birthday-freebies.html</loc>
+    <loc>http://www.isaacliu.info/blog/201004/birthday-freebies.html</loc>
     <lastmod>2010-04-25</lastmod>
     
     <changefreq>weekly</changefreq>
@@ -68,7 +68,7 @@
   </url>
   
   <url>
-    <loc>/blog/201004/crawling-up-the-ranks.html</loc>
+    <loc>http://www.isaacliu.info/blog/201004/crawling-up-the-ranks.html</loc>
     <lastmod>2010-04-23</lastmod>
     
     <changefreq>weekly</changefreq>
@@ -79,7 +79,7 @@
   </url>
   
   <url>
-    <loc>/blog/201004/hello-world.html</loc>
+    <loc>http://www.isaacliu.info/blog/201004/hello-world.html</loc>
     <lastmod>2010-04-22</lastmod>
     
     <changefreq>weekly</changefreq>
@@ -90,7 +90,7 @@
   </url>
   
   <url>
-    <loc>/blog/201004/i-passed-my-quals.html</loc>
+    <loc>http://www.isaacliu.info/blog/201004/i-passed-my-quals.html</loc>
     <lastmod>2010-04-22</lastmod>
     
     <changefreq>weekly</changefreq>
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>/blog/201004/lots-to-do-dot.html</loc>
+    <loc>http://www.isaacliu.info/blog/201004/lots-to-do-dot.html</loc>
     <lastmod>2010-04-22</lastmod>
     
     <changefreq>weekly</changefreq>
@@ -112,7 +112,7 @@
   </url>
   
   <url>
-    <loc>/blog/201004/lots-to-learn-dot.html</loc>
+    <loc>http://www.isaacliu.info/blog/201004/lots-to-learn-dot.html</loc>
     <lastmod>2010-04-22</lastmod>
     
     <changefreq>weekly</changefreq>
@@ -123,7 +123,7 @@
   </url>
   
   <url>
-    <loc>/blog/201004/welcome-layton.html</loc>
+    <loc>http://www.isaacliu.info/blog/201004/welcome-layton.html</loc>
     <lastmod>2010-04-22</lastmod>
     
     <changefreq>weekly</changefreq>
