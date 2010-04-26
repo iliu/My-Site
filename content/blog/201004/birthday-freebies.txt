@@ -1,0 +1,22 @@
+---
+title:      Birthday Freebies!
+created_at: 2010-04-25 08:54:33.145952 -07:00
+author:     Isaac Liu
+filter:
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+---
+My wife and I have the exact same birthday. So every year around this time I start looking for free stuff for our birthdays. Last year was perfect, because Disneyland was giving free admission on your birthday, so my wife and I gladly got to go to Disneyland together, both for free =D. This year although Disneyland isn't free on birthdays anymore, there are still a lot of places that offer free stuff on birthdays! This day is becoming the day my wife and I go around and get free stuff! Here are some that I've used:
+* "Baskin Robins":https://www.baskinrobbins.com/bdayclub/RegisterInfo1.aspx
+* "Cold Stones":http://www.coldstonecreamery.com/mycs/myCS_pub_home.aspx?ReturnUrl=%2fmycs%2fmyCS_my_bday_acct.aspx
+* "Black Angus free steak dinner":http://www.blackangus.com/PrimeClub.htm
+* "Home Town Buffet":http://www.buffet.com/eclub
+* "Red Lobster":http://www.redlobster.com/club/
+* "Red Robin":http://www.redrobin.com/eclub/default.aspx?AspxAutoDetectCookieSupport=1
+
+You can definitely find more online, or you can go "here":http://www.frugalliving.tv/free-stuff/birthday-freebies.html. Please post some other good ones if you know of any.

@@ -18,6 +18,30 @@ filter:
 
     <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/coderay.css" />
+
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAdrBnqlMHA9CUol9CpTYD2BQ_TdDJkbSLLkq43zUs0P1h9NacAxSpxdihNgcN_PfO5fdIAxIbBjoxeg"></script>
+    <script type="text/javascript">
+ 
+    google.load("feeds", "1");
+ 
+    function initialize() {
+      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
+      feed.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("githubfeed");
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            var div = document.createElement("div");
+            div.appendChild(document.createTextNode(entry.title));
+            container.appendChild(div);
+          }
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+ 
+    </script>
+
   </head>
   <body>
     <!-- header starts-->
@@ -80,7 +104,8 @@ filter:
       <div id="footer-content">
 	
 	<div class="grid_4" >
-	  <%= render(:partial => "partials/recentchanges") %>
+	  <div id="feed"></div>
+	  <!-- <%= render(:partial => "partials/recentchanges") %> -->
 	  <%= render(:partial => "partials/sitemaplinks") %>	
 	</div>
 
