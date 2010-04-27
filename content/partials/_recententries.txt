@@ -2,7 +2,6 @@
 filter: 
  - erb
 ---
-<p>
 <h4> Recent Blog Entries </h4>
 <ul class="footer-list">
 <%  recent = @pages.find(
@@ -18,4 +17,3 @@ filter:
 
 </ul>
 <%= link_to("Archive", "/blog/", :attrs => {:class => 'left-columns-archive float-right'}) %>
-</p>
