@@ -96,25 +96,27 @@
 	<!-- main -->
 	<div class="grid_11 alpha" id="main">
 
-          <div class="post">
-<div class="posthead">
-<h2 class="posttitle">
-<a href="http://www.isaacliu.info/blog/201004/webby-tricks-jquery.html">Webby Tricks &#8211; JQuery</a>
-</h2>
+          <div class="post" id="20100426164452-posthead">
+  <div class="posthead">
+        <h2 class="posttitle">
+      <a name="p.title" href="#Webby Tricks - JQuery">Webby Tricks - JQuery</a>
+    </h2>
+    
+            <p class="postdate">
+      <strong class="day">26th</strong>
+      <strong class="month">Apr</strong>
+      <strong class="year">2010</strong>
+    </p>
 
-<p class="postdate">
-<strong class="day">26th</strong>
-<strong class="month">Apr</strong>
-<strong class="year">2010</strong>
-</p>
-
-<div class="postmeta">
-<span class="post-comment"><a href="http://www.isaacliu.info/blog/201004/webby-tricks-jquery.html#disqus_thread">Comments</a></span>&nbsp;
-<span class="post-filed"><!-- insert tags --></span>
-</div>
-</div> <!-- end posthead -->
-<div class="postcontents">
-                        <p>Since I&#8217;ve had such a positive experience with <a href="http://webby.rubyforge.org/">Webby</a>, I&#8217;ve decided to blog a little about some stuff I&#8217;ve figured out when using <em>webby</em>. I know there are some amount of tutorial I&#8217;ve found only for Webby, so I&#8217;ll try to not repeat a lot of them. When I constructed this blog using webby, I wanted the dates to be in the format of <em>&#8220;2 minutes ago&#8221;</em> or <em>&#8220;1 month ago,&#8221;</em> instead of absolute dates. This cannot be achieved by using webby alone, since these dates can only be changed when the website is build. Thus, a little java script magic is needed. <a href="http://jquery.com/">JQuery</a> is a javascript library that allows plugins and has several AJAX functions. In particular, I&#8217;m using the <a href="http://timeago.yarp.com/">Timeago</a> plugin for JQuery. What this javascript does is turn any date you wish on your page into the &#8220;timeago&#8221; format. It also auto updates itself, so it&#8217;s perfect to be used with webby. First you want to follow the links above and download both the plugin and JQuery (go ahead and get the min version). In your main layout page (in the <em>layouts</em> folder), add the following lines between the &lt;head&gt; tags:</p>
+    
+    <div class="postmeta"> 
+      <span class="post-comment"><a href="http://www.isaacliu.info/blog/201004/webby-tricks-jquery.html#disqus_thread">Comments</a></span>&nbsp;
+      <span class="post-filed"><!-- insert tags --></span>
+    </div>
+  </div> <!-- end posthead -->
+    <div class="postcontents" id="20100426164452-content">
+                    <p>Since I&#8217;ve had such a positive experience with <a href="http://webby.rubyforge.org/">Webby</a>, I&#8217;ve decided to blog a little about some stuff I&#8217;ve figured out when using <em>webby</em>. I know there are some amount of tutorial I&#8217;ve found only for Webby, so I&#8217;ll try to not repeat a lot of them. When I constructed this blog using webby, I wanted the dates to be in the format of <em>&#8220;2 minutes ago&#8221;</em> or <em>&#8220;1 month ago,&#8221;</em> instead of absolute dates. This cannot be achieved by using webby alone, since these dates can only be changed when the website is build. Thus, a little java script magic is needed. <a href="http://jquery.com/">JQuery</a> is a javascript library that allows plugins and has several AJAX functions. In particular, I&#8217;m using the <a href="http://timeago.yarp.com/">Timeago</a> plugin for JQuery. What this javascript does is turn any date you wish on your page into the &#8220;timeago&#8221; format. It also auto updates itself, so it&#8217;s perfect to be used with webby. First you want to follow the links above and download both the plugin and JQuery (go ahead and get the min version). In your main layout page (in the <em>layouts</em> folder), add the following lines between the &lt;head&gt; tags:</p>
+<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="ta">&lt;script</span> <span class="an">src</span>=<span class="s"><span class="dl">&quot;</span><span class="k">/scripts/jquery.min.js</span><span class="dl">&quot;</span></span> <span class="an">type</span>=<span class="s"><span class="dl">&quot;</span><span class="k">text/javascript</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span><span class="ta">&lt;/script&gt;</span>
 <span class="no">2</span> <span class="ta">&lt;script</span> <span class="an">src</span>=<span class="s"><span class="dl">&quot;</span><span class="k">/scripts/jquery.timeago.js</span><span class="dl">&quot;</span></span> <span class="an">type</span>=<span class="s"><span class="dl">&quot;</span><span class="k">text/javascript</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span><span class="ta">&lt;/script&gt;</span>
@@ -125,18 +127,21 @@
 <span class="no">7</span>   });
 <span class="no">8</span> <span class="ta">&lt;/script&gt;</span>
 </pre>
-</div><p></p>
+</div><p></p></notextile>
 <p>When using webby, I created a <em>scripts</em> folder in my <em>contents</em> folder to hold my javascripts. That&#8217;s why the src of the &lt;scripts&gt; tag is <em>/scripts/jquery.*</em>. After doing this, then the javascript will find all the tags with the following format:</p>
+<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="ta">&lt;abbr</span> <span class="an">class</span>=<span class="s"><span class="dl">&quot;</span><span class="k">timeago</span><span class="dl">&quot;</span></span> <span class="an">title</span>=<span class="s"><span class="dl">&quot;</span><span class="k">2008-07-17T09:24:17Z</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span>July 17, 2008<span class="ta">&lt;/abbr&gt;</span>
 </pre>
-</div><p></p>
+</div><p></p></notextile>
 <p>into this:</p>
+<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="ta">&lt;abbr</span> <span class="an">class</span>=<span class="s"><span class="dl">&quot;</span><span class="k">timeago</span><span class="dl">&quot;</span></span> <span class="an">title</span>=<span class="s"><span class="dl">&quot;</span><span class="k">July 17, 2008</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span>about a year ago<span class="ta">&lt;/abbr&gt;</span>
 </pre>
-</div><p></p>
+</div><p></p></notextile>
 <p>which will yields the following: <strong><abbr title="2008-07-17T09:24:17Z" class="timeago">July 17, 2008</abbr></strong>. Notice the time format in the &lt;abbr&gt; tag must be in an <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8691</a> timestamp. When using <em>webby</em>, since you can use the erb filter, there are several ways to turn dates into the correct format. Here I show one way i used:</p>
+<notextile>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="il"><span class="idl">&lt;%</span>  recent = <span class="iv">@pages</span>.find(
 <span class="no"> 2</span>        <span class="sy">:limit</span> =&gt; <span class="i">6</span>,
@@ -149,15 +154,19 @@
 <span class="no"> 9</span> <span class="ta">&lt;div</span> <span class="an">class</span>=<span class="s"><span class="dl">&quot;</span><span class="k">date</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span>[ <span class="ta">&lt;abbr</span> <span class="an">class</span>=<span class="s"><span class="dl">&quot;</span><span class="k">timeago</span><span class="dl">&quot;</span></span> <span class="an">title</span>=<span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">&lt;%=</span> e.created_at.utc.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%Y-%m-%dT%H:%M:%SZ</span><span class="dl">&quot;</span></span>) <span class="idl">%&gt;</span></span><span class="dl">&quot;</span></span><span class="ta">&gt;</span><span class="il"><span class="idl">&lt;%=</span> e.created_at.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%b %d, %Y</span><span class="dl">&quot;</span></span>) <span class="idl">%&gt;</span></span><span class="ta">&lt;/abbr&gt;</span> ]<span class="ta">&lt;/div&gt;</span><span class="ta">&lt;/li&gt;</span>
 <span class="no"><strong>10</strong></span> <span class="il"><span class="idl">&lt;%</span> <span class="r">end</span> <span class="idl">-%&gt;</span></span>  
 </pre>
-</div><p></p>
+</div><p></p></notextile>
 <p>The above code is what I used for the right column <em>recent entries</em> section. I find all pages that are blog entries, and print out the linke and publish date. In particular, I used the following code to turn webby blog date format to the correct timestamp format. As you can see, all the dates on the right column are parsed into the &#8220;timeago&#8221; format.</p>
+<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="il"><span class="idl">&lt;%=</span> e.created_at.utc.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%Y-%m-%dT%H:%M:%SZ</span><span class="dl">&quot;</span></span>) <span class="idl">%&gt;</span></span>
 </pre>
-</div><p></p>
+</div><p></p></notextile>
 <p>As usual, all the source code for this website can be found in my <a href="http://github.com/iliu/My-Site">github</a> repository. Feel free to check it out and play with it.</p>
+		
+  </div>
 </div>
-</div>
+
+
 
 <div class="postothers">
   <div id="disqus_thread"></div>

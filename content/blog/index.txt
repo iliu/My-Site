@@ -8,6 +8,10 @@ sitemap: true
 priority: 0.9
 changefreq: daily
 ---
+<div class="postothers" style="float:right">
+     [ Click on title to reveal post content ]
+</div>
+
 <% prev = nil
   posts = @pages.find(
        :all,

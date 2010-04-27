@@ -29,10 +29,14 @@ class BasePath_Mod
     attr_rgxp = %r/\[@(\w+)\]$/o
     sub_rgxp = %r/\A(?=\/)/o
     sub_rgxp_relpath = %r/\A\//o # <-- note this rgxp _consumes_ the "/"
+    
 
     ::Webby.site.xpaths.each do |xpath|
       @attr_name = nil
       doc.search(xpath).each do |element|
+        if @mode == :xml then
+          puts @attr_name
+        end
         @attr_name ||= attr_rgxp.match(xpath)[1]
         a = element.get_attribute(@attr_name)
         if (@attr_name == "href") && !(xpath.include? 'link') then

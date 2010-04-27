@@ -463,7 +463,6 @@ input.button {
     float: right;
     font-size: 10px;
     padding-top: 3px;
-    valign: bottom;
 }
 #footer-wrapper ul.footer-list li a span {
 	font-style: italic;

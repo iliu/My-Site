@@ -3,13 +3,11 @@ title:     Blog Feed
 subtitle:  Isaac Liu's Blog Feed
 site:      isaacliu.info
 author:    Isaac Liu
-extension: xml
-layout:    nil
+layout:    feed
 dirty:     true
-filter:    erb
+filter:    
+ - erb
 ---
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
  
   <title><%= h(@page.title) %></title>
   <subtitle><%= h(@page.subtitle) %></subtitle>
@@ -33,4 +31,4 @@ filter:    erb
     <content type="html"><%= h(render(article)) %></content>
   </entry>
   <% end %>
-</feed>
+
