@@ -24,34 +24,7 @@
 
     <script src="http://www.google.com/jsapi?key=ABQIAAAAdrBnqlMHA9CUol9CpTYD2BQ_TdDJkbSLLkq43zUs0P1h9NacAxSpxdihNgcN_PfO5fdIAxIbBjoxeg" type="text/javascript"></script>
     <script type="text/javascript">
- 
     google.load("feeds", "1");
- 
-    function initialize() {
-      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
-      feed.load(function(result) {
-        if (!result.error) {
-          var container = document.getElementById("githubfeed");
-          var listcontainer = document.createElement("ul");
-          listcontainer.className = "footer-list";
-          for (var i = 0; i < result.feed.entries.length; i++) {
-            var entry = result.feed.entries[i];
-            var div = document.createElement("div");
-            var li = document.createElement("li");
-            var a = document.createElement("a");
-            a.appendChild(document.createTextNode(entry.title));
-            a.href = entry.link;
-	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
-            li.appendChild(div);
-            li.appendChild(a);
-            listcontainer.appendChild(li);
-          }
-          container.appendChild(listcontainer);
-        }
-      });
-    }
-    google.setOnLoadCallback(initialize);
- 
     </script>
 
   </head>
@@ -96,7 +69,7 @@
 	<!-- main -->
 	<div class="grid_11 alpha" id="main">
 
-          <div class="post" id="20100420183022-posthead">
+          <div class="post" id="welcome-layton-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Welcome Layton!">Welcome Layton!</a>
@@ -114,7 +87,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100420183022-content">
+    <div class="postcontents" id="welcome-layton-content">
                     <p><img title="Welcome Layton!" src="../../images/photos/bigby_layton.jpg" alt="Welcome Layton!" /></p>
 <p class="caption">We just got a new puppy! The picture shows me holding our new baby while our elder one Bigby, the cat, is being introduced to him. Layton is a Labador Terrier mix. He&#8217;s only 3 months old and was just rescued from Taiwan this weekend! He was about to be sent to a foster home before we picked him up. We named him Layton after Professor Layton from Nintendo DS. Hopefully you&#8217;re as smart as him Layton!</p>
 		
@@ -226,7 +199,34 @@ new TWTR.Widget({
 	
 	<div class="grid_4">
 	  <h3>Recent Changes</h3>
-<div class="fotter-wrapper" id="githubfeed"></div>
+<script type="text/javascript">
+    function initialize() {
+      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
+      feed.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("githubfeed");
+          var listcontainer = document.createElement("ul");
+          listcontainer.className = "footer-list";
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            var div = document.createElement("div");
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.appendChild(document.createTextNode(entry.title));
+            a.href = entry.link;
+	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
+            li.appendChild(div);
+            li.appendChild(a);
+            listcontainer.appendChild(li);
+          }
+          container.appendChild(listcontainer);
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+ 
+</script>
+<div class="footer-wrapper" id="githubfeed"></div>
 
 
 	</div>

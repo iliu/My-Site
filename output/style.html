@@ -24,34 +24,7 @@
 
     <script src="http://www.google.com/jsapi?key=ABQIAAAAdrBnqlMHA9CUol9CpTYD2BQ_TdDJkbSLLkq43zUs0P1h9NacAxSpxdihNgcN_PfO5fdIAxIbBjoxeg" type="text/javascript"></script>
     <script type="text/javascript">
- 
     google.load("feeds", "1");
- 
-    function initialize() {
-      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
-      feed.load(function(result) {
-        if (!result.error) {
-          var container = document.getElementById("githubfeed");
-          var listcontainer = document.createElement("ul");
-          listcontainer.className = "footer-list";
-          for (var i = 0; i < result.feed.entries.length; i++) {
-            var entry = result.feed.entries[i];
-            var div = document.createElement("div");
-            var li = document.createElement("li");
-            var a = document.createElement("a");
-            a.appendChild(document.createTextNode(entry.title));
-            a.href = entry.link;
-	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
-            li.appendChild(div);
-            li.appendChild(a);
-            listcontainer.appendChild(li);
-          }
-          container.appendChild(listcontainer);
-        }
-      });
-    }
-    google.setOnLoadCallback(initialize);
- 
     </script>
 
   </head>
@@ -351,7 +324,34 @@ new TWTR.Widget({
 	
 	<div class="grid_4">
 	  <h3>Recent Changes</h3>
-<div class="fotter-wrapper" id="githubfeed"></div>
+<script type="text/javascript">
+    function initialize() {
+      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
+      feed.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("githubfeed");
+          var listcontainer = document.createElement("ul");
+          listcontainer.className = "footer-list";
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            var div = document.createElement("div");
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.appendChild(document.createTextNode(entry.title));
+            a.href = entry.link;
+	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
+            li.appendChild(div);
+            li.appendChild(a);
+            listcontainer.appendChild(li);
+          }
+          container.appendChild(listcontainer);
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+ 
+</script>
+<div class="footer-wrapper" id="githubfeed"></div>
 
 
 	</div>

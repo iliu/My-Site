@@ -24,34 +24,7 @@
 
     <script src="http://www.google.com/jsapi?key=ABQIAAAAdrBnqlMHA9CUol9CpTYD2BQ_TdDJkbSLLkq43zUs0P1h9NacAxSpxdihNgcN_PfO5fdIAxIbBjoxeg" type="text/javascript"></script>
     <script type="text/javascript">
- 
     google.load("feeds", "1");
- 
-    function initialize() {
-      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
-      feed.load(function(result) {
-        if (!result.error) {
-          var container = document.getElementById("githubfeed");
-          var listcontainer = document.createElement("ul");
-          listcontainer.className = "footer-list";
-          for (var i = 0; i < result.feed.entries.length; i++) {
-            var entry = result.feed.entries[i];
-            var div = document.createElement("div");
-            var li = document.createElement("li");
-            var a = document.createElement("a");
-            a.appendChild(document.createTextNode(entry.title));
-            a.href = entry.link;
-	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
-            li.appendChild(div);
-            li.appendChild(a);
-            listcontainer.appendChild(li);
-          }
-          container.appendChild(listcontainer);
-        }
-      });
-    }
-    google.setOnLoadCallback(initialize);
- 
     </script>
 
   </head>
@@ -96,7 +69,7 @@
 	<!-- main -->
 	<div class="grid_11 alpha" id="main">
 
-              <div class="post" id="20100426094452-posthead">
+              <div class="post" id="webby-tricks-jquery-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Webby Tricks - JQuery">Webby Tricks - JQuery</a>
@@ -114,7 +87,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100426094452-content">
+    <div class="postcontents" id="webby-tricks-jquery-content">
         	    <p>Since I&#8217;ve had such a positive experience with <a href="http://webby.rubyforge.org/">Webby</a>, I&#8217;ve decided to blog a little about some stuff I&#8217;ve figured out when using <em>webby</em>. I know there are some amount of tutorial I&#8217;ve found only for Webby, so I&#8217;ll try to not repeat a lot of them. When I constructed this blog using webby, I wanted the dates to be in the format of <em>&#8220;2 minutes ago&#8221;</em> or <em>&#8220;1 month ago,&#8221;</em> instead of absolute dates. This cannot be achieved by using webby alone, since these dates can only be changed when the website is build. Thus, a little java script magic is needed. <a href="http://jquery.com/">JQuery</a> is a javascript library that allows plugins and has several AJAX functions. In particular, I&#8217;m using the <a href="http://timeago.yarp.com/">Timeago</a> plugin for JQuery. What this javascript does is turn any date you wish on your page into the &#8220;timeago&#8221; format. It also auto updates itself, so it&#8217;s perfect to be used with webby. First you want to follow the links above and download both the plugin and JQuery (go ahead and get the min version). In your main layout page (in the <em>layouts</em> folder), add the following lines between the &lt;head&gt; tags:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="ta">&lt;script</span> <span class="an">src</span>=<span class="s"><span class="dl">&quot;</span><span class="k">/scripts/jquery.min.js</span><span class="dl">&quot;</span></span> <span class="an">type</span>=<span class="s"><span class="dl">&quot;</span><span class="k">text/javascript</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span><span class="ta">&lt;/script&gt;</span>
@@ -157,7 +130,7 @@
 </div>
 
 
-        <div class="post" id="20100425085433-posthead">
+        <div class="post" id="birthday-freebies-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Birthday Freebies!">Birthday Freebies!</a>
@@ -175,7 +148,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100425085433-content">
+    <div class="postcontents" id="birthday-freebies-content">
         	    <p>My wife and I have the exact same birthday. So every year around this time I start looking for free stuff for our birthdays. Last year was perfect, because Disneyland was giving free admission on your birthday, so my wife and I gladly got to go to Disneyland together, both for free =D. This year although Disneyland isn&#8217;t free on birthdays anymore, there are still a lot of places that offer free stuff on birthdays! This day is becoming the day my wife and I go around and get free stuff! Here are some that I&#8217;ve used:</p>
 <ul>
 	<li><a href="https://www.baskinrobbins.com/bdayclub/RegisterInfo1.aspx">Baskin Robins</a></li>
@@ -191,7 +164,7 @@
 </div>
 
 
-        <div class="post" id="20100423141650-posthead">
+        <div class="post" id="crawling-up-the-ranks-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Crawling up the Ranks">Crawling up the Ranks</a>
@@ -209,7 +182,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100423141650-content">
+    <div class="postcontents" id="crawling-up-the-ranks-content">
         	    <p>Finally, I&#8217;m back at the first hit when you google &#8220;isaac liu&#8221;. Because of all the webhost changing and redesigning of my page, my page rank started dropping, until eventually my site completely disappeared from google search when querying &#8220;isaac liu&#8221;! I did some researching and found out that by using the <em>&lt; meta refresh = &quot;&quot; &gt;</em> tag to do redirection, my page rank took a penalty, and maybe even prevented the google crawler to index my site. This is because normal spam sites use this method to redirect people to their spam sites. Thus, I went out to find how to do redirection the correct way, which was using 301 permanent move. What that means is, the http code that&#8217;s sent back to the requesting client should be 301, which means &#8220;permanently moved site.&#8221; The <em>&lt; meta refresh=&quot;&quot; &gt;</em> method sends back the code 200, which means &#8220;Request OK,&#8221; and then later does the redirection. That is extremely not search engine friendly. To change this required tweaking of the .htaccess file on my web host, which is using the UC Berkeley EECS department&#8217;s webhost. If your curious, i added the following code to my .htaccess file:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> RewriteEngine on
@@ -222,7 +195,7 @@
 </div>
 
 
-        <div class="post" id="20100420113022-posthead">
+        <div class="post" id="welcome-layton-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Welcome Layton!">Welcome Layton!</a>
@@ -240,7 +213,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100420113022-content">
+    <div class="postcontents" id="welcome-layton-content">
         	    <p><img title="Welcome Layton!" src="images/photos/bigby_layton.jpg" alt="Welcome Layton!" /></p>
 <p class="caption">We just got a new puppy! The picture shows me holding our new baby while our elder one Bigby, the cat, is being introduced to him. Layton is a Labador Terrier mix. He&#8217;s only 3 months old and was just rescued from Taiwan this weekend! He was about to be sent to a foster home before we picked him up. We named him Layton after Professor Layton from Nintendo DS. Hopefully you&#8217;re as smart as him Layton!</p>
 	 	
@@ -340,7 +313,34 @@ new TWTR.Widget({
 	
 	<div class="grid_4">
 	  <h3>Recent Changes</h3>
-<div class="fotter-wrapper" id="githubfeed"></div>
+<script type="text/javascript">
+    function initialize() {
+      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
+      feed.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("githubfeed");
+          var listcontainer = document.createElement("ul");
+          listcontainer.className = "footer-list";
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            var div = document.createElement("div");
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.appendChild(document.createTextNode(entry.title));
+            a.href = entry.link;
+	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
+            li.appendChild(div);
+            li.appendChild(a);
+            listcontainer.appendChild(li);
+          }
+          container.appendChild(listcontainer);
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+ 
+</script>
+<div class="footer-wrapper" id="githubfeed"></div>
 
 
 	</div>

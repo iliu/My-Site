@@ -460,9 +460,10 @@ input.button {
 	border: none;
 }
 #footer-wrapper ul.footer-list li .date, #left-columns ul.footer-list li .date{
-    float: right;
+    float: left;
     font-size: 10px;
     padding-top: 3px;
+    padding-right: 5px;
 }
 #footer-wrapper ul.footer-list li a span {
 	font-style: italic;

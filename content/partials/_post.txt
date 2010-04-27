@@ -2,7 +2,7 @@
 filter: 
  - erb
 ---
-<div class="post" id="<%= p.created_at.strftime("%Y%m%d%H%M%S") %>-posthead">
+<div class="post" id="<%= p.filename %>-posthead">
   <div class="posthead" >
     <% if p.title -%>
     <h2 class="posttitle">
@@ -19,7 +19,7 @@ filter:
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="<%= p.created_at.strftime("%Y%m%d%H%M%S") %>-content" <%= "style=\"display:none\"" if !displaycontents %> >
+    <div class="postcontents" id="<%= p.filename %>-content" <%= "style=\"display:none\"" if !displaycontents %> >
         <% if c == '' -%>
 	    <%= render(p) %>
 	 <% else -%>
@@ -27,8 +27,8 @@ filter:
 	<% end -%>
 	<% if !displaycontents -%>
         <script type="text/javascript">
-	  $('#<%= p.created_at.strftime("%Y%m%d%H%M%S") %>-posthead').click(function(){
-	  $('#<%= p.created_at.strftime("%Y%m%d%H%M%S") %>-content').slideToggle('slow', function() {
+	  $('#<%= p.filename %>-posthead').click(function(){
+	  $('#<%= p.filename %>-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });

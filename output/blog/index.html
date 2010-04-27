@@ -24,34 +24,7 @@
 
     <script src="http://www.google.com/jsapi?key=ABQIAAAAdrBnqlMHA9CUol9CpTYD2BQ_TdDJkbSLLkq43zUs0P1h9NacAxSpxdihNgcN_PfO5fdIAxIbBjoxeg" type="text/javascript"></script>
     <script type="text/javascript">
- 
     google.load("feeds", "1");
- 
-    function initialize() {
-      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
-      feed.load(function(result) {
-        if (!result.error) {
-          var container = document.getElementById("githubfeed");
-          var listcontainer = document.createElement("ul");
-          listcontainer.className = "footer-list";
-          for (var i = 0; i < result.feed.entries.length; i++) {
-            var entry = result.feed.entries[i];
-            var div = document.createElement("div");
-            var li = document.createElement("li");
-            var a = document.createElement("a");
-            a.appendChild(document.createTextNode(entry.title));
-            a.href = entry.link;
-	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
-            li.appendChild(div);
-            li.appendChild(a);
-            listcontainer.appendChild(li);
-          }
-          container.appendChild(listcontainer);
-        }
-      });
-    }
-    google.setOnLoadCallback(initialize);
- 
     </script>
 
   </head>
@@ -100,7 +73,7 @@
      [ Click on title to reveal post content ]
 </div>
 
-    <div class="post" id="20100426164452-posthead">
+    <div class="post" id="webby-tricks-jquery-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Webby Tricks - JQuery">Webby Tricks - JQuery</a>
@@ -118,7 +91,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100426164452-content" style="display:none">
+    <div class="postcontents" id="webby-tricks-jquery-content" style="display:none">
         	    <p>Since I&#8217;ve had such a positive experience with <a href="http://webby.rubyforge.org/">Webby</a>, I&#8217;ve decided to blog a little about some stuff I&#8217;ve figured out when using <em>webby</em>. I know there are some amount of tutorial I&#8217;ve found only for Webby, so I&#8217;ll try to not repeat a lot of them. When I constructed this blog using webby, I wanted the dates to be in the format of <em>&#8220;2 minutes ago&#8221;</em> or <em>&#8220;1 month ago,&#8221;</em> instead of absolute dates. This cannot be achieved by using webby alone, since these dates can only be changed when the website is build. Thus, a little java script magic is needed. <a href="http://jquery.com/">JQuery</a> is a javascript library that allows plugins and has several AJAX functions. In particular, I&#8217;m using the <a href="http://timeago.yarp.com/">Timeago</a> plugin for JQuery. What this javascript does is turn any date you wish on your page into the &#8220;timeago&#8221; format. It also auto updates itself, so it&#8217;s perfect to be used with webby. First you want to follow the links above and download both the plugin and JQuery (go ahead and get the min version). In your main layout page (in the <em>layouts</em> folder), add the following lines between the &lt;head&gt; tags:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="ta">&lt;script</span> <span class="an">src</span>=<span class="s"><span class="dl">&quot;</span><span class="k">/scripts/jquery.min.js</span><span class="dl">&quot;</span></span> <span class="an">type</span>=<span class="s"><span class="dl">&quot;</span><span class="k">text/javascript</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span><span class="ta">&lt;/script&gt;</span>
@@ -157,8 +130,8 @@
 </pre>
 </div><p>As usual, all the source code for this website can be found in my <a href="http://github.com/iliu/My-Site">github</a> repository. Feel free to check it out and play with it.</p>
 	 	        <script type="text/javascript">
-	  $('#20100426164452-posthead').click(function(){
-	  $('#20100426164452-content').slideToggle('slow', function() {
+	  $('#webby-tricks-jquery-posthead').click(function(){
+	  $('#webby-tricks-jquery-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });
@@ -168,7 +141,7 @@
 </div>
 
 
-        <div class="post" id="20100425155433-posthead">
+        <div class="post" id="birthday-freebies-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Birthday Freebies!">Birthday Freebies!</a>
@@ -186,7 +159,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100425155433-content" style="display:none">
+    <div class="postcontents" id="birthday-freebies-content" style="display:none">
         	    <p>My wife and I have the exact same birthday. So every year around this time I start looking for free stuff for our birthdays. Last year was perfect, because Disneyland was giving free admission on your birthday, so my wife and I gladly got to go to Disneyland together, both for free =D. This year although Disneyland isn&#8217;t free on birthdays anymore, there are still a lot of places that offer free stuff on birthdays! This day is becoming the day my wife and I go around and get free stuff! Here are some that I&#8217;ve used:</p>
 <ul>
 	<li><a href="https://www.baskinrobbins.com/bdayclub/RegisterInfo1.aspx">Baskin Robins</a></li>
@@ -198,8 +171,8 @@
 </ul>
 <p>You can definitely find more online, or you can go <a href="http://www.frugalliving.tv/free-stuff/birthday-freebies.html">here</a>. Please post some other good ones if you know of any.</p>
 	 	        <script type="text/javascript">
-	  $('#20100425155433-posthead').click(function(){
-	  $('#20100425155433-content').slideToggle('slow', function() {
+	  $('#birthday-freebies-posthead').click(function(){
+	  $('#birthday-freebies-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });
@@ -209,7 +182,7 @@
 </div>
 
 
-        <div class="post" id="20100423211650-posthead">
+        <div class="post" id="crawling-up-the-ranks-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Crawling up the Ranks">Crawling up the Ranks</a>
@@ -227,7 +200,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100423211650-content" style="display:none">
+    <div class="postcontents" id="crawling-up-the-ranks-content" style="display:none">
         	    <p>Finally, I&#8217;m back at the first hit when you google &#8220;isaac liu&#8221;. Because of all the webhost changing and redesigning of my page, my page rank started dropping, until eventually my site completely disappeared from google search when querying &#8220;isaac liu&#8221;! I did some researching and found out that by using the <em>&lt; meta refresh = &quot;&quot; &gt;</em> tag to do redirection, my page rank took a penalty, and maybe even prevented the google crawler to index my site. This is because normal spam sites use this method to redirect people to their spam sites. Thus, I went out to find how to do redirection the correct way, which was using 301 permanent move. What that means is, the http code that&#8217;s sent back to the requesting client should be 301, which means &#8220;permanently moved site.&#8221; The <em>&lt; meta refresh=&quot;&quot; &gt;</em> method sends back the code 200, which means &#8220;Request OK,&#8221; and then later does the redirection. That is extremely not search engine friendly. To change this required tweaking of the .htaccess file on my web host, which is using the UC Berkeley EECS department&#8217;s webhost. If your curious, i added the following code to my .htaccess file:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> RewriteEngine on
@@ -236,8 +209,8 @@
 </pre>
 </div><p>This uses the Apache mod_rewrite engine to rewrite all incoming requests to <em>index.html</em> (line 2 and 3) to the <em>&#8220;site&#8221;</em> subdirectory. Now all requests will be forwarded and the header message sent back will be 301 (specified by <em>R=301</em> ), which is search engine friendly. Low and behold, I am back atop the google search for &#8220;isaac liu&#8221;! If you are using <em>&lt; meta refresh=&quot;&quot; &gt;</em> to do redirection, and don&#8217;t know why your page isn&#8217;t showing up on google, this might be the reason! A more indepth tutorial on mod_rewrite can be found <a href="http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html">here</a>.</p>
 	 	        <script type="text/javascript">
-	  $('#20100423211650-posthead').click(function(){
-	  $('#20100423211650-content').slideToggle('slow', function() {
+	  $('#crawling-up-the-ranks-posthead').click(function(){
+	  $('#crawling-up-the-ranks-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });
@@ -247,7 +220,7 @@
 </div>
 
 
-        <div class="post" id="20100420183022-posthead">
+        <div class="post" id="welcome-layton-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Welcome Layton!">Welcome Layton!</a>
@@ -265,12 +238,12 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100420183022-content" style="display:none">
+    <div class="postcontents" id="welcome-layton-content" style="display:none">
         	    <p><img title="Welcome Layton!" src="../images/photos/bigby_layton.jpg" alt="Welcome Layton!" /></p>
 <p class="caption">We just got a new puppy! The picture shows me holding our new baby while our elder one Bigby, the cat, is being introduced to him. Layton is a Labador Terrier mix. He&#8217;s only 3 months old and was just rescued from Taiwan this weekend! He was about to be sent to a foster home before we picked him up. We named him Layton after Professor Layton from Nintendo DS. Hopefully you&#8217;re as smart as him Layton!</p>
 	 	        <script type="text/javascript">
-	  $('#20100420183022-posthead').click(function(){
-	  $('#20100420183022-content').slideToggle('slow', function() {
+	  $('#welcome-layton-posthead').click(function(){
+	  $('#welcome-layton-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });
@@ -280,7 +253,7 @@
 </div>
 
 
-        <div class="post" id="20100418070938-posthead">
+        <div class="post" id="lots-to-learn-dot-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Lots to Learn...">Lots to Learn...</a>
@@ -298,11 +271,11 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100418070938-content" style="display:none">
+    <div class="postcontents" id="lots-to-learn-dot-content" style="display:none">
         	    <p><em>Webby</em> turned out to be very addicting&#8230; It&#8217;s certainly as powerful as I imagined, with lots of room to play with. However, I haven&#8217;t used <em>ruby</em> in a while, so it&#8217;s time to remember the syntax of ruby. I also learned to use <em>partials</em> in my layout, so i can further separate content and layout. This is progressing along fairly nicely&#8230;</p>
 	 	        <script type="text/javascript">
-	  $('#20100418070938-posthead').click(function(){
-	  $('#20100418070938-content').slideToggle('slow', function() {
+	  $('#lots-to-learn-dot-posthead').click(function(){
+	  $('#lots-to-learn-dot-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });
@@ -312,7 +285,7 @@
 </div>
 
 
-        <div class="post" id="20100417074510-posthead">
+        <div class="post" id="lots-to-do-dot-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Lots to Do...">Lots to Do...</a>
@@ -330,12 +303,12 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100417074510-content" style="display:none">
+    <div class="postcontents" id="lots-to-do-dot-content" style="display:none">
         	    <p>I have just setup the main frame of the site, and added a little personal touch to it so at least people know who&#8217;s site this is. There is still plenty of work to be done, but I&#8217;ll take it one step at a time, and slowly migrate all the content from my previous site here. But I think this is enough to deploy.</p>
 <p>I&#8217;m also trying to be more efficient when I&#8217;m deploying the site, so I&#8217;m trying out <a href="http://git-scm.com/">git</a> + <a href="http://webby.rubyforge.org/">webby</a>. I am going to keep all my source code and output folder in <a href="http://github.com/iliu/My-Site">github</a>, then just do a repository clone on the server. To update I just need to pull updates from github on my server, and it&#8217;s done! So far so good.</p>
 	 	        <script type="text/javascript">
-	  $('#20100417074510-posthead').click(function(){
-	  $('#20100417074510-content').slideToggle('slow', function() {
+	  $('#lots-to-do-dot-posthead').click(function(){
+	  $('#lots-to-do-dot-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });
@@ -345,7 +318,7 @@
 </div>
 
 
-        <div class="post" id="20100416141319-posthead">
+        <div class="post" id="hello-world-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#Hello World - Webby">Hello World - Webby</a>
@@ -363,7 +336,7 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100416141319-content" style="display:none">
+    <div class="postcontents" id="hello-world-content" style="display:none">
         	    <p>Is there a scalable way to create websites with only static pages? I don&#8217;t want to continuously be adding html pages, or editing html pages&#8230;</p>
 <p>The answer is Yes! I&#8217;ve began experimenting with static web site generators (currently using <a href="http://webby.rubyforge.org/">Webby</a>), and my new site will be the results of this experimentation. I hope for the following when I&#8217;m experimenting with <em>Webby</em>:</p>
 <ul>
@@ -374,8 +347,8 @@
 </ul>
 <p>It seems <em>Webby</em> has it all. So it&#8217;s time to dive in and see what I can do with it!</p>
 	 	        <script type="text/javascript">
-	  $('#20100416141319-posthead').click(function(){
-	  $('#20100416141319-content').slideToggle('slow', function() {
+	  $('#hello-world-posthead').click(function(){
+	  $('#hello-world-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });
@@ -385,7 +358,7 @@
 </div>
 
 
-        <div class="post" id="20100412185330-posthead">
+        <div class="post" id="i-passed-my-quals-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a name="p.title" href="#I Passed My Quals!">I Passed My Quals!</a>
@@ -403,11 +376,11 @@
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="20100412185330-content" style="display:none">
+    <div class="postcontents" id="i-passed-my-quals-content" style="display:none">
         	    <p>Yup, as the title said, today I passed my qualifying exam for my Ph.D studies at Berkeley! Now all that&#8217;s left is the thesis and thesis defense!! (like those are easy tasks&#8230; -_-)</p>
 	 	        <script type="text/javascript">
-	  $('#20100412185330-posthead').click(function(){
-	  $('#20100412185330-content').slideToggle('slow', function() {
+	  $('#i-passed-my-quals-posthead').click(function(){
+	  $('#i-passed-my-quals-content').slideToggle('slow', function() {
     	  // Animation complete.
       	  });
 	  });
@@ -509,7 +482,34 @@ new TWTR.Widget({
 	
 	<div class="grid_4">
 	  <h3>Recent Changes</h3>
-<div class="fotter-wrapper" id="githubfeed"></div>
+<script type="text/javascript">
+    function initialize() {
+      var feed = new google.feeds.Feed("http://github.com/iliu/My-Site/commits/master.atom");
+      feed.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("githubfeed");
+          var listcontainer = document.createElement("ul");
+          listcontainer.className = "footer-list";
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            var div = document.createElement("div");
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.appendChild(document.createTextNode(entry.title));
+            a.href = entry.link;
+	    div.appendChild(document.createTextNode("[ " + (jQuery.timeago(new Date(entry.publishedDate))) + " ]")); 
+            li.appendChild(div);
+            li.appendChild(a);
+            listcontainer.appendChild(li);
+          }
+          container.appendChild(listcontainer);
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+ 
+</script>
+<div class="footer-wrapper" id="githubfeed"></div>
 
 
 	</div>
