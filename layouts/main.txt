@@ -85,7 +85,6 @@ filter:
 	  </div>
 	  <div class="featured-post">
 	    <%= render(:partial => "partials/recententries") %>
-
 	  </div>
 	  <!-- end left-columns -->
 	</div>		
