@@ -3,8 +3,8 @@ title:      Webby Tricks - JQuery
 created_at: 2010-04-26 09:44:52.757476 -07:00
 author:     Isaac Liu
 filter:
-  - erb
-  - textile
+ - textile
+ - erb
 layout:       tumblog/post
 tumblog_type: regular
 content_type: tumblog
@@ -14,8 +14,7 @@ changefreq: weekly
 ---
 Since I've had such a positive experience with "Webby":http://webby.rubyforge.org/, I've decided to blog a little about some stuff I've figured out when using _webby_. I know there are some amount of tutorial I've found only for Webby, so I'll try to not repeat a lot of them. When I constructed this blog using webby, I wanted the dates to be in the format of _"2 minutes ago"_ or _"1 month ago,"_ instead of absolute dates. This cannot be achieved by using webby alone, since these dates can only be changed when the website is build. Thus, a little java script magic is needed. "JQuery":http://jquery.com/ is a javascript library that allows plugins and has several AJAX functions. In particular, I'm using the "Timeago":http://timeago.yarp.com/ plugin for JQuery. What this javascript does is turn any date you wish on your page into the "timeago" format. It also auto updates itself, so it's perfect to be used with webby. First you want to follow the links above and download both the plugin and JQuery (go ahead and get the min version). In your main layout page (in the _layouts_ folder), add the following lines between the &lt;head&gt; tags:
 
-<notextile>
-<% coderay(:lang => "html", :line_numbers => "inline") do -%>
+notextile.. <% coderay(:lang => "html", :line_numbers => "inline") do -%>
 <script src="/scripts/jquery.min.js" type="text/javascript"></script>
 <script src="/scripts/jquery.timeago.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -25,28 +24,22 @@ Since I've had such a positive experience with "Webby":http://webby.rubyforge.or
   });
 </script>
 <% end -%>
-</notextile>
 
-When using webby, I created a _scripts_ folder in my _contents_ folder to hold my javascripts. That's why the src of the &lt;scripts&gt; tag is _/scripts/jquery.*_. After doing this, then the javascript will find all the tags with the following format: 
+p. When using webby, I created a _scripts_ folder in my _contents_ folder to hold my javascripts. That's why the src of the &lt;scripts&gt; tag is _/scripts/jquery.*_. After doing this, then the javascript will find all the tags with the following format: 
 
-<notextile>
-<% coderay(:lang => "html", :line_numbers => "inline") do -%>
+notextile.. <% coderay(:lang => "html", :line_numbers => "inline") do -%>
 <abbr class="timeago" title="2008-07-17T09:24:17Z">July 17, 2008</abbr>
 <% end -%>
-</notextile>
 
-into this:
+p. into this:
 
-<notextile>
-<% coderay(:lang => "html", :line_numbers => "inline") do -%>
+notextile.. <% coderay(:lang => "html", :line_numbers => "inline") do -%>
 <abbr class="timeago" title="July 17, 2008">about a year ago</abbr>
 <% end -%>
-</notextile>
 
-which will yields the following: *<abbr class="timeago" title="2008-07-17T09:24:17Z">July 17, 2008</abbr>*. Notice the time format in the &lt;abbr&gt; tag must be in an "ISO8691":http://en.wikipedia.org/wiki/ISO_8601 timestamp. When using _webby_, since you can use the erb filter, there are several ways to turn dates into the correct format. Here I show one way i used:
+p. which will yields the following: *<abbr class="timeago" title="2008-07-17T09:24:17Z">July 17, 2008</abbr>*. Notice the time format in the &lt;abbr&gt; tag must be in an "ISO8691":http://en.wikipedia.org/wiki/ISO_8601 timestamp. When using _webby_, since you can use the erb filter, there are several ways to turn dates into the correct format. Here I show one way i used:
 
-<notextile>
-<% coderay(:lang => "rhtml", :line_numbers => "inline") do -%>
+notextile.. <% coderay(:lang => "rhtml", :line_numbers => "inline") do -%>
 <%%  recent = @pages.find(
        :limit => 6,
        :content_type => 'tumblog',
@@ -58,17 +51,14 @@ which will yields the following: *<abbr class="timeago" title="2008-07-17T09:24:
 <div class="date">[ <abbr class="timeago" title="<%%= e.created_at.utc.strftime("%Y-%m-%dT%H:%M:%SZ") %>"><%%= e.created_at.strftime("%b %d, %Y") %></abbr> ]</div></li>
 <%% end -%>  
 <% end -%>
-</notextile>
 
-The above code is what I used for the right column _recent entries_ section. I find all pages that are blog entries, and print out the linke and publish date. In particular, I used the following code to turn webby blog date format to the correct timestamp format. As you can see, all the dates on the right column are parsed into the "timeago" format.
+p. The above code is what I used for the right column _recent entries_ section. I find all pages that are blog entries, and print out the linke and publish date. In particular, I used the following code to turn webby blog date format to the correct timestamp format. As you can see, all the dates on the right column are parsed into the "timeago" format.
 
-<notextile>
-<% coderay(:lang => "rhtml", :line_numbers => "inline") do -%>
+notextile.. <% coderay(:lang => "rhtml", :line_numbers => "inline") do -%>
 <%%= e.created_at.utc.strftime("%Y-%m-%dT%H:%M:%SZ") %>
 <% end -%>
-</notextile>
 
-As usual, all the source code for this website can be found in my "github":http://github.com/iliu/My-Site repository. Feel free to check it out and play with it. 
+p. As usual, all the source code for this website can be found in my "github":http://github.com/iliu/My-Site repository. Feel free to check it out and play with it. 
 
 
 
