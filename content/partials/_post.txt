@@ -6,7 +6,7 @@ filter:
   <div class="posthead" >
     <% if p.title -%>
     <h2 class="posttitle">
-      <%= link_to( p.title, "#"+p.title, :attrs => {:name => 'p.title'}) %>
+      <%= link_to( p.title, "#"+p.filename ) %>
     </h2>
     <% end -%>
 
