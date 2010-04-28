@@ -35,7 +35,7 @@ changefreq: daily
     
     
     <tr>
-      <td align="left" valign="top"><b>Experience & Projects</b></td>
+      <td align="left" valign="top"><b>Experience &amp; Projects</b></td>
       <td align="left" valign="top"><b>Software Design Engineer - Microsoft</b> Seattle, WA (6/2006 - 9/2006)<br>
 	<ul>
 	  <li>
@@ -45,19 +45,19 @@ changefreq: daily
 	<b>Projects-</b><br>
 	<ul>
 	  <li>
-            <u>Real Time Processor </u> - Research in developing processors with timing predictability and repeatability. Modified open source SPARC core implementation in VHDL (leon3) to add interleaved threading and a new instruction specifying timing properties of processor to use for research.
+            <b>Real Time Processor </b> - Research in developing processors with timing predictability and repeatability. Modified open source SPARC core implementation in VHDL (leon3) to add interleaved threading and a new instruction specifying timing properties of processor to use for research.
 	  </li>
 	  <li>
-            <u>Processor Modeling </u> - Created a cycle accureate leon3 SPARC core model in SystemC to aid in better architectural exploration, and simulation, to observe effects of non-functional properties. 
+            <b>Processor Modeling </b> - Created a cycle accureate leon3 SPARC core model in SystemC to aid in better architectural exploration, and simulation, to observe effects of non-functional properties. 
 	  </li>
 	  <li>
-            <u>POV wand </u> - Persistence of Vision wand. Interfaced digital sensors and actuators with an 8 bit microprocessor to create a wand that shows words in the air when waved using persistence of vision. Also created light saber like sounds when waved. 
+            <b>POV wand </b> - Persistence of Vision wand. Interfaced digital sensors and actuators with an 8 bit microprocessor to create a wand that shows words in the air when waved using persistence of vision. Also created light saber like sounds when waved. 
 	  </li>
 	  <li>
-            <u>BIAS</u> - Basic Integrated Audio System. Mp3 player integrating FM transmitter, voice recorder, and storage on Compact Flash with FAT file system. Designed and built the complete system, including choose components, drawing layout, coding firmware, integration and testing. 
+            <b>BIAS</b> - Basic Integrated Audio System. Mp3 player integrating FM transmitter, voice recorder, and storage on Compact Flash with FAT file system. Designed and built the complete system, including choose components, drawing layout, coding firmware, integration and testing. 
 	  </li>
 	  <li>
-            <u>BURP</u> - Basic Undergrad RISC Processor. Using Verilog to write controller, modelsim to simulate processor, then loading controller onto FPGA, interfacing with ALU, RAM, and EEPROM to run RISC instructions. 
+            <b>BURP</b> - Basic Undergrad RISC Processor. Using Verilog to write controller, modelsim to simulate processor, then loading controller onto FPGA, interfacing with ALU, RAM, and EEPROM to run RISC instructions. 
 	  </li>
 	</ul>
       </td>
@@ -78,7 +78,7 @@ changefreq: daily
       </td>
     </tr>
     <tr>
-      <td align="left" valign="top"><b>Interests & activities</b></td>
+      <td align="left" valign="top"><b>Interests &amp; activities</b></td>
       <td align="left" valign="top">
         <ul>
 	  <li>President of Asian American Christian Fellowship, UCSB</li>
