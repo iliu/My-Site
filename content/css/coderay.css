@@ -1,11 +1,10 @@
 .CodeRay {
-  padding: 0.5em;
   margin-bottom: 1.3em;
   font: 1.1em Monaco, 'Courier New', 'Terminal', monospace;
   color: #100;
 }
 .CodeRay pre {
-  padding: 0px;
+  padding: 3px;
   margin: 0px;
   overflow: auto;
   background-color: #eee;
