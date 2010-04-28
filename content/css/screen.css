@@ -3,6 +3,7 @@
 /* import stylesheets and hide from ie/mac \*/
 @import url("reset.css");
 @import url("960.css");
-@import url("KeepItSimple.css");
 @import url("coderay.css");
+@import url("KeepItSimple.css");
+
 /* end import/hide */
