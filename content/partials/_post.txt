@@ -6,7 +6,11 @@ filter:
   <div class="posthead" >
     <% if p.title -%>
     <h2 class="posttitle">
+      <% if displaycontents -%>
+      <%= link_to_page(p) %>
+      <% else -%>
       <%= link_to( p.title, "#"+p.filename ) %>
+      <% end -%>
     </h2>
     <% end -%>
 
