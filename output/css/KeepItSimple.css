@@ -81,6 +81,13 @@ img.float-left {
   	margin: 5px 10px 10px 0px;
 }
 
+img.plain-img {
+    border: 0px;
+    margin: 0px; 
+    padding: 0px;
+    background: transparent;
+}
+
 div {
     zoom: 1; 
 }

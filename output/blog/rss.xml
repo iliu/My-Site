@@ -5,12 +5,26 @@
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-04-28T00:21:08-07:00</updated>
+  <updated>2010-04-28T09:42:08-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
   </author>
   <id>http://isaacliu.info/</id>
+  
+  <entry>
+    <title>Zoom:1 IE Fix</title>
+    <link href="/blog/201004/zoom-1-ie-fix.html" />
+    <id>tag:isaacliu.info,2010-04-28:1272470829</id>
+    <updated>2010-04-28T16:07:09Z</updated>
+    <content type="html">&lt;p&gt;After playing around with the layout and jQuery for a while, Internet Explorer 8 was really pissing me off. Everything that worked in Firefox, Safari Chrome didn&amp;#8217;t work properly in Internet Explorer 8. I wonder why that browser is still around&amp;#8230; Anyhow, I later found a quick solution that can fix most of the IE problems, and that&amp;#8217;s the zoom:1 fix! All you need to do is add the following line to your css:&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ty&quot;&gt;div&lt;/span&gt; {
+&lt;span class=&quot;no&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;ke&quot;&gt;zoom&lt;/span&gt;: &lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;; 
+&lt;span class=&quot;no&quot;&gt;3&lt;/span&gt; }
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;And just that like, every problem that I was having disappeared. I can&amp;#8217;t really explain why, and apparently neither can &lt;a href=&quot;http://www.bennadel.com/blog/1354-The-Power-Of-ZOOM-Fixing-CSS-Issues-In-Internet-Explorer.htm&quot;&gt;this blogger&lt;/a&gt;. But the point is, use it and save yourself some trouble. Microsoft, when are you going to figure it out&amp;#8230;?&lt;/p&gt;</content>
+  </entry>
   
   <entry>
     <title>Webby Tricks - JQuery</title>
@@ -108,7 +122,7 @@
     <title>Lots to Do...</title>
     <link href="/blog/201004/lots-to-do-dot.html" />
     <id>tag:isaacliu.info,2010-04-17:1271490310</id>
-    <updated>2010-04-17T07:45:10Z</updated>
+    <updated>2010-04-17T00:45:10-07:00</updated>
     <content type="html">&lt;p&gt;I have just setup the main frame of the site, and added a little personal touch to it so at least people know who&amp;#8217;s site this is. There is still plenty of work to be done, but I&amp;#8217;ll take it one step at a time, and slowly migrate all the content from my previous site here. But I think this is enough to deploy.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;m also trying to be more efficient when I&amp;#8217;m deploying the site, so I&amp;#8217;m trying out &lt;a href=&quot;http://git-scm.com/&quot;&gt;git&lt;/a&gt; + &lt;a href=&quot;http://webby.rubyforge.org/&quot;&gt;webby&lt;/a&gt;. I am going to keep all my source code and output folder in &lt;a href=&quot;http://github.com/iliu/My-Site&quot;&gt;github&lt;/a&gt;, then just do a repository clone on the server. To update I just need to pull updates from github on my server, and it&amp;#8217;s done! So far so good.&lt;/p&gt;</content>
   </entry>

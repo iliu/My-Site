@@ -18,4 +18,4 @@ filter:
   <% end -%>  
 
 </ul>
-<%= link_to("Archive", "/blog/", :attrs => {:class => 'left-columns-archive float-right'}) %>
+<%= link_to("Archive...", "/blog/", :attrs => {:class => 'left-columns-archive float-right'}) %>

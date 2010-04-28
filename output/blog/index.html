@@ -8,7 +8,6 @@
     <meta content="application/xhtml+xml; charset=UTF-8" http-equiv="content-type" />
     <meta name="author" content="Isaac Liu" />
     <meta name="description" content="Isaac Liu is currently a Ph.D student at the University of California, Berkeley in the EECS department. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines – PRET)." />
-    <meta name="robots" content="index, follow" />
 
     <link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen" />
 
@@ -74,7 +73,45 @@
      [ Click on title to reveal post content ]
 </div>
 
-    <div class="post" id="webby-tricks-jquery-posthead">
+    <div class="post" id="zoom-1-ie-fix-posthead">
+  <div class="posthead">
+        <h2 class="posttitle">
+      <a href="#zoom-1-ie-fix">Zoom:1 IE Fix</a>
+    </h2>
+    
+            <p class="postdate">
+      <strong class="day">28th</strong>
+      <strong class="month">Apr</strong>
+      <strong class="year">2010</strong>
+    </p>
+
+    
+    <div class="postmeta"> 
+      <span class="post-comment"><a href="http://www.isaacliu.info/blog/201004/zoom-1-ie-fix.html#disqus_thread">Comments</a></span>&nbsp;
+      <span class="post-filed"><!-- insert tags --></span>
+    </div>
+  </div> <!-- end posthead -->
+    <div class="postcontents" id="zoom-1-ie-fix-content" style="display:none">
+        	    <p>After playing around with the layout and jQuery for a while, Internet Explorer 8 was really pissing me off. Everything that worked in Firefox, Safari Chrome didn&#8217;t work properly in Internet Explorer 8. I wonder why that browser is still around&#8230; Anyhow, I later found a quick solution that can fix most of the IE problems, and that&#8217;s the zoom:1 fix! All you need to do is add the following line to your css:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="ty">div</span> {
+<span class="no">2</span>     <span class="ke">zoom</span>: <span class="fl">1</span>; 
+<span class="no">3</span> }
+</pre>
+</div><p>And just that like, every problem that I was having disappeared. I can&#8217;t really explain why, and apparently neither can <a href="http://www.bennadel.com/blog/1354-The-Power-Of-ZOOM-Fixing-CSS-Issues-In-Internet-Explorer.htm">this blogger</a>. But the point is, use it and save yourself some trouble. Microsoft, when are you going to figure it out&#8230;?</p>
+	 	        <script type="text/javascript">
+//<![CDATA[
+	  $('#zoom-1-ie-fix-posthead').click(function(){
+	  $('#zoom-1-ie-fix-content').slideToggle('slow');
+	  });
+//]]>
+	</script>
+        
+  </div>
+</div>
+
+
+        <div class="post" id="webby-tricks-jquery-posthead">
   <div class="posthead">
         <h2 class="posttitle">
       <a href="#webby-tricks-jquery">Webby Tricks - JQuery</a>
@@ -453,6 +490,10 @@ new TWTR.Widget({
 	    <h4> Recent Blog Entries </h4>
 <ul class="footer-list">
 <li>
+  <div class="date">[ <abbr title="2010-04-28T16:07:09Z" class="timeago">Apr 28, 2010</abbr> ]</div>
+  <a href="http://www.isaacliu.info/blog/201004/zoom-1-ie-fix.html">Zoom:1 IE Fix</a>
+</li>
+  <li>
   <div class="date">[ <abbr title="2010-04-26T16:44:52Z" class="timeago">Apr 26, 2010</abbr> ]</div>
   <a href="http://www.isaacliu.info/blog/201004/webby-tricks-jquery.html">Webby Tricks - JQuery</a>
 </li>
@@ -472,14 +513,10 @@ new TWTR.Widget({
   <div class="date">[ <abbr title="2010-04-18T07:09:38Z" class="timeago">Apr 18, 2010</abbr> ]</div>
   <a href="http://www.isaacliu.info/blog/201004/lots-to-learn-dot.html">Lots to Learn...</a>
 </li>
-  <li>
-  <div class="date">[ <abbr title="2010-04-17T07:45:10Z" class="timeago">Apr 17, 2010</abbr> ]</div>
-  <a href="http://www.isaacliu.info/blog/201004/lots-to-do-dot.html">Lots to Do...</a>
-</li>
     
 
 </ul>
-<a href="http://www.isaacliu.info/blog/" class="left-columns-archive float-right">Archive</a>
+<a href="http://www.isaacliu.info/blog/" class="left-columns-archive float-right">Archive...</a>
 
 	  </div>
 	  <!-- end left-columns -->
@@ -493,7 +530,8 @@ new TWTR.Widget({
       <div id="footer-content">
 	
 	<div class="grid_4">
-	  <h3>Recent Changes</h3>
+	  <a href="http://github.com/iliu/My-Site/commits/master.atom" class="float-right" style="margin-top: 17px; margin-right: 20px;"><img class="plain-img" src="../images/icons/rss.png" alt="rss" /></a>
+<h3>Recent Changes</h3>
 <script type="text/javascript">
 //<![CDATA[
     function initialize() {
@@ -523,6 +561,7 @@ new TWTR.Widget({
  //]]>
 </script>
 <div class="footer-wrapper" id="githubfeed"></div>
+
 
 
 	</div>
@@ -557,6 +596,7 @@ new TWTR.Widget({
       
            <span style="white-space: nowrap"><a href="http://www.isaacliu.info/blog/">Blog Entries</a> | </span>
       
+  
   
   
   

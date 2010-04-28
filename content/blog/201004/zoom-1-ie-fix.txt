@@ -1,0 +1,23 @@
+---
+title:      Zoom:1 IE Fix
+created_at: 2010-04-28 09:07:09.799215 -07:00
+author:     Isaac Liu
+filter:
+  - textile
+  - erb
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+---
+After playing around with the layout and jQuery for a while, Internet Explorer 8 was really pissing me off. Everything that worked in Firefox, Safari Chrome didn't work properly in Internet Explorer 8. I wonder why that browser is still around... Anyhow, I later found a quick solution that can fix most of the IE problems, and that's the ==zoom:1== fix! All you need to do is add the following line to your css:
+
+notextile.. <% coderay(:lang => "css", :line_numbers => "inline") do -%>
+div {
+    zoom: 1; 
+}
+<% end -%>
+
+p. And just that like, every problem that I was having disappeared. I can't really explain why, and apparently neither can "this blogger":http://www.bennadel.com/blog/1354-The-Power-Of-ZOOM-Fixing-CSS-Issues-In-Internet-Explorer.htm. But the point is, use it and save yourself some trouble. Microsoft, when are you going to figure it out...?
