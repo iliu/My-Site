@@ -81,6 +81,10 @@ img.float-left {
   	margin: 5px 10px 10px 0px;
 }
 
+div {
+    zoom: 1; 
+}
+
 code {
   	margin: 3px 0;
   	padding: 15px;

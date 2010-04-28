@@ -19,7 +19,7 @@ filter:
       <span class="post-filed"><!-- insert tags --></span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="<%= p.filename %>-content"  >
+    <div class="postcontents" id="<%= p.filename %>-content" <%= "style=\"display:none\"" if !displaycontents %> >
         <% if c == '' -%>
 	    <%= render(p) %>
 	 <% else -%>
@@ -29,9 +29,7 @@ filter:
         <script type="text/javascript">
 //<![CDATA[
 	  $('#<%= p.filename %>-posthead').click(function(){
-	  $('#<%= p.filename %>-content').slideToggle('slow', function() {
-    	  // Animation complete.
-      	  });
+	  $('#<%= p.filename %>-content').slideToggle('slow');
 	  });
 //]]>
 	</script>
