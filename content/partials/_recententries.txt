@@ -11,8 +11,10 @@ filter:
        :reverse => true
    )
    recent.each do |e| -%>
-<li><%= link_to_page(e); %>
-  <div class="date">[ <abbr class="timeago" title="<%= e.created_at.utc.strftime("%Y-%m-%dT%H:%M:%SZ") %>"><%= e.created_at.strftime("%b %d, %Y") %></abbr> ]</div></li>
+<li>
+  <div class="date">[ <abbr class="timeago" title="<%= e.created_at.utc.strftime("%Y-%m-%dT%H:%M:%SZ") %>"><%= e.created_at.strftime("%b %d, %Y") %></abbr> ]</div>
+  <%= link_to_page(e); %>
+</li>
   <% end -%>  
 
 </ul>

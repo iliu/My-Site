@@ -27,11 +27,11 @@ filter:
 	<% end -%>
 	<% if !displaycontents -%>
         <script type="text/javascript">
-	  $('#<%= p.filename %>-posthead').click(function(){
-	  $('#<%= p.filename %>-content').slideToggle('slow', function() {
-    	  // Animation complete.
-      	  });
-	  });
+	  $('#<%= p.filename %>-posthead').toggle(function() {
+	      $('#<%= p.filename %>-content').slideDown("slow");
+      	  }, function() {
+	      $('#<%= p.filename %>-content').slideUp("slow");
+          });
 	</script>
         <% end -%>
 
