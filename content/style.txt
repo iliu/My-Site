@@ -4,6 +4,7 @@ author: Isaac Liu
 layout: main
 filter: erb
 dirty:  true
+noindex: true
 ---
 	
 			<h2><a href="index.html">Style Demo</a></h2>
