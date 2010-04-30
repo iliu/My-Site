@@ -1,0 +1,287 @@
+---
+title:  Publications
+author: Isaac Liu
+layout: main
+filter: 
+ - erb
+dirty:  true
+content_type: page
+sitemap: true
+priority: 1.0
+changefreq: daily
+---
+<script type="text/javascript" src="/scripts/jabref.js" ></script>
+<style type="text/css">
+  
+  #qs { width: 100%; padding-left: 10px; position:relative; display: none;}
+  #qs form { padding: 0px; margin: 0px; }
+  #qs form p { padding-left: 5px; margin: 0px; }
+  
+  .invalidsearch { background-color: red; }
+  
+  table { width: 100%; empty-cells: show; }
+  th, td { vertical-align: top;  }
+  td { text-align: left; vertical-align: top; }
+  
+  td a { color: navy; text-decoration: none; }
+  td a:hover  { text-decoration: underline; }
+  
+  tr.noshow { display: none;}
+  
+  tr.highlight td { background-color: #F1F1F1; border-top: 2px black solid; font-weight: bold; }
+  tr.abstract td, tr.review td, tr.bibtex td { background-color: #F1F1F1; border-bottom: 2px black solid; }
+  tr.nextshow td { border-bottom: 1px gray solid; }
+  
+  tr.bibtex pre { width: 100%; overflow: auto;}
+  
+  p.infolinks { margin: 0.5em 0em 0em 0em; padding: 0px; }
+  
+  @media print {
+  p.infolinks, #qssettings, #qs { display: none !important; }
+  table { border-width: 0px; }
+  tr { page-break-inside: avoid; }
+  th input, th select { display: none; }
+  }
+</style>
+
+<div id="qs">
+  <form action="publications.html">
+    <p>Global QuickSearch: <input type="text" name="qsfield" id="qsfield" autocomplete="off" title="Allows plain text as well as RegExp searches (rowbased)" /><input type="button" onclick="clearQS()" value="clear" />&nbsp; Number of matching entries: <span id="stat">0</span></p>
+  </form>
+</div>
+
+<table id="qstable" class="sortable" border="1">
+  <thead>
+    <tr>
+      <th width="20%" class="input">Author(s)</th>
+      <th             class="input">Title</th>
+      <th width="5%"  class="dropd">Year</th>
+      <th width="25%" class="input">Proceedings</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr id="pret:disruptive:09" class="entry">
+				<td>
+					
+						Edwards, S.A.; Kim, S.; Lee, E.A.; Liu, I.; Patel, H.D. &amp; Schoeberl, M.
+					
+					
+					
+						IEEE
+					
+				</td>
+				<td>
+					
+					A Disruptive Computer Design Idea: Architectures with Repeatable Timing
+					
+					<p class="infolinks">
+						[<a href="javascript:toggleInfo('pret:disruptive:09','abstract')">Abstract</a>] 
+						
+						[<a href="javascript:toggleInfo('pret:disruptive:09','bibtex')">BibTeX</a>] 
+						[<a href="http://chess.eecs.berkeley.edu/pubs/614.html">URL</a>]
+						
+						
+					</p>
+				</td>
+				<td style="text-align: center;">2009</td>
+				<td>
+					    Proceedings of IEEE International Conference on Computer Design (ICCD)   &nbsp;
+				</td>
+			</tr>
+			<tr id="abs_pret:disruptive:09" class="abstract noshow">
+				<td colspan="4"><b>Abstract</b>: This paper argues that repeatable timing is more important and more achievable than predictable timing. It describes microarchitecture approaches to pipelining and memory hierarchy that deliver repeatable timing and promise comparable or better performance compared to established techniques. Specifically, threads are interleaved in a pipeline to eliminate pipeline hazards, and a hierarchical memory architecture is outlined that hides memory latencies.</td>
+			</tr>
+			<tr id="bib_pret:disruptive:09" class="bibtex noshow">
+				<td colspan="4"><b>BibTeX</b>:
+					<pre>
+@article{pret:disruptive:09,
+  author = {Stephen A. Edwards and Sungjun Kim and Edward A. Lee and Isaac Liu and Hiren D. Patel and Martin Schoeberl},
+  title = {A Disruptive Computer Design Idea: Architectures with Repeatable Timing},
+  booktitle = {Proceedings of IEEE International Conference on Computer Design (ICCD)},
+  year = {2009},
+  url = {http://chess.eecs.berkeley.edu/pubs/614.html}
+}
+					</pre>
+				</td>
+			</tr>
+<tr id="Leung:EECS-2008-139" class="entry">
+				<td>
+					
+						Leung, M.-K.; Liu, I. &amp; Zou, J.
+					
+					
+					
+				</td>
+				<td>
+					
+					Code Generation for Process Network Models onto Parallel Architectures
+					
+					<p class="infolinks">
+						[<a href="javascript:toggleInfo('Leung:EECS-2008-139','abstract')">Abstract</a>] 
+						
+						[<a href="javascript:toggleInfo('Leung:EECS-2008-139','bibtex')">BibTeX</a>] 
+						[<a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-139.html">URL</a>]
+						
+						
+					</p>
+				</td>
+				<td style="text-align: center;">2008</td>
+				<td>
+					   (UCB/EECS-2008-139)    &nbsp;
+				</td>
+			</tr>
+			<tr id="abs_Leung:EECS-2008-139" class="abstract noshow">
+				<td colspan="4"><b>Abstract</b>: With multi-core and many-core architectures becoming the current focus of research and development, and as vast varieties of architectures and programming models emerging in research, the design space for applications is becoming enormous. From the number of cores, the memory hierarchy, the interconnect to even the programming model and language used are all design choices that need to be optimized for applications in order to fully benefit from parallel architectures. We propose a code generation framework targeting rapid design space exploration and prototyping. From the high level design, code for specific architectures and mappings can be generated and used for comparison. We choose Khan Process Networks[11] as our current specification language, because of its inherit parallelism and expressiveness. Our code generator take advantage of Message Passing Interface (MPI) [6] as the API for implementing message passing across platforms. We show the scalability of the generated MPI code and the ability to extend our framework to allow for tuning and optimization.</td>
+			</tr>
+			<tr id="bib_Leung:EECS-2008-139" class="bibtex noshow">
+				<td colspan="4"><b>BibTeX</b>:
+					<pre>
+@article{Leung:EECS-2008-139,
+  author = {Leung, Man-Kit and Liu, Isaac and Zou, Jia},
+  title = {Code Generation for Process Network Models onto Parallel Architectures},
+  year = {2008},
+  number = {UCB/EECS-2008-139},
+  url = {http://www.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-139.html}
+}
+					</pre>
+				</td>
+			</tr>
+<tr id="pret:cases:2008" class="entry">
+				<td>
+					
+						Lickly, B.; Liu, I.; Kim, S.; Patel, H.D.; Edwards, S.A. &amp; Lee, E.A.
+					
+					
+						Altman, E.R. (Hrsg.)
+					
+					
+				</td>
+				<td>
+					
+					Predictable programming on a precision timed architecture
+					
+					<p class="infolinks">
+						[<a href="javascript:toggleInfo('pret:cases:2008','abstract')">Abstract</a>] 
+						
+						[<a href="javascript:toggleInfo('pret:cases:2008','bibtex')">BibTeX</a>] 
+						[<a href="http://doi.acm.org/10.1145/1450095.1450117">URL</a>]
+						
+						
+					</p>
+				</td>
+				<td style="text-align: center;">2008</td>
+				<td>
+					    Proceedings of the International Conference on Compilers, Architecture, and Synthesis for Embedded Systems (CASES 2008) , pp. 137-146  &nbsp;
+				</td>
+			</tr>
+			<tr id="abs_pret:cases:2008" class="abstract noshow">
+				<td colspan="4"><b>Abstract</b>: In a hard real-time embedded system, the time at which a result is computed is as important as the result itself. Modern processors go to extreme lengths to ensure their function is predictable, but have abandoned predictable timing in favor of average-case performance. Real-time operating systems provide timing-aware scheduling policies, but without precise worst-case execution time bounds they cannot provide guarantees. We describe an alternative in this paper: a SPARC-based processor with predictable timing and instruction-set extensions that provide precise timing control. Its pipeline executes multiple, inde- pendent hardware threads to avoid costly, unpredictable bypassing, and its exposed memory hierarchy provides predictable latency. We demonstrate the effectiveness of this precision-timed (PRET) architecture through example applications running in simulation.</td>
+			</tr>
+			<tr id="bib_pret:cases:2008" class="bibtex noshow">
+				<td colspan="4"><b>BibTeX</b>:
+					<pre>
+@article{pret:cases:2008,
+  author = {Ben Lickly and Isaac Liu and Sungjun Kim and Hiren D. Patel and Stephen A. Edwards and Edward A. Lee},
+  title = {Predictable programming on a precision timed architecture},
+  booktitle = {Proceedings of the International Conference on Compilers, Architecture, and Synthesis for Embedded Systems (CASES 2008)},
+  publisher = {ACM},
+  year = {2008},
+  pages = {137--146},
+  url = {http://doi.acm.org/10.1145/1450095.1450117}
+}
+					</pre>
+				</td>
+			</tr>
+<tr id="LiuLicklyPatelLee09_PosterAbstractTimingInstructionsISAExtensionsForTiming" class="entry">
+				<td>
+					
+						Liu, I.; Lickly, B.; Patel, H.D. &amp; Lee, E.A.
+					
+					
+					
+				</td>
+				<td>
+					
+					Poster Abstract: Timing Instructions - ISA Extensions for Timing Guarantees
+					
+					<p class="infolinks">
+						[<a href="javascript:toggleInfo('LiuLicklyPatelLee09_PosterAbstractTimingInstructionsISAExtensionsForTiming','abstract')">Abstract</a>] 
+						
+						[<a href="javascript:toggleInfo('LiuLicklyPatelLee09_PosterAbstractTimingInstructionsISAExtensionsForTiming','bibtex')">BibTeX</a>] 
+						[<a href="http://chess.eecs.berkeley.edu/pubs/542.html">URL</a>]
+						
+						
+					</p>
+				</td>
+				<td style="text-align: center;">2009</td>
+				<td>
+					    IEEE Real-Time and Embedded Technology and Applications Symposium   &nbsp;
+				</td>
+			</tr>
+			<tr id="abs_LiuLicklyPatelLee09_PosterAbstractTimingInstructionsISAExtensionsForTiming" class="abstract noshow">
+				<td colspan="4"><b>Abstract</b>: We present our on-going efforts to guarantee the timing behavior of a program targeted for the precision timed architecture. We extend both the ISA and the hardware to support a set of timing instructions that allow programmers to control the execution time of a sequence of instructions. Programs written using these timing instructions specify deadlines within the program specification itself, and the hardware architecture enforces them through specific hardware policies. For example, timing instructions may be used to ensure that a segment of code has repeatable timing behavior, or that when a timing requirement is violated, an exception handler is invoked to appropriately address the timing violation. In this paper, we present the supported timing instructions, their semantics, and illustrative examples of their usage.</td>
+			</tr>
+			<tr id="bib_LiuLicklyPatelLee09_PosterAbstractTimingInstructionsISAExtensionsForTiming" class="bibtex noshow">
+				<td colspan="4"><b>BibTeX</b>:
+					<pre>
+@article{LiuLicklyPatelLee09_PosterAbstractTimingInstructionsISAExtensionsForTiming,
+  author = {Isaac Liu and Ben Lickly and Hiren D. Patel and Edward A. Lee},
+  title = {Poster Abstract: Timing Instructions - ISA Extensions for Timing Guarantees},
+  booktitle = {IEEE Real-Time and Embedded Technology and Applications Symposium},
+  year = {2009},
+  url = {http://chess.eecs.berkeley.edu/pubs/542.html}
+}
+					</pre>
+				</td>
+			</tr>
+<tr id="pret:encryption:09" class="entry">
+				<td>
+					
+						Liu, I. &amp; McGrogan, D.
+					
+					
+					
+				</td>
+				<td>
+					
+					Elimination of Side Channel attacks on a Precision Timed Architecture
+					
+					<p class="infolinks">
+						[<a href="javascript:toggleInfo('pret:encryption:09','abstract')">Abstract</a>] 
+						
+						[<a href="javascript:toggleInfo('pret:encryption:09','bibtex')">BibTeX</a>] 
+						[<a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-15.html">URL</a>]
+						[<a href="This a class project report describing early work on eliminating side channel attacks using PRET">NOTE</a>]
+						
+					</p>
+				</td>
+				<td style="text-align: center;">2009</td>
+				<td>
+					   (UCB/EECS-2009-15)    &nbsp;
+				</td>
+			</tr>
+			<tr id="abs_pret:encryption:09" class="abstract noshow">
+				<td colspan="4"><b>Abstract</b>: Side-channel attacks exploit information-leaky implementations of cryptographic algorithms to find the encryption key. These information leaks are caused by the underlying execution platform which contains hardware elements designed to optimize performance at the expense of predictable execution time. This shows that for security systems, not only does the software need to be secure, but the execution platform also needs to be secure in order for the entire system to be truly secure. PRET is an architecture designed for real time systems that has total predictability without sacrificing performance. It contains ISA extensions to bring total control over a program's temporal properties to the software level. We show that this design can not only defend against all software side channel attacks on encryption algorithms, but completely eliminate the root cause of the problem. We demonstrate this by running a reference implementation of the RSA algorithm on PRET and proving its immunity to side channel attacks.</td>
+			</tr>
+			<tr id="bib_pret:encryption:09" class="bibtex noshow">
+				<td colspan="4"><b>BibTeX</b>:
+					<pre>
+@article{pret:encryption:09,
+  author = {Liu, Isaac and McGrogan, David},
+  title = {Elimination of Side Channel attacks on a Precision Timed Architecture},
+  year = {2009},
+  number = {UCB/EECS-2009-15},
+  note = {This a class project report describing early work on eliminating side channel attacks using PRET},
+  url = {http://www.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-15.html}
+}
+					</pre>
+				</td>
+			</tr>
+</tbody>
+	</table>
+
+	<p>
+		<small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 04/30/2010.</small>
+	</p>
+
+<!-- File generated by JabRef ; Export Filter written by Mark Schenk and Holger Jeromin -->

@@ -12,14 +12,23 @@ changefreq: weekly
 ---
 h3. Overview
 
-My current research is on *real-time embedded systems*. Embedded systems are electronic systems which have special purposes, and are embedded into the platform to perform that special purpose. In contrary to conventional desktop computers, these systems are often resource constrained, which require optimization to use a limited amount of resources, or timing constrained, which means they need to perform the purpose in a certain amount of time (also called _Real Time systems_). For example, medical devices in humans or the braking system in an automobiles. The design of real time systems (or embedded systems in general) requires tight integration between software and hardware, thus it's crucial to understand the whole system design stack. My current thesis is focused on the hardware of the system, designing predictable architectures to ensure that software running on the system can be analyzed (see "PRET":http://chess.eecs.berkeley.edu/pret). 
+My current research is on *real-time embedded systems*. Embedded systems are electronic systems which have special purposes, and are embedded into the platform to perform that special purpose. In contrary to conventional desktop computers, these systems are often resource constrained, which require optimization to use a limited amount of resources, or timing constrained, which means they need to perform the purpose in a certain amount of time (also called _Real Time systems_). For example, medical devices in humans or the braking system in an automobiles. The design of real time systems (or embedded systems in general) requires tight integration between software and hardware, thus it's crucial to understand the whole system design stack. My current thesis (the PRET project) is focused on the hardware of the system, designing predictable architectures to ensure that software running on the system can be analyzed. The PRET project proposes a predictable computer architecture in which timing guarantees can be easily asserted. 
 
 Another research topic I'm working on is *parallel architectures*. As the single-core performance (and power) scaling is hitting a wall, multi/many-core systems are being designed to continue the improvement of performance. However, there are difficulties in both the software/hardware design of parallel computing systems. It's difficult to reason about concurrency in software, so to effectively utilize the parallelism in hardware requires careful design of program structure. In the hardware, communication, interconnect and memory hierarchy all need careful design and thought, or else they might become an overhead and limit the performance increase of the system. This is especially troublesome for real time systems, as using a parallel computing system could easily thwart the timing predictability of the systems. My focus is on designing predictable _real-time parallel systems_, from the programming model to the parallel architecture. 
 
-h3. Projects
+h3. Active Projects
 
-"*PREcision Timed Machine (PRET)*":http://chess.eecs.berkeley.edu/pret My main thesis project. This project focuses on designing a predictable and composable computer architecture to enable continued scaling of large scale concurrent real-time systems. 
+"*PREcision Timed Machine (PRET)*":http://chess.eecs.berkeley.edu/pret My main thesis project. This project focuses on designing a predictable and composable computer architecture to enable continued scaling of large scale concurrent real-time systems.  Modern computer architectures have improved average case execution time at the cost of worst case execution time. Mechanisms such as caches and superscalar out-of-order execution pipelines result in hard to analyze worst case execution time. For the class of applications in which execution time needs to be guaranteed (the braking system of a car, or navigation system on a plane), this leads to major design issues. The PRET initiative proposes an alternate design goal for computer architectures - to design architectures with predictable timing behaviors. PRET introduces performance improvement mechanisms only when worst case predictability isn't sacrificed. Techniques such as thread interleaved pipelines and scratchpad memories are employed to reconcile performance and predictability. We envision that only with a timing predictable computer architecture such as PRET, will we be able to continue scaling up designs for future real-time systems. 
 
+"*Programming Temporally Integrated Distributed Embedded Systems (PTIDES)*":http://chess.eecs.berkeley.edu/ptides This is another project I'm involved with that's currently going on in our research group...
+
+"*Component Architectures for Interactive Media*":http://chess.eecs.berkeley.edu/reactable ...
+
+h3. Past Projects 
+
+*Side Channel Attacks for Encryption Systems* This project...
+
+*Code Generation for Parallel Systems* MPI (Message Passing Interface) is a library written for ...
 
 
 

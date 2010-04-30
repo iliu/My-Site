@@ -24,8 +24,19 @@
   </url>
   
   <url>
+    <loc>http://www.isaacliu.info/publications.html</loc>
+    <lastmod>2010-04-30</lastmod>
+    
+    <changefreq>daily</changefreq>
+    
+    
+    <priority>1.0</priority>
+    
+  </url>
+  
+  <url>
     <loc>http://www.isaacliu.info/research.html</loc>
-    <lastmod>2010-04-22</lastmod>
+    <lastmod>2010-04-30</lastmod>
     
     <changefreq>weekly</changefreq>
     
