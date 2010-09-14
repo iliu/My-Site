@@ -5,7 +5,9 @@ Respository: http://github.com/iliu/My-Site.git
 CONTENTS OF THIS FILE
 ---------------------
  * Introduction
- * Installation
+ * Installation of site
+ * Usage
+ * Infrastructure
  * Links
 
 
@@ -18,12 +20,62 @@ generates static pages from dynamic content. With the source on a
 repository and static, i can easily deploy the site on any webhost.
 
 
-INSTALLATION
+INSTALLATION 
 ------------
+* Static site*
 Download the "output" folder from the repository, which contains the
 full static website.
 
+* Webby *
+1. Install gems. Each platform has different instructions. Please
+google "installing gems <windows/mac osx/linux>" to find out how to do
+so
+2. Type in "sudo gem install webby" in a command prompt or
+terminal. The webby gem and dependencies should be installed
+
+USAGE
+-----
+PREREQUISITE - Make sure webby is installed! 
+To see a list of commands, type "webby -T" 
+Common commands:
+* To add a blog entry: "webby tumblog:post <entry name>"
+* To clean up current output: "webby clobber"
+* To build site for localhost: "webby"
+* To build site for remote host with absolute path: "webby rebuild BASE='<domainname>'"
+* To commit using git to remote host (NOTE: Please add a
+  .commit_script.sh to do the commands needed for commtting): 
+  "webby commit"
+
+-------------------------
+Example .commit_script.sh
+-------------------------
+webby rebuild BASE='<remote domainname>'
+git commit -a
+------------------------
+
+INFRASTRUCTURE
+--------------
+* Sitefile - This file stores the custom webby commands 
+* <content> - This folder stores the contents of the site, this
+  includes the blog posts, pages, and also the public files that are
+  copied to the output folder, including javascripts, css files,
+  images etc. To add or edit pages, simply look in the corresponding
+  .txt files and edit them. They use textile markup language.
+* <layouts> - This folder stores the layouts (in html) for the
+  site. The main one that used is main.txt. These layouts can be
+  specified in the .txt files in content to choose which one to use.
+* <lib> - This folder stores the helper functions written in ruby that
+  can be called in the layout or content folder
+* <output> - This folder contains the static website that generated
+* <tasks> - This folder stores the rakefile that executes the command
+  for webby. Currently it only has tumblog.rake which executes the
+  tumblog commands to creates entries to the content folder
+* <templates> - This folder stores the templates for the webby
+  commands that are executed. *THESE ARE NOT WEB TEMPLATES*. They are
+  the templates used when a blog entry content (the .txt file in the
+  content folder) is created. 
 
 LINKS
 -----
 * Webby - http://webby.rubyforge.org/
+
