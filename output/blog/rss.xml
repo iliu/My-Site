@@ -1,16 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xml:lang="en-US" xmlns:media="http://www.isaacliu.info" xmlns="http://www.w3.org/2005/Atom">
+<id>tag:isaacliu.info,2009:/blog</id>
+  <link href="http://isaacliu.info/blog" rel="alternate" type="text/html" />
+  <link href="http://isaacliu.info/blog/xml" rel="self" type="application/atom+xml" />
            
-  <title>Blog Feed</title>
+  <title>My Blog Feed</title>
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-05-06T11:27:29-07:00</updated>
+  <updated>2010-09-16T00:41:38-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
   </author>
   <id>http://isaacliu.info/</id>
+  
+  <entry>
+    <title>RoR and Facebook With fb_graph</title>
+    <link href="/blog/201009/ror-and-facebook-with-fb-graph.html" />
+    <id>tag:isaacliu.info,2010-09-17:1284700506</id>
+    <updated>2010-09-17T05:15:06Z</updated>
+    <content type="html">&lt;p&gt;While working on our church website, integrating with our church&amp;#8217;s facebook fan page became a desired feature so our site maintenance team can just add an event on facebook and have it synced up to our website.&lt;/p&gt;
+&lt;p&gt;After learning about the &lt;a href=&quot;http://developers.facebook.com/docs/api/&quot;&gt;facebook graph api&lt;/a&gt;, I was planning to write a library for ruby that sent out the queries and parsed the results to display on our site. However, I found the &lt;a href=&quot;http://github.com/nov/fb_graph&quot;&gt;fb_graph gem&lt;/a&gt; written by Nov Matake and decided to try it out. The experience was extremely positive and Nov was very helpful and prompt in responding to my emails. Here&amp;#8217;s how I integrated the facebook graph api into a ruby on rails app:&lt;/p&gt;
+&lt;p&gt;First things first, lets create a new rails application, and we&amp;#8217;ll name it &amp;#8220;fb_graph_app&amp;#8221;.&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; % rails new fb_graph_app
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;With Rails 3.0 it&amp;#8217;s easy to install the required gems. We&amp;#8217;ll go into the Gemfile specify that we need the fb_graph gem:&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Gemfile &lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 2&lt;/span&gt; source &lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;http://rubygems.org&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 3&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt; 4&lt;/span&gt; gem &lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;rails&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;3.0.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 5&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Bundle edge Rails instead:&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# gem 'rails', :git =&amp;gt; 'git://github.com/rails/rails.git'&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 8&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt; 9&lt;/span&gt; gem &lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sqlite3-ruby&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;sy&quot;&gt;:require&lt;/span&gt; =&amp;gt; &lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sqlite3&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;&lt;strong&gt;10&lt;/strong&gt;&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#--------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Adding the following line tells rails we need the fb_graph gem installed&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#--------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;14&lt;/span&gt; gem &lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fb_graph&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;15&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#....truncated the remaining file...&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Once that&amp;#8217;s saved we can install the required gems with the following command:&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; % bundle install
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Now that fb_graph is installed we can start making facebook graph API! Lets first create a controller and get modify the home page. We will first generate a simple controller called home with one action called index:&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; % rails g controller home index
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;With that command the controller and view for &amp;#8220;home&amp;#8221; will be generated. Now we can map the root of the server to this action by changing the config/route.rb file:&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#config/routes.tb&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;FbGraphApp&lt;/span&gt;::&lt;span class=&quot;co&quot;&gt;Application&lt;/span&gt;.routes.draw &lt;span class=&quot;r&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 3&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#...truncated commented stuff...&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 5&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# You can have the root of your site routed with &amp;quot;root&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# just remember to delete public/index.html.&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 8&lt;/span&gt; root &lt;span class=&quot;sy&quot;&gt;:to&lt;/span&gt; =&amp;gt; &lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;home#index&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 9&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;&lt;strong&gt;10&lt;/strong&gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# See how all your routes lay out with &amp;quot;rake routes&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;11&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# This is a legacy wild controller route that's not recommended for RESTful applications.&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Note: This route will make all actions in every controller accessible via GET requests.&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# match ':controller(/:action(/:id(.:format)))'&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;r&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Now log into your facebook account and register for a new app &lt;a href=&quot;http://www.facebook.com/developers/apps.php&quot;&gt;here&lt;/a&gt;. Using the app_id, API key and application secret we are going to create a config file facebook.yml.&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#config/facebook.yml&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;ke&quot;&gt;development&lt;/span&gt;: &lt;span class=&quot;v&quot;&gt;&amp;amp;defaults&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 3&lt;/span&gt;   &lt;span class=&quot;ke&quot;&gt;app_id&lt;/span&gt;: &lt;span class=&quot;c&quot;&gt;#your app_id&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 4&lt;/span&gt;   &lt;span class=&quot;ke&quot;&gt;client_id&lt;/span&gt;: &lt;span class=&quot;c&quot;&gt;#your api key&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 5&lt;/span&gt;   &lt;span class=&quot;ke&quot;&gt;client_secret&lt;/span&gt;: &lt;span class=&quot;c&quot;&gt;#your client secret&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 6&lt;/span&gt;   &lt;span class=&quot;ke&quot;&gt;perms&lt;/span&gt;: &lt;span class=&quot;s&quot;&gt;offline_access,manage_pages&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 7&lt;/span&gt;   &lt;span class=&quot;ke&quot;&gt;page_id&lt;/span&gt;: &lt;span class=&quot;c&quot;&gt;#the facebook page id that you wish you pull events from&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 8&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;ke&quot;&gt;test&lt;/span&gt;:
+&lt;span class=&quot;no&quot;&gt;&lt;strong&gt;10&lt;/strong&gt;&lt;/span&gt;   &lt;span class=&quot;cv&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;: &lt;span class=&quot;gv&quot;&gt;*defaults&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;11&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;ke&quot;&gt;production&lt;/span&gt;:
+&lt;span class=&quot;no&quot;&gt;13&lt;/span&gt;   &lt;span class=&quot;cv&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;: &lt;span class=&quot;gv&quot;&gt;*defaults&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;For this demo purpose we&amp;#8217;re just going to pull the events from a facebook &amp;#8220;Page&amp;#8221;. Our church has the facebook page &lt;a href=&quot;http://www.facebook.com/developers/apps.php#!/pages/Cupertino-CA/Good-Shepherd-Christian-Community/187141722947?ref=ts&quot;&gt;here&lt;/a&gt;, so i&amp;#8217;ll grab the page_id from the link and insert in facebook.yml for the page_id. With that setup we can now go into our home controller to add in the calls to grab events. So lets add the following code in our home controller:&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#app/controllers/home_controller.rb&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;r&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;cl&quot;&gt;HomeController&lt;/span&gt; &amp;lt; &lt;span class=&quot;co&quot;&gt;ApplicationController&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 3&lt;/span&gt;   &lt;span class=&quot;r&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;index&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 4&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;#Load facebook.yml info&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 5&lt;/span&gt;     config = &lt;span class=&quot;co&quot;&gt;YAML&lt;/span&gt;::load(&lt;span class=&quot;co&quot;&gt;File&lt;/span&gt;.open(&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;il&quot;&gt;&lt;span class=&quot;idl&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;co&quot;&gt;RAILS_ROOT&lt;/span&gt;&lt;span class=&quot;idl&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;/config/facebook.yml&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;));
+&lt;span class=&quot;no&quot;&gt; 6&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#Instantiate a new application with our app_id so we can get an access token&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 8&lt;/span&gt;     my_app = &lt;span class=&quot;co&quot;&gt;FbGraph&lt;/span&gt;::&lt;span class=&quot;co&quot;&gt;Application&lt;/span&gt;.new(config[&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;production&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;][&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;app_id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;]);
+&lt;span class=&quot;no&quot;&gt; 9&lt;/span&gt;     acc_tok = my_app.get_access_token(config[&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;production&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;][&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;client_secret&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;]);
+&lt;span class=&quot;no&quot;&gt;&lt;strong&gt;10&lt;/strong&gt;&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#Instantiate a new page class using the page_id specified &lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;12&lt;/span&gt;     &lt;span class=&quot;iv&quot;&gt;@page&lt;/span&gt; = &lt;span class=&quot;co&quot;&gt;FbGraph&lt;/span&gt;::&lt;span class=&quot;co&quot;&gt;Page&lt;/span&gt;.new(config.&lt;span class=&quot;er&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;production&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;][&lt;span class=&quot;s&quot;&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;page_id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/span&gt;], &lt;span class=&quot;sy&quot;&gt;:access_token&lt;/span&gt; =&amp;gt; acc_tok).fetch;
+&lt;span class=&quot;no&quot;&gt;13&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#Grab the events from the page &lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;15&lt;/span&gt;     events = &lt;span class=&quot;iv&quot;&gt;@page&lt;/span&gt;.events.sort_by{|e| e.start_time};
+&lt;span class=&quot;no&quot;&gt;16&lt;/span&gt;     
+&lt;span class=&quot;no&quot;&gt;17&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#Get the events that are upcoming&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;18&lt;/span&gt;     &lt;span class=&quot;iv&quot;&gt;@upcoming_events&lt;/span&gt; = events.find_all{|e| e.start_time &amp;gt;= &lt;span class=&quot;co&quot;&gt;Time&lt;/span&gt;.now};
+&lt;span class=&quot;no&quot;&gt;19&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;&lt;strong&gt;20&lt;/strong&gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#Get the events that have passed&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;21&lt;/span&gt;     &lt;span class=&quot;iv&quot;&gt;@past_events&lt;/span&gt; = events.find_all{|e| e.start_time &amp;lt; &lt;span class=&quot;co&quot;&gt;Time&lt;/span&gt;.now}.reverse;
+&lt;span class=&quot;no&quot;&gt;22&lt;/span&gt;   &lt;span class=&quot;r&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;23&lt;/span&gt; &lt;span class=&quot;r&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The above code first reads the facebook.yml file to obtain the facebook app information (line 5). It then uses the information to obtain an access token (line 7,8) so we can access events and more information. Once an access token is obtained, we can use it access information from the page. We store the page information in an instance variable so we can display in the view later. We also use the connections provided by fb_graph to access the events that are posted in for that page (line 15). Once we get the events we sort it by the start time. Then we create 2 instance variables that store the upcoming events and the events that have already passed (line 18 and 21).&lt;/p&gt;
+&lt;p&gt;Once we have the event information we can display it in our view.&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- app/views/home/index.html.erb --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Home#index&lt;span class=&quot;ta&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Find me in app/views/home/index.html.erb&lt;span class=&quot;ta&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 4&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;%= @page.name %&amp;gt;&lt;/span&gt;&lt;span class=&quot;ta&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;storng&amp;gt;&lt;/span&gt;Upcoming Events:&lt;span class=&quot;ta&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;hr&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 8&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;&amp;lt;% @upcoming_events.each do |event| %&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt; 9&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;&amp;lt;%= event.name %&amp;gt;&lt;/span&gt; - &lt;span class=&quot;c&quot;&gt;&amp;lt;%= event.start_time %&amp;gt;&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;&lt;strong&gt;10&lt;/strong&gt;&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;&amp;lt;% end %&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;storng&amp;gt;&lt;/span&gt;Past Events:&lt;span class=&quot;ta&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;hr&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;15&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;&amp;lt;% @past_events.each do |event| %&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;16&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;&amp;lt;%= event.name %&amp;gt;&lt;/span&gt; - &lt;span class=&quot;c&quot;&gt;&amp;lt;%= event.start_time %&amp;gt;&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;&amp;lt;br&lt;/span&gt; &lt;span class=&quot;ta&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;17&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;&amp;lt;% end %&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Now we can see the results by running the web server in rails using the following command:&lt;/p&gt;
+&lt;div class=&quot;CodeRay&quot;&gt;
+&lt;pre&gt;&lt;span class=&quot;no&quot;&gt;1&lt;/span&gt; % rails server
+&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;By pointing your browser to &lt;em&gt;localhost:3000&lt;/em&gt; you should now see a simple page with your facebook page name and the events listed from your facebook page in your ruby on rails app! This is a very simple example of using fb_graph to access the facebook graph api to get data from facebook. To learn more about the facebook graph api see &lt;a href=&quot;http://developers.facebook.com/docs/api&quot;&gt;here&lt;/a&gt;. Nov Matake also has a sample facebook app and documentation of the fb_graph api with some examples &lt;a href=&quot;http://github.com/nov/fb_graph&quot;&gt;here&lt;/a&gt;. Note that is a simplified example, and there are several optimizations that could be done. I simply wanted a quick and easy tutorial to get people started with using the fb_graph gem. Hopefully this can help you integrate facebook into your next ruby on rails app!&lt;/p&gt;</content>
+  </entry>
   
   <entry>
     <title>Zoom:1 IE Fix</title>
@@ -114,7 +243,7 @@
     <title>Lots to Learn...</title>
     <link href="/blog/201004/lots-to-learn-dot.html" />
     <id>tag:isaacliu.info,2010-04-18:1271574578</id>
-    <updated>2010-04-18T07:09:38Z</updated>
+    <updated>2010-04-18T00:09:38-07:00</updated>
     <content type="html">&lt;p&gt;&lt;em&gt;Webby&lt;/em&gt; turned out to be very addicting&amp;#8230; It&amp;#8217;s certainly as powerful as I imagined, with lots of room to play with. However, I haven&amp;#8217;t used &lt;em&gt;ruby&lt;/em&gt; in a while, so it&amp;#8217;s time to remember the syntax of ruby. I also learned to use &lt;em&gt;partials&lt;/em&gt; in my layout, so i can further separate content and layout. This is progressing along fairly nicely&amp;#8230;&lt;/p&gt;</content>
   </entry>
   

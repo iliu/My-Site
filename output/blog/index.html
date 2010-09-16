@@ -76,7 +76,157 @@
      [ Click on title to reveal post content ]
 </div>
 
-    <div class="post" id="zoom-1-ie-fix-posthead">
+    <div class="post" id="ror-and-facebook-with-fb-graph-posthead">
+  <div class="posthead">
+        <h2 class="posttitle">
+            <a href="#ror-and-facebook-with-fb-graph">RoR and Facebook With fb_graph</a>
+          </h2>
+    
+            <p class="postdate">
+      <strong class="day">17th</strong>
+      <strong class="month">Sep</strong>
+      <strong class="year">2010</strong>
+    </p>
+
+    
+    <div class="postmeta"> 
+      <span class="post-comment"><a href="http://www.isaacliu.info/blog/201009/ror-and-facebook-with-fb-graph.html#disqus_thread">Comments</a></span>&nbsp;
+      <span class="post-filed"><!-- insert tags --></span>
+    </div>
+  </div> <!-- end posthead -->
+    <div class="postcontents" id="ror-and-facebook-with-fb-graph-content" style="display:none">
+        	    <p>While working on our church website, integrating with our church&#8217;s facebook fan page became a desired feature so our site maintenance team can just add an event on facebook and have it synced up to our website.</p>
+<p>After learning about the <a href="http://developers.facebook.com/docs/api/">facebook graph api</a>, I was planning to write a library for ruby that sent out the queries and parsed the results to display on our site. However, I found the <a href="http://github.com/nov/fb_graph">fb_graph gem</a> written by Nov Matake and decided to try it out. The experience was extremely positive and Nov was very helpful and prompt in responding to my emails. Here&#8217;s how I integrated the facebook graph api into a ruby on rails app:</p>
+<p>First things first, lets create a new rails application, and we&#8217;ll name it &#8220;fb_graph_app&#8221;.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> % rails new fb_graph_app
+</pre>
+</div><p>With Rails 3.0 it&#8217;s easy to install the required gems. We&#8217;ll go into the Gemfile specify that we need the fb_graph gem:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># Gemfile </span>
+<span class="no"> 2</span> source <span class="s"><span class="dl">'</span><span class="k">http://rubygems.org</span><span class="dl">'</span></span>
+<span class="no"> 3</span> 
+<span class="no"> 4</span> gem <span class="s"><span class="dl">'</span><span class="k">rails</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">3.0.0</span><span class="dl">'</span></span>
+<span class="no"> 5</span> 
+<span class="no"> 6</span> <span class="c"># Bundle edge Rails instead:</span>
+<span class="no"> 7</span> <span class="c"># gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'</span>
+<span class="no"> 8</span> 
+<span class="no"> 9</span> gem <span class="s"><span class="dl">'</span><span class="k">sqlite3-ruby</span><span class="dl">'</span></span>, <span class="sy">:require</span> =&gt; <span class="s"><span class="dl">'</span><span class="k">sqlite3</span><span class="dl">'</span></span>
+<span class="no"><strong>10</strong></span> 
+<span class="no">11</span> <span class="c">#--------------------------------------------------------------------------</span>
+<span class="no">12</span> <span class="c"># Adding the following line tells rails we need the fb_graph gem installed</span>
+<span class="no">13</span> <span class="c">#--------------------------------------------------------------------------</span>
+<span class="no">14</span> gem <span class="s"><span class="dl">'</span><span class="k">fb_graph</span><span class="dl">'</span></span>
+<span class="no">15</span> 
+<span class="no">16</span> <span class="c">#....truncated the remaining file...</span>
+</pre>
+</div><p>Once that&#8217;s saved we can install the required gems with the following command:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> % bundle install
+</pre>
+</div><p>Now that fb_graph is installed we can start making facebook graph API! Lets first create a controller and get modify the home page. We will first generate a simple controller called home with one action called index:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> % rails g controller home index
+</pre>
+</div><p>With that command the controller and view for &#8220;home&#8221; will be generated. Now we can map the root of the server to this action by changing the config/route.rb file:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c">#config/routes.tb</span>
+<span class="no"> 2</span> <span class="co">FbGraphApp</span>::<span class="co">Application</span>.routes.draw <span class="r">do</span>
+<span class="no"> 3</span> 
+<span class="no"> 4</span> <span class="c">#...truncated commented stuff...</span>
+<span class="no"> 5</span> 
+<span class="no"> 6</span> <span class="c"># You can have the root of your site routed with &quot;root&quot;</span>
+<span class="no"> 7</span> <span class="c"># just remember to delete public/index.html.</span>
+<span class="no"> 8</span> root <span class="sy">:to</span> =&gt; <span class="s"><span class="dl">&quot;</span><span class="k">home#index</span><span class="dl">&quot;</span></span>
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span> <span class="c"># See how all your routes lay out with &quot;rake routes&quot;</span>
+<span class="no">11</span> 
+<span class="no">12</span> <span class="c"># This is a legacy wild controller route that's not recommended for RESTful applications.</span>
+<span class="no">13</span> <span class="c"># Note: This route will make all actions in every controller accessible via GET requests.</span>
+<span class="no">14</span> <span class="c"># match ':controller(/:action(/:id(.:format)))'</span>
+<span class="no">15</span> <span class="r">end</span>
+</pre>
+</div><p>Now log into your facebook account and register for a new app <a href="http://www.facebook.com/developers/apps.php">here</a>. Using the app_id, API key and application secret we are going to create a config file facebook.yml.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c">#config/facebook.yml</span>
+<span class="no"> 2</span> <span class="ke">development</span>: <span class="v">&amp;defaults</span>
+<span class="no"> 3</span>   <span class="ke">app_id</span>: <span class="c">#your app_id</span>
+<span class="no"> 4</span>   <span class="ke">client_id</span>: <span class="c">#your api key</span>
+<span class="no"> 5</span>   <span class="ke">client_secret</span>: <span class="c">#your client secret</span>
+<span class="no"> 6</span>   <span class="ke">perms</span>: <span class="s">offline_access,manage_pages</span>
+<span class="no"> 7</span>   <span class="ke">page_id</span>: <span class="c">#the facebook page id that you wish you pull events from</span>
+<span class="no"> 8</span> 
+<span class="no"> 9</span> <span class="ke">test</span>:
+<span class="no"><strong>10</strong></span>   <span class="cv">&lt;&lt;</span>: <span class="gv">*defaults</span>
+<span class="no">11</span> 
+<span class="no">12</span> <span class="ke">production</span>:
+<span class="no">13</span>   <span class="cv">&lt;&lt;</span>: <span class="gv">*defaults</span>
+</pre>
+</div><p>For this demo purpose we&#8217;re just going to pull the events from a facebook &#8220;Page&#8221;. Our church has the facebook page <a href="http://www.facebook.com/developers/apps.php#!/pages/Cupertino-CA/Good-Shepherd-Christian-Community/187141722947?ref=ts">here</a>, so i&#8217;ll grab the page_id from the link and insert in facebook.yml for the page_id. With that setup we can now go into our home controller to add in the calls to grab events. So lets add the following code in our home controller:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c">#app/controllers/home_controller.rb</span>
+<span class="no"> 2</span> <span class="r">class</span> <span class="cl">HomeController</span> &lt; <span class="co">ApplicationController</span>
+<span class="no"> 3</span>   <span class="r">def</span> <span class="fu">index</span>
+<span class="no"> 4</span>     <span class="c">#Load facebook.yml info</span>
+<span class="no"> 5</span>     config = <span class="co">YAML</span>::load(<span class="co">File</span>.open(<span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span><span class="co">RAILS_ROOT</span><span class="idl">}</span></span><span class="k">/config/facebook.yml</span><span class="dl">&quot;</span></span>));
+<span class="no"> 6</span> 
+<span class="no"> 7</span> <span class="c">#Instantiate a new application with our app_id so we can get an access token</span>
+<span class="no"> 8</span>     my_app = <span class="co">FbGraph</span>::<span class="co">Application</span>.new(config[<span class="s"><span class="dl">'</span><span class="k">production</span><span class="dl">'</span></span>][<span class="s"><span class="dl">'</span><span class="k">app_id</span><span class="dl">'</span></span>]);
+<span class="no"> 9</span>     acc_tok = my_app.get_access_token(config[<span class="s"><span class="dl">'</span><span class="k">production</span><span class="dl">'</span></span>][<span class="s"><span class="dl">'</span><span class="k">client_secret</span><span class="dl">'</span></span>]);
+<span class="no"><strong>10</strong></span> 
+<span class="no">11</span> <span class="c">#Instantiate a new page class using the page_id specified </span>
+<span class="no">12</span>     <span class="iv">@page</span> = <span class="co">FbGraph</span>::<span class="co">Page</span>.new(config.<span class="er">[</span><span class="s"><span class="dl">'</span><span class="k">production</span><span class="dl">'</span></span>][<span class="s"><span class="dl">'</span><span class="k">page_id</span><span class="dl">'</span></span>], <span class="sy">:access_token</span> =&gt; acc_tok).fetch;
+<span class="no">13</span> 
+<span class="no">14</span> <span class="c">#Grab the events from the page </span>
+<span class="no">15</span>     events = <span class="iv">@page</span>.events.sort_by{|e| e.start_time};
+<span class="no">16</span>     
+<span class="no">17</span> <span class="c">#Get the events that are upcoming</span>
+<span class="no">18</span>     <span class="iv">@upcoming_events</span> = events.find_all{|e| e.start_time &gt;= <span class="co">Time</span>.now};
+<span class="no">19</span> 
+<span class="no"><strong>20</strong></span> <span class="c">#Get the events that have passed</span>
+<span class="no">21</span>     <span class="iv">@past_events</span> = events.find_all{|e| e.start_time &lt; <span class="co">Time</span>.now}.reverse;
+<span class="no">22</span>   <span class="r">end</span>
+<span class="no">23</span> <span class="r">end</span>
+</pre>
+</div><p>The above code first reads the facebook.yml file to obtain the facebook app information (line 5). It then uses the information to obtain an access token (line 7,8) so we can access events and more information. Once an access token is obtained, we can use it access information from the page. We store the page information in an instance variable so we can display in the view later. We also use the connections provided by fb_graph to access the events that are posted in for that page (line 15). Once we get the events we sort it by the start time. Then we create 2 instance variables that store the upcoming events and the events that have already passed (line 18 and 21).</p>
+<p>Once we have the event information we can display it in our view.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c">&lt;!-- app/views/home/index.html.erb --&gt;</span>
+<span class="no"> 2</span> <span class="ta">&lt;h1&gt;</span>Home#index<span class="ta">&lt;/h1&gt;</span>
+<span class="no"> 3</span> <span class="ta">&lt;p&gt;</span>Find me in app/views/home/index.html.erb<span class="ta">&lt;/p&gt;</span>
+<span class="no"> 4</span> 
+<span class="no"> 5</span> <span class="ta">&lt;h1&gt;</span><span class="c">&lt;%= @page.name %&gt;</span><span class="ta">&lt;/h1&gt;</span>
+<span class="no"> 6</span> <span class="ta">&lt;storng&gt;</span>Upcoming Events:<span class="ta">&lt;/strong&gt;</span> <span class="ta">&lt;br</span> <span class="ta">/&gt;</span>
+<span class="no"> 7</span> <span class="ta">&lt;hr</span> <span class="ta">/&gt;</span>
+<span class="no"> 8</span>   <span class="c">&lt;% @upcoming_events.each do |event| %&gt;</span>
+<span class="no"> 9</span>     <span class="c">&lt;%= event.name %&gt;</span> - <span class="c">&lt;%= event.start_time %&gt;</span> <span class="ta">&lt;br</span> <span class="ta">/&gt;</span>
+<span class="no"><strong>10</strong></span>   <span class="c">&lt;% end %&gt;</span>
+<span class="no">11</span> <span class="ta">&lt;br</span> <span class="ta">/&gt;</span>
+<span class="no">12</span> <span class="ta">&lt;br</span> <span class="ta">/&gt;</span>
+<span class="no">13</span> <span class="ta">&lt;storng&gt;</span>Past Events:<span class="ta">&lt;/strong&gt;</span> <span class="ta">&lt;br</span> <span class="ta">/&gt;</span>
+<span class="no">14</span> <span class="ta">&lt;hr</span> <span class="ta">/&gt;</span>
+<span class="no">15</span>   <span class="c">&lt;% @past_events.each do |event| %&gt;</span>
+<span class="no">16</span>     <span class="c">&lt;%= event.name %&gt;</span> - <span class="c">&lt;%= event.start_time %&gt;</span> <span class="ta">&lt;br</span> <span class="ta">/&gt;</span>
+<span class="no">17</span>   <span class="c">&lt;% end %&gt;</span>
+</pre>
+</div><p>Now we can see the results by running the web server in rails using the following command:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> % rails server
+</pre>
+</div><p>By pointing your browser to <em>localhost:3000</em> you should now see a simple page with your facebook page name and the events listed from your facebook page in your ruby on rails app! This is a very simple example of using fb_graph to access the facebook graph api to get data from facebook. To learn more about the facebook graph api see <a href="http://developers.facebook.com/docs/api">here</a>. Nov Matake also has a sample facebook app and documentation of the fb_graph api with some examples <a href="http://github.com/nov/fb_graph">here</a>. Note that is a simplified example, and there are several optimizations that could be done. I simply wanted a quick and easy tutorial to get people started with using the fb_graph gem. Hopefully this can help you integrate facebook into your next ruby on rails app!</p>
+	 	        <script type="text/javascript">
+//<![CDATA[
+	  $('#ror-and-facebook-with-fb-graph-posthead').click(function(){
+	  $('#ror-and-facebook-with-fb-graph-content').slideToggle('slow');
+	  });
+//]]>
+	</script>
+        
+  </div>
+</div>
+
+
+        <div class="post" id="zoom-1-ie-fix-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#zoom-1-ie-fix">Zoom:1 IE Fix</a>
@@ -493,6 +643,10 @@ new TWTR.Widget({
 	    <h4> Recent Blog Entries </h4>
 <ul class="footer-list">
 <li>
+  <div class="date">[ <abbr title="2010-09-17T05:15:06Z" class="timeago">Sep 17, 2010</abbr> ]</div>
+  <a href="http://www.isaacliu.info/blog/201009/ror-and-facebook-with-fb-graph.html">RoR and Facebook With fb_graph</a>
+</li>
+  <li>
   <div class="date">[ <abbr title="2010-04-28T16:07:09Z" class="timeago">Apr 28, 2010</abbr> ]</div>
   <a href="http://www.isaacliu.info/blog/201004/zoom-1-ie-fix.html">Zoom:1 IE Fix</a>
 </li>
@@ -511,10 +665,6 @@ new TWTR.Widget({
   <li>
   <div class="date">[ <abbr title="2010-04-20T18:30:22Z" class="timeago">Apr 20, 2010</abbr> ]</div>
   <a href="http://www.isaacliu.info/blog/201004/welcome-layton.html">Welcome Layton!</a>
-</li>
-  <li>
-  <div class="date">[ <abbr title="2010-04-18T07:09:38Z" class="timeago">Apr 18, 2010</abbr> ]</div>
-  <a href="http://www.isaacliu.info/blog/201004/lots-to-learn-dot.html">Lots to Learn...</a>
 </li>
     
 
@@ -601,6 +751,7 @@ new TWTR.Widget({
       
            <span style="white-space: nowrap"><a href="http://www.isaacliu.info/blog/">Blog Entries</a> | </span>
       
+  
   
   
   

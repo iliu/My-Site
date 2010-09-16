@@ -1,0 +1,165 @@
+---
+title:      RoR and Facebook With fb_graph
+created_at: 2010-09-16 22:15:06.978126 -07:00
+author:     Isaac Liu
+filter:
+  - textile
+  - erb
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+---
+While working on our church website, integrating with our church's facebook fan page became a desired feature so our site maintenance team can just add an event on facebook and have it synced up to our website. 
+
+After learning about the "facebook graph api":http://developers.facebook.com/docs/api/, I was planning to write a library for ruby that sent out the queries and parsed the results to display on our site. However, I found the "fb_graph gem":http://github.com/nov/fb_graph written by Nov Matake and decided to try it out. The experience was extremely positive and Nov was very helpful and prompt in responding to my emails. Here's how I integrated the facebook graph api into a ruby on rails app:
+
+First things first, lets create a new rails application, and we'll name it "fb_graph_app". 
+
+notextile.. <% coderay(:lang => "shell", :line_numbers => "inline") do -%>
+% rails new fb_graph_app
+<% end -%>
+
+p. With Rails 3.0 it's easy to install the required gems. We'll go into the Gemfile specify that we need the fb_graph gem: 
+
+notextile.. <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# Gemfile 
+source 'http://rubygems.org'
+
+gem 'rails', '3.0.0'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'sqlite3-ruby', :require => 'sqlite3'
+
+#--------------------------------------------------------------------------
+# Adding the following line tells rails we need the fb_graph gem installed
+#--------------------------------------------------------------------------
+gem 'fb_graph'
+
+#....truncated the remaining file...
+<% end -%>
+
+p. Once that's saved we can install the required gems with the following command:
+
+notextile.. <% coderay(:lang => "shell", :line_numbers => "inline") do -%>
+% bundle install
+<% end -%>
+
+p. Now that fb_graph is installed we can start making facebook graph API! Lets first create a controller and get modify the home page. We will first generate a simple controller called home with one action called index:
+
+notextile.. <% coderay(:lang => "shell", :line_numbers => "inline") do -%>
+% rails g controller home index
+<% end -%>
+
+p. With that command the controller and view for "home" will be generated. Now we can map the root of the server to this action by changing the config/route.rb file:
+
+notextile.. <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+#config/routes.tb
+FbGraphApp::Application.routes.draw do
+
+#...truncated commented stuff...
+
+# You can have the root of your site routed with "root"
+# just remember to delete public/index.html.
+root :to => "home#index"
+
+# See how all your routes lay out with "rake routes"
+
+# This is a legacy wild controller route that's not recommended for RESTful applications.
+# Note: This route will make all actions in every controller accessible via GET requests.
+# match ':controller(/:action(/:id(.:format)))'
+end
+<% end -%>
+
+p. Now log into your facebook account and register for a new app "here":http://www.facebook.com/developers/apps.php. Using the app_id, API key and application secret we are going to create a config file facebook.yml.
+
+notextile.. <% coderay(:lang => "yml", :line_numbers => "inline") do -%>
+#config/facebook.yml
+development: &defaults
+  app_id: #your app_id
+  client_id: #your api key
+  client_secret: #your client secret
+  perms: offline_access,manage_pages
+  page_id: #the facebook page id that you wish you pull events from
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+<% end -%>
+
+p. For this demo purpose we're just going to pull the events from a facebook "Page". Our church has the facebook page "here":http://www.facebook.com/developers/apps.php#!/pages/Cupertino-CA/Good-Shepherd-Christian-Community/187141722947?ref=ts, so i'll grab the page_id from the link and insert in facebook.yml for the page_id. With that setup we can now go into our home controller to add in the calls to grab events. So lets add the following code in our home controller:
+
+notextile.. <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+#app/controllers/home_controller.rb
+class HomeController < ApplicationController
+  def index
+    #Load facebook.yml info
+    config = YAML::load(File.open("#{RAILS_ROOT}/config/facebook.yml"));
+
+    #Instantiate a new application with our app_id so we can get an access token
+    my_app = FbGraph::Application.new(config['production']['app_id']);
+    acc_tok = my_app.get_access_token(config['production']['client_secret']);
+
+    #Instantiate a new page class using the page_id specified 
+    @page = FbGraph::Page.new(config.['production']['page_id'], :access_token => acc_tok).fetch;
+
+    #Grab the events from the page 
+    events = @page.events.sort_by{|e| e.start_time};
+    
+    #Get the events that are upcoming
+    @upcoming_events = events.find_all{|e| e.start_time >= Time.now};
+
+    #Get the events that have passed
+    @past_events = events.find_all{|e| e.start_time < Time.now}.reverse;
+  end
+end
+<% end -%>
+
+p. The above code first reads the facebook.yml file to obtain the facebook app information (line 5). It then uses the information to obtain an access token (line 7,8) so we can access events and more information. Once an access token is obtained, we can use it access information from the page. We store the page information in an instance variable so we can display in the view later. We also use the connections provided by fb_graph to access the events that are posted in for that page (line 15). Once we get the events we sort it by the start time. Then we create 2 instance variables that store the upcoming events and the events that have already passed (line 18 and 21).
+
+Once we have the event information we can display it in our view.
+
+notextile.. <% coderay(:lang => "html", :line_numbers => "inline") do -%>
+<!-- app/views/home/index.html.erb -->
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<h1><%%= @page.name %></h1>
+<storng>Upcoming Events:</strong> <br />
+<hr />
+  <%% @upcoming_events.each do |event| %>
+    <%%= event.name %> - <%%= event.start_time %> <br />
+  <%% end %>
+<br />
+<br />
+<storng>Past Events:</strong> <br />
+<hr />
+  <%% @past_events.each do |event| %>
+    <%%= event.name %> - <%%= event.start_time %> <br />
+  <%% end %>
+<% end -%>
+
+p. Now we can see the results by running the web server in rails using the following command:
+
+notextile.. <% coderay(:lang => "shell", :line_numbers => "inline") do -%>
+% rails server
+<% end -%>
+
+p. By pointing your browser to _localhost:3000_ you should now see a simple page with your facebook page name and the events listed from your facebook page in your ruby on rails app! This is a very simple example of using fb_graph to access the facebook graph api to get data from facebook. To learn more about the facebook graph api see "here":http://developers.facebook.com/docs/api. Nov Matake also has a sample facebook app and documentation of the fb_graph api with some examples "here":http://github.com/nov/fb_graph. Note that is a simplified example, and there are several optimizations that could be done. I simply wanted a quick and easy tutorial to get people started with using the fb_graph gem. Hopefully this can help you integrate facebook into your next ruby on rails app!
+
+
+
+
+
+
+
+
+
+
+
