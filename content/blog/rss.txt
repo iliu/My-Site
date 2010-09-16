@@ -1,5 +1,5 @@
 ---
-title:     Blog Feed
+title:     My Blog Feed
 subtitle:  Isaac Liu's Blog Feed
 site:      isaacliu.info
 author:    Isaac Liu

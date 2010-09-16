@@ -8,7 +8,7 @@
   <subtitle>Isaac Liu's Blog Feed</subtitle>
   <link href="http://isaacliu.info/tumblog/" rel="self" />
   <link href="http://isaacliu.info/" />
-  <updated>2010-09-16T00:41:38-07:00</updated>
+  <updated>2010-09-16T01:52:12-07:00</updated>
   <author>
     <name>Isaac Liu</name>
     <email></email>
@@ -18,8 +18,8 @@
   <entry>
     <title>RoR and Facebook With fb_graph</title>
     <link href="/blog/201009/ror-and-facebook-with-fb-graph.html" />
-    <id>tag:isaacliu.info,2010-09-17:1284700506</id>
-    <updated>2010-09-17T05:15:06Z</updated>
+    <id>tag:isaacliu.info,2010-09-16:1284663600</id>
+    <updated>2010-09-16T19:00:00Z</updated>
     <content type="html">&lt;p&gt;While working on our church website, integrating with our church&amp;#8217;s facebook fan page became a desired feature so our site maintenance team can just add an event on facebook and have it synced up to our website.&lt;/p&gt;
 &lt;p&gt;After learning about the &lt;a href=&quot;http://developers.facebook.com/docs/api/&quot;&gt;facebook graph api&lt;/a&gt;, I was planning to write a library for ruby that sent out the queries and parsed the results to display on our site. However, I found the &lt;a href=&quot;http://github.com/nov/fb_graph&quot;&gt;fb_graph gem&lt;/a&gt; written by Nov Matake and decided to try it out. The experience was extremely positive and Nov was very helpful and prompt in responding to my emails. Here&amp;#8217;s how I integrated the facebook graph api into a ruby on rails app:&lt;/p&gt;
 &lt;p&gt;First things first, lets create a new rails application, and we&amp;#8217;ll name it &amp;#8220;fb_graph_app&amp;#8221;.&lt;/p&gt;

@@ -4,7 +4,10 @@ filter:
  - erb
  - basepath_mod
 ---
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://www.isaacliu.info" xml:lang="en-US">
+<id>tag:isaacliu.info,2009:/blog</id>
+  <link type="text/html" rel="alternate" href="http://isaacliu.info/blog"/>
+  <link type="application/atom+xml" rel="self" href="http://isaacliu.info/blog/xml"/>
           <%= @content %> 
 </feed>
