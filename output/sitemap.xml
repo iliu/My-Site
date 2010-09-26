@@ -167,8 +167,19 @@
   </url>
   
   <url>
+    <loc>http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/caching-facebook-api-call-results-in-ruby-on-rails.html</loc>
+    <lastmod>2010-09-25</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.7</priority>
+    
+  </url>
+  
+  <url>
     <loc>http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/ror-and-facebook-with-fb-graph.html</loc>
-    <lastmod>2010-09-16</lastmod>
+    <lastmod>2010-09-25</lastmod>
     
     <changefreq>weekly</changefreq>
     

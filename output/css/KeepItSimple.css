@@ -92,17 +92,6 @@ div {
     zoom: 1; 
 }
 
-code {
-  	margin: 3px 0;
-  	padding: 15px;
-  	text-align: left;
-  	display: block;
-  	overflow: auto;  
-  	font: 500 1em/1.5em 'Lucida Console', 'Courier New', Monospace ;
-  	/* white-space: pre; */
-  	border: 1px solid #F0F0F0;
-	background: #f8f8f8;  
-}
 acronym {
   cursor: help;
   border-bottom: 1px dotted #895F30;
@@ -171,7 +160,8 @@ input, select, textarea {
 	font: 11px 'Lucida Grande', Verdana, Helvetica, sans-serif;
 }
 input:focus, select:focus, textarea:focus {
-	color: #7BA857;
+/* 	color: #7BA857; */
+        color: #333;
 	background: #EFFAE6;
 }
 #name, #email, #message, #website {
@@ -611,9 +601,19 @@ ol.commentlist {
 }
 
 .post .CodeRay {
-    margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 0px;
+}
+
+.postcontents .syntaxhighlighter {
+    margin-left: 20px; !important;
+    margin-right: 10px; !important;
+}
+
+.postcontents pre {
+    margin: 5px 15px;
+    padding-left: 10px;
+    border: 1px solid #999;
 }
 /* ----------------------------------------------
    WEBRSS

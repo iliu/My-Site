@@ -1,0 +1,241 @@
+---
+title:      Caching Facebook API Call Results in Ruby on Rails
+created_at: 2010-09-25 11:30:51.040228 -07:00
+author:     Isaac Liu
+filter:
+  - textile
+  - erb
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+---
+In my last entry I covered how to integrate facebook api with ruby on rails using fb_graph gem. There is one problem with integrating the facebook api with your website however, and that is if facebook goes down, then your site also crashes. Yesterday facebook went down, along with the graph.facebook.com api. As a result, one of the sites I was managing went down since it kept waiting to authenticate with the facebook graph api. Now there are definitely other solutions around this, but I also found that when using facebook integration on websites, the websites load a little slower because it has to connect to facebook first, fetch the data, then render the webpage, so the performance of the webpage will heavily depend on the speed of the facebook fetch. Thus, I decided to implement a caching scheme that synchronizes a local database with information fetched from facebook. This way my page only needs to access a local database every time it's queried, but the database is synced with facebook information, so it's pretty much like I'm accessing facebook!! 
+
+The basic idea is as follows:
+ # Create a table that stores the information you want from facebook
+ # Setup a ruby script that uses the fb_graph gem calls to update the database
+ # Setup that ruby script as a cron job on the webserver  and run it as frequent as you like
+ # Change your fb_gem calls to local database calls
+ # Sit back and let the webserver do the hard work!
+
+First, lets setup a database table storing the information that you want. I will build on my previous example of the fb_graph gem that polled events from a facebook page using the graph api provided by facebook. For this example we will just pull the events from a facebook page, so we'll just create a table storing the event information. We'll use the rails generator to generate a model to store the facebook events. This will generate the correct model files and migrations. 
+
+<pre class="brush: shell;" title="Run this command in your terminal:">
+% rails g model facebook_event name:string start_time:datetime \
+end_time:datetime location:string description:text \
+updated_time:datetime identifier:string picture:string
+</pre>
+
+This command will generate a migration file that will setup the table which will store the information pulled from facebook. Change the column names according to whatever information you want cached. We can look at the migration file generated from the above file:
+
+<pre class="brush: rails; highlight:[4,5,6,7,8,9,10,11]" title="db/migrate/#####_create_facebook_events.rb:">
+class CreateFacebookEvents < ActiveRecord::Migration
+  def self.up
+    create_table :facebook_events do |t|
+      t.string :name
+      t.datetime :start_time
+      t.datetime :end_time
+      t.string :location
+      t.text :description
+      t.datetime :updated_time
+      t.string :identifier
+      t.string :picture
+
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :facebook_events
+  end
+end
+</pre>
+
+The highlighted lines show the columns of the table. Now we run "rake db:migrate" to run the migration. Once the table is created, we start writing our ruby script to call the facebook graph api. I created a "jobs" folder under my rails root folder to store the ruby scripts. Ruby on rails has a "runner" script that runs ruby scripts in the site environment, so we will use that to run our script. First lets move the code to access facebook out of our controller and into the script:
+
+<pre class="brush: ruby; first-line: 30" title="$RAILS_ROOT/jobs/update_facebook.rb:">
+##################
+# FACEBOOK ACCESS
+##################
+config = YAML::load(File.open("#{RAILS_ROOT}/config/facebook.yml"));
+gscc_app = FbGraph::Application.new(config['production']['app_id']);
+access_token = gscc_app.get_access_token(config['production']['client_secret']);
+page_id = config['production']['page_id'];
+
+page = FbGraph::Page.new(page_id, :access_token => access_token).fetch;
+</pre>
+
+We need to know which events were updated since our last fetch, so we use the updated_time value from facebook and compare it to the stored updated_time value in our database. Here's the code that goes through the database to find the latest updated_time in all the rows. If there are no events, then we set the last update time of the database (lutdatabase) to the earliest possible time (line 24).
+
+<pre class="brush: ruby; first-line: 22" title="$RAILS_ROOT/jobs/update_facebook.rb:">
+query = FacebookEvent.find(:first, :order => "updated_time DESC");
+if query.nil?
+  lutdatabase = Time.at(0);
+else
+  lutdatabase = query.updated_time;
+end
+</pre>
+
+Since the updated_time value for an event isn't fetched by default in the connections from page in the fb_graph gem, we need explicitly fetch the event using it's identifier (line 44) to access its updated_time. After we fetch each event, we compare the updated_time. If the updated_time is after what's in our database, then we know we need to update that event. Line 47 fetches the event from our database. If an event is found, then we update the entry, or else we create a new entry and enter it in our database. 
+
+<pre class="brush: ruby; first-line: 43; highlight: [44, 47]" title="$RAILS_ROOT/jobs/update_facebook.rb:">
+page.events.each do |e|
+  ie = FbGraph::Event.new(e.identifier, :access_token => access_token).fetch;
+  if ie.updated_time > lutdatabase
+    puts "\n**found dirty facebook event - "+ie.name
+    edatabase = FacebookEvent.find(:first, :conditions => [ "identifier = ?", ie.identifier ]);
+    if edatabase
+      puts "***found database entry, updating the entry "+edatabase.name
+      edatabase.name = ie.name
+      edatabase.start_time = ie.start_time
+      edatabase.end_time = ie.end_time
+      edatabase.location = ie.location
+      edatabase.description = ie.description
+      edatabase.updated_time = ie.updated_time
+      edatabase.identifier = ie.identifier
+      edatabase.picture = ie.picture
+      edatabase.save
+      puts "***updated "+edatabase.name
+    else
+      puts "***database entry not found, adding to database "+ie.name
+      edatabase = FacebookEvent.new( :name => ie.name, :start_time => ie.start_time, :end_time => ie.end_time, :location => ie.location, :description => ie.description, :updated_time => ie.updated_time, :identifier => ie.identifier, :picture => ie.picture )
+      edatabase.save
+      puts "***saved "+edatabase.name
+    end
+  end
+end
+</pre>
+
+However, just updating and fetching events is not enough. If an event is deleted from facebook, the above code would not delete it from our database. So we add the following code to compare the events from our database to the events in facebook. If an event appears in our database but not on facebook, we know that it no longer exists.  
+
+<pre class="brush: ruby; first-line: 74" title="$RAILS_ROOT/jobs/update_facebook.rb:">
+all_events = FacebookEvent.find(:all);
+page.events.each do |e|
+  all_events.delete_if { |ae| ae.identifier == e.identifier }
+end
+if all_events.size > 0
+  puts "Found deleted events! Deleting events from database..."
+  all_events.each do |e|
+    puts "\n***deleting event "+e.name
+    e.delete
+    puts "****deleted."
+  end
+end
+</pre>
+
+Now we have all of the facebook access and update code, you can actually try running this script by using the "rails runner" command. You should see the output and events being added to your database. Now there is one optional step that can be added to ensure that cron won't run two instances of the same script. If you setup your script to run every one minute but the one instance of the script takes longer than that, we don't want another instance to start up and start overwriting the database. So we can add code to obtain a file lock. The lock won't be released until the script finishes, and future instances of the script will need to obtain the lock before it starts (add this to the beginning and end of your code - see the line numbers below). 
+
+<pre class="brush: ruby; first-line:3; highlight: [8,9,10,11]"title="$RAILS_ROOT/jobs/update_facebook.rb:">
+t1 = Time.now
+puts "================"
+puts Time.now.strftime("%Y%m%d-%H%M%S") + " : " + __FILE__ + " starting..."
+
+puts "\ngrabbing file lock....."
+if File.new(__FILE__).flock(File::LOCK_EX | File::LOCK_NB) == false
+  puts "*** can't lock file, another instance of script running?  exiting"
+  exit 1
+end
+</pre>
+<pre class="brush: ruby; first-line:93" title="$RAILS_ROOT/jobs/update_facebook.rb:">
+t2 = Time.now
+puts Time.now.strftime("%Y%m%d-%H%M%S") + " : " + __FILE__ + " finished  #{t2 - t1} secs"
+puts "================"
+</pre>
+
+You can view the whole source "here":http://github.com/iliu/mysite-examples/blob/fb_graph_cache/jobs/update_facebook.rb.  Great, now the hard part is out of the way, we just need to setup a cron job on the webserver that executes this as often as we want. Lets first write a shell script to wrap around this ruby script so we can call it from the cron job.
+
+<pre class="brush: bash; highlight: [16]" title="$RAILS_ROOT/jobs/wrap_update_facebook.sh">
+#!/bin/bash
+pushd $(dirname "${0}") > /dev/null
+basedir=$(pwd -L)
+# Use "pwd -P" for the path without links. man bash for more info.
+popd > /dev/null
+export RAILS_ROOT=`dirname ${basedir}`
+
+# detect if we're on the web server
+sname=`basename $RAILS_ROOT`
+if [ $sname == "myserver.org" ]
+then
+    echo "===On web server, changing rails environment==="
+    export RAILS_ENV=production
+fi
+
+rails runner ${basedir}/update_facebook.rb
+</pre>
+
+Line 16 is what runs the update_facebook script using rails runner. Make sure rails is in your path. Lines 10 to 14 detects if we're on the webserver, and changes the rails environment to production. Make sure to change the permissions of the script to executable, then test it out by running the script. Once it is satisfactory, we can setup a cron job. "cron" is the linux utility to run a scheduled job. If you are using a windows web host then please search online to see how you can setup a recurring job on the web host. Lets add the job by running crontab:
+
+<pre class="brush: shell; " title="Run this command in your terminal:">
+% crontab -e
+</pre>
+
+Setting up a cron job might seem overwhelming, but it's actually really simple. The following syntax applies for each entry
+
+<pre class="brush: shell; gutter: false;">
+*     *     *   *    *        command to be executed
+-     -     -   -    -
+|     |     |   |    |
+|     |     |   |    +----- day of week (0 - 6) (Sunday=0)
+|     |     |   +------- month (1 - 12)
+|     |     +--------- day of        month (1 - 31)
+|     +----------- hour (0 - 23)
++------------- min (0 - 59)
+</pre>
+
+Here are some examples jobs:
+
+<pre class="brush: shell;" title="Example cron jobs">
+#runs at 8pm every day
+0 20 * * * echo "hello"
+
+#runs every 5 minutes
+*/5 * * * * echo "I run every 5 minutes"
+</pre>
+
+So I added the following entry which runs at 9am and 9pm every day:
+
+<pre class="brush: shell;">
+0 9,21 * * * <my rails_root>/jobs/wrap_update_facebook.sh
+</pre>
+
+The last step is to modify the controller code and switch out the code that polls from facebook and insert the code to poll from the database:
+
+<pre class="brush: ruby; highlight: [17]" title="$RAILS_ROOT/app/controllers/home_controller.rb:">
+class HomeController < ApplicationController
+  def index
+    #Load facebook.yml info
+    #config = YAML::load(File.open("#{RAILS_ROOT}/config/facebook.yml"));
+
+    #Instantiate a new application with our app_id so we can get an access token
+    #my_app = FbGraph::Application.new(config['production']['app_id']);
+
+    #Actually get the access token
+    #acc_tok = my_app.get_access_token(config['production']['client_secret']);
+
+    #Instantiate a new page class using the page_id specified 
+    #@page = FbGraph::Page.new(config['production']['page_id'], :access_token => acc_tok).fetch;
+
+    #Grab the events from the page 
+    #events = @page.events.sort_by{|e| e.start_time};
+    events = FacebookEvent.find(:all)
+    
+    #Get the events that are upcoming
+    @upcoming_events = events.find_all{|e| e.start_time >= Time.now};
+
+    #Get the events that have passed
+    @past_events = events.find_all{|e| e.start_time < Time.now}.reverse;
+  end
+end
+</pre>
+
+We commented all the facebook access code, and on line 17 added the code to grab events from our database. Everything else stays the same! If your using my previous code, you will also need to remove the line that displays the page name. Now run your rails app and it will poll information from the local database instead of facebook, while your database is synced with facebook!
+
+The full working example of this code can be found "here":http://github.com/iliu/mysite-examples/tree/fb_graph_cache along with all my example codes. Once you clone the repository make sure to check out the remote branch "fb_graph_cache" to get the working source code! 
+
+<pre class="brush: shell; gutter: false; highlight:[1]" title="Source code link:">
+http://github.com/iliu/mysite-examples/tree/fb_graph_cache
+</pre>
+
