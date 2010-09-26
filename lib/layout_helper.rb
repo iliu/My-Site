@@ -22,6 +22,10 @@ module LayoutHelper
     linkval += "\">" + result.title + "</a></li>";
   end
 
+  def basepath
+    return ::Webby.site.base
+  end
+
 end  # module LayoutHelper
 
 Webby::Helpers.register(LayoutHelper)
