@@ -60,10 +60,12 @@ filter:
 	    <a href="/blog/rss.xml"> <img id="feed-icon" src="/images/icons/feed.png" alt="feed"/></a>  
 	  </div>
  	  
-	  <form id="quick-search" action="index.html" method="get" >
+	  <form id="quick-search" action="http://www.google.com/search" method="get" >
 	    <p>
 	      <label for="qsearch">Search:</label>
-	      <input class="tbox" id="qsearch" type="text" name="qsearch" value="This does nothing right now..." title="Start typing and hit ENTER" />
+	      <input class="tbox" id="qsearch" type="text" name="q" value="Search my site through google..." title="Start typing and hit ENTER" onfocus="if(this.value=='Search my site through google...')this.value='';" />
+		<input type="hidden"  name="sitesearch"
+		        value="http://www.eecs.berkeley.edu/~liuisaac/site/" />
 	      <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="/images/search.gif" />
 	    </p>
 	  </form>					

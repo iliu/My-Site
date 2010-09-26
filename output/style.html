@@ -61,10 +61,11 @@
 	    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/rss.xml"> <img src="images/icons/feed.png" id="feed-icon" alt="feed" /></a>  
 	  </div>
  	  
-	  <form method="get" action="index.html" id="quick-search">
+	  <form method="get" action="http://www.google.com/search" id="quick-search">
 	    <p>
 	      <label for="qsearch">Search:</label>
-	      <input name="qsearch" class="tbox" title="Start typing and hit ENTER" id="qsearch" type="text" value="This does nothing right now..." />
+	      <input name="q" class="tbox" title="Start typing and hit ENTER" id="qsearch" type="text" value="Search my site through google..." onfocus="if(this.value=='Search my site through google...')this.value='';" />
+		<input name="sitesearch" type="hidden" value="http://www.eecs.berkeley.edu/~liuisaac/site/" />
 	      <input name="searchsubmit" class="btn" title="Search" src="images/search.gif" type="image" alt="Search" />
 	    </p>
 	  </form>					
