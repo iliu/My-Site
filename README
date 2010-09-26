@@ -8,6 +8,7 @@ CONTENTS OF THIS FILE
  * Installation of site
  * Usage
  * Infrastructure
+ * Special Features
  * Links
 
 
@@ -74,6 +75,16 @@ INFRASTRUCTURE
   commands that are executed. *THESE ARE NOT WEB TEMPLATES*. They are
   the templates used when a blog entry content (the .txt file in the
   content folder) is created. 
+
+
+SPECIAL FEATURES
+----------------
+Some of the special features on this site (besides the built in webby features) include:
+* Using jquery(http://jquery.com/) to manipulate UI
+* Use jquery timeago plugin (http://timeago.yarp.com/) to change time displays to the "time ago" format
+* Integrated jabref(http://jabref.sourceforge.net/) generated html table to display my publications
+* Use SyntaxHighlighter (http://alexgorbatchev.com/SyntaxHighlighter/) to display code
+
 
 LINKS
 -----
