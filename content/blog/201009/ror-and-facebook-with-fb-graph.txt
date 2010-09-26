@@ -12,6 +12,8 @@ sitemap: true
 priority: 0.7
 changefreq: weekly
 ---
+**(09/25/10) Edit:** A working version of this source code is uploaded "here":http://github.com/iliu/mysite-examples/tree/fb_graph_gem. Download it and follow the README to try it out!
+
 While working on our church website, integrating with our church's facebook fan page became a desired feature so our site maintenance team can just add an event on facebook and have it synced up to our website. 
 
 After learning about the "facebook graph api":http://developers.facebook.com/docs/api/, I was planning to write a library for ruby that sent out the queries and parsed the results to display on our site. However, I found the "fb_graph gem":http://github.com/nov/fb_graph written by Nov Matake and decided to try it out. The experience was extremely positive and Nov was very helpful and prompt in responding to my emails. Here's how I integrated the facebook graph api into a ruby on rails app:
