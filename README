@@ -23,16 +23,12 @@ repository and static, i can easily deploy the site on any webhost.
 
 INSTALLATION 
 ------------
-* Static site*
-Download the "output" folder from the repository, which contains the
-full static website.
-
-* Webby *
 1. Install gems. Each platform has different instructions. Please
 google "installing gems <windows/mac osx/linux>" to find out how to do
 so
 2. Type in "sudo gem install webby" in a command prompt or
 terminal. The webby gem and dependencies should be installed
+3. Run the command webby to generate the output folder
 
 USAGE
 -----
