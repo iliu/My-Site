@@ -3,8 +3,8 @@ title:      RoR and Facebook With fb_graph
 created_at: 2010-09-16 12:00:00.978126 -07:00
 author:     Isaac Liu
 filter:
-  - textile
   - erb
+  - textile
 layout:       tumblog/post
 tumblog_type: regular
 content_type: tumblog
@@ -16,11 +16,15 @@ tags:
   - ruby
   - facebook
 ---
+<% @page[:excerpt] = capture_erb do -%> 
+
 **(09/25/10) Edit:** A working version of this source code is uploaded "here":http://github.com/iliu/mysite-examples/tree/fb_graph_gem. Download it and follow the README to try it out!
 
 While working on our church website, integrating with our church's facebook fan page became a desired feature so our site maintenance team can just add an event on facebook and have it synced up to our website. 
 
 After learning about the "facebook graph api":http://developers.facebook.com/docs/api/, I was planning to write a library for ruby that sent out the queries and parsed the results to display on our site. However, I found the "fb_graph gem":http://github.com/nov/fb_graph written by Nov Matake and decided to try it out. The experience was extremely positive and Nov was very helpful and prompt in responding to my emails. Here's how I integrated the facebook graph api into a ruby on rails app:
+<% end -%> 
+<%= RedCloth.new(@page.excerpt).to_html %>
 
 First things first, lets create a new rails application, and we'll name it "fb_graph_app". 
 
