@@ -80,7 +80,7 @@ Some of the special features on this site (besides the built in webby features) 
 * Use jquery timeago plugin (http://timeago.yarp.com/) to change time displays to the "time ago" format
 * Integrated jabref(http://jabref.sourceforge.net/) generated html table to display my publications
 * Use SyntaxHighlighter (http://alexgorbatchev.com/SyntaxHighlighter/) to display code
-
+* Added tags based upon Aaron Qian's blog post
 
 LINKS
 -----

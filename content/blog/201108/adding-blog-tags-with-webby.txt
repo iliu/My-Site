@@ -22,6 +22,6 @@ I saved a link to "Aarom Qian":https://github.com/aq1018/aaron-blog blog post ab
 
 In general his directions were pretty clear and everything worked well. It explained how to setup the tags framework and how to use rake tasks to generate the tag pages. However, I did need to make some minor hacks to get it working. I'll try to add a tutorial blog entry if i have time. I'd also be more than happy to answer any questions if anyone is having trouble implementing tags. 
 
-In the mean time, try to follow along his post. Enjoy!
+In the mean time, try to follow along his post, or check out the source of this blog on my "github":https://github.com/iliu/My-Site account. Enjoy! 
 
 
