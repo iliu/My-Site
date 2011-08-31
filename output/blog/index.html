@@ -10,7 +10,7 @@
     <meta name="description" content="Isaac Liu is currently a Ph.D student at the University of California, Berkeley in the EECS department. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines – PRET)." />
     
 
-      <link href="../css/screen.css" rel="stylesheet" type="text/css" media="screen" />
+      <link href="../css/screen.css" rel="stylesheet" media="screen" type="text/css" />
 
       <script src="../scripts/jquery.min.js" type="text/javascript"></script>
       <script src="../scripts/jquery.timeago.js" type="text/javascript"></script>
@@ -76,9 +76,9 @@
 	  <form method="get" action="http://www.google.com/search" id="quick-search">
 	    <p>
 	      <label for="qsearch">Search:</label>
-	      <input name="q" class="tbox" title="Start typing and hit ENTER" id="qsearch" type="text" value="Search my site through google..." onfocus="if(this.value=='Search my site through google...')this.value='';" />
-		<input name="sitesearch" type="hidden" value="http://www.eecs.berkeley.edu/~liuisaac/site/" />
-	      <input name="searchsubmit" class="btn" title="Search" src="../images/search.gif" type="image" alt="Search" />
+	      <input name="q" title="Start typing and hit ENTER" class="tbox" id="qsearch" value="Search my site through google..." type="text" onfocus="if(this.value=='Search my site through google...')this.value='';" />
+		<input name="sitesearch" value="http://www.eecs.berkeley.edu/~liuisaac/site/" type="hidden" />
+	      <input name="searchsubmit" title="Search" class="btn" src="../images/search.gif" type="image" alt="Search" />
 	    </p>
 	  </form>					
 
@@ -91,11 +91,52 @@
 	  <!-- main -->
 	  <div class="grid_11 alpha" id="main">
 
-            <div class="postothers" style="float:right">
+            
+<div class="postothers" style="float:right">
      [ Click on title to reveal post content ]
 </div>
 
-    <div class="post" id="caching-facebook-api-call-results-in-ruby-on-rails-posthead">
+    
+<div class="post" id="adding-blog-tags-with-webby-posthead">
+  <div class="posthead">
+        <h2 class="posttitle">
+            <a href="#adding-blog-tags-with-webby">Added blog tags in Webby</a>
+          </h2>
+    
+            <p class="postdate">
+      <strong class="day">30th</strong>
+      <strong class="month">Aug</strong>
+      <strong class="year">2011</strong>
+    </p>
+
+    
+    <div class="postmeta"> 
+      <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201108/adding-blog-tags-with-webby.html#disqus_thread">Comments</a></span>&nbsp;
+      <span class="post-filed">
+	Tags: 
+	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/webby.html">webby</a>
+      </span>
+    </div>
+  </div> <!-- end posthead -->
+    <div class="postcontents" id="adding-blog-tags-with-webby-content" style="display:none">
+        	    <p>I just found out that Webby is no long under active development =(. What a sad piece of news. However, with the current Webby version, it&#8217;s still good enough for me to maintain my blog. Since it&#8217;s relatively easy to extend, I decided to add tags to Webby.</p>
+<p>I saved a link to <a href="https://github.com/aq1018/aaron-blog">Aarom Qian</a> blog post about adding tags to Webby a long time ago, but unfortunately the blog is no longer online. I dug around and was able to find his <a href="https://github.com/aq1018/aaron-blog">github</a>  repository and the raw textile/erb entry in there. You can see it here: <a href="http://www.eecs.berkeley.edu/~liuisaac/site/docs/adding-blog-tags-using-webby.txt">Adding Blog Tags using Webby</a>.</p>
+<p>In general his directions were pretty clear and everything worked well. It explained how to setup the tags framework and how to use rake tasks to generate the tag pages. However, I did need to make some minor hacks to get it working. I&#8217;ll try to add a tutorial blog entry if i have time. I&#8217;d also be more than happy to answer any questions if anyone is having trouble implementing tags.</p>
+<p>In the mean time, try to follow along his post. Enjoy!</p>
+	 	        <script type="text/javascript">
+//<![CDATA[
+	  $('#adding-blog-tags-with-webby-posthead').click(function(){
+	  $('#adding-blog-tags-with-webby-content').slideToggle('slow');
+	  });
+//]]>
+	</script>
+        
+  </div>
+</div>
+
+
+        
+<div class="post" id="caching-facebook-api-call-results-in-ruby-on-rails-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#caching-facebook-api-call-results-in-ruby-on-rails">Caching Facebook API Call Results in Ruby on Rails</a>
@@ -110,7 +151,10 @@
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/caching-facebook-api-call-results-in-ruby-on-rails.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	Tags: 
+	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby on rails.html">ruby on rails</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/facebook.html">facebook</a>
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="caching-facebook-api-call-results-in-ruby-on-rails-content" style="display:none">
@@ -324,7 +368,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="ror-and-facebook-with-fb-graph-posthead">
+        
+<div class="post" id="ror-and-facebook-with-fb-graph-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#ror-and-facebook-with-fb-graph">RoR and Facebook With fb_graph</a>
@@ -339,7 +384,10 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/ror-and-facebook-with-fb-graph.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	Tags: 
+	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby on rails.html">ruby on rails</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/facebook.html">facebook</a>
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="ror-and-facebook-with-fb-graph-content" style="display:none">
@@ -475,7 +523,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="zoom-1-ie-fix-posthead">
+        
+<div class="post" id="zoom-1-ie-fix-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#zoom-1-ie-fix">Zoom:1 IE Fix</a>
@@ -490,7 +539,10 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/zoom-1-ie-fix.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	Tags: 
+	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/jquery.html">jquery</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/css.html">css</a>
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="zoom-1-ie-fix-content" style="display:none">
@@ -513,7 +565,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="webby-tricks-jquery-posthead">
+        
+<div class="post" id="webby-tricks-jquery-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#webby-tricks-jquery">Webby Tricks - JQuery</a>
@@ -528,7 +581,10 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/webby-tricks-jquery.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	Tags: 
+	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/jquery.html">jquery</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/webby.html">webby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="webby-tricks-jquery-content" style="display:none">
@@ -581,7 +637,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="birthday-freebies-posthead">
+        
+<div class="post" id="birthday-freebies-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#birthday-freebies">Birthday Freebies!</a>
@@ -596,7 +653,10 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/birthday-freebies.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	
+	
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="birthday-freebies-content" style="display:none">
@@ -622,7 +682,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="crawling-up-the-ranks-posthead">
+        
+<div class="post" id="crawling-up-the-ranks-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#crawling-up-the-ranks">Crawling up the Ranks</a>
@@ -637,7 +698,10 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/crawling-up-the-ranks.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	Tags: 
+	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/apache.html">apache</a>
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="crawling-up-the-ranks-content" style="display:none">
@@ -660,7 +724,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="welcome-layton-posthead">
+        
+<div class="post" id="welcome-layton-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#welcome-layton">Welcome Layton!</a>
@@ -675,7 +740,10 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/welcome-layton.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	
+	
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="welcome-layton-content" style="display:none">
@@ -693,7 +761,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="lots-to-learn-dot-posthead">
+        
+<div class="post" id="lots-to-learn-dot-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#lots-to-learn-dot">Lots to Learn...</a>
@@ -708,7 +777,10 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/lots-to-learn-dot.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	
+	
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="lots-to-learn-dot-content" style="display:none">
@@ -725,7 +797,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="lots-to-do-dot-posthead">
+        
+<div class="post" id="lots-to-do-dot-posthead">
   <div class="posthead">
         <h2 class="posttitle">
             <a href="#lots-to-do-dot">Lots to Do...</a>
@@ -740,7 +813,10 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
     <div class="postmeta"> 
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/lots-to-do-dot.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	
+	
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="lots-to-do-dot-content" style="display:none">
@@ -758,53 +834,11 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </div>
 
 
-        <div class="post" id="hello-world-posthead">
-  <div class="posthead">
-        <h2 class="posttitle">
-            <a href="#hello-world">Hello World - Webby</a>
-          </h2>
-    
-            <p class="postdate">
-      <strong class="day">16th</strong>
-      <strong class="month">Apr</strong>
-      <strong class="year">2010</strong>
-    </p>
-
-    
-    <div class="postmeta"> 
-      <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/hello-world.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
-    </div>
-  </div> <!-- end posthead -->
-    <div class="postcontents" id="hello-world-content" style="display:none">
-        	    <p>Is there a scalable way to create websites with only static pages? I don&#8217;t want to continuously be adding html pages, or editing html pages&#8230;</p>
-<p>The answer is Yes! I&#8217;ve began experimenting with static web site generators (currently using <a href="http://webby.rubyforge.org/">Webby</a>), and my new site will be the results of this experimentation. I hope for the following when I&#8217;m experimenting with <em>Webby</em>:</p>
-<ul>
-	<li>Separation of content and layout</li>
-	<li>To use newer markup languages (textile, markdown, haml &#8230; )</li>
-	<li>All static pages when website is deployed</li>
-	<li>Easy to add content (or else i never will&#8230;), preferably a blog like structure</li>
-</ul>
-<p>It seems <em>Webby</em> has it all. So it&#8217;s time to dive in and see what I can do with it!</p>
-	 	        <script type="text/javascript">
-//<![CDATA[
-	  $('#hello-world-posthead').click(function(){
-	  $('#hello-world-content').slideToggle('slow');
-	  });
-//]]>
-	</script>
-        
-  </div>
-</div>
-
-
     
 <div class="postothers">
  
  <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/index2.html">Next &#187;</a>&nbsp;&nbsp;
 </div>
-
-
 
 
 	    <script type="text/javascript">
@@ -859,7 +893,7 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 <p><strong>office</strong> 545K Cory Hall, Berkeley, CA<br />
 <strong>email</strong> liuisaac (at) berkeley (dot) edu <br />
 <strong>cv</strong> <a href="http://www.eecs.berkeley.edu/~liuisaac/site/resume.html">html</a> / <a href="http://www.eecs.berkeley.edu/~liuisaac/site/docs/resume.pdf">pdf</a> [ <em>updated: 1/31/08</em> ]<br />
-<strong>others</strong> <a href="http://www.facebook.com/isaacliu"><img class="icons" title="facebook" src="../images/icons/facebook.png" alt="facebook" /></a> <a href="http://www.linkedin.com/pub/isaac-liu/9/996/6a0"><img class="icons" title="linkedin" src="../images/icons/linkedin.png" alt="linkedin" /></a> <a href="http://twitter.com/isaacliu"><img class="icons" title="twitter" src="../images/icons/twitter.png" alt="twitter" /></a> <a href="http://picasaweb.google.com/liu.isaac"><img class="icons" title="picasa" src="../images/icons/picasa.png" alt="picasa" /></a> <a href="http://github.com/iliu"><img class="icons" title="github" src="../images/icons/github.png" alt="github" /></a></p>
+<strong>others</strong> <a href="http://www.facebook.com/isaacliu"><img title="facebook" class="icons" src="../images/icons/facebook.png" alt="facebook" /></a> <a href="http://www.linkedin.com/pub/isaac-liu/9/996/6a0"><img title="linkedin" class="icons" src="../images/icons/linkedin.png" alt="linkedin" /></a> <a href="http://twitter.com/isaacliu"><img title="twitter" class="icons" src="../images/icons/twitter.png" alt="twitter" /></a> <a href="http://picasaweb.google.com/liu.isaac"><img title="picasa" class="icons" src="../images/icons/picasa.png" alt="picasa" /></a> <a href="http://github.com/iliu"><img title="github" class="icons" src="../images/icons/github.png" alt="github" /></a></p>
 	      </div>
 	      <div class="featured-post">
 		<script src="../scripts/twitterwidget.js" type="text/javascript"></script>
@@ -902,6 +936,10 @@ new TWTR.Widget({
 		<h4> Recent Blog Entries </h4>
 <ul class="footer-list">
 <li>
+  <div class="date">[ <abbr title="2011-08-30T16:08:17Z" class="timeago">Aug 30, 2011</abbr> ]</div>
+  <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201108/adding-blog-tags-with-webby.html">Added blog tags in Webby</a>
+</li>
+  <li>
   <div class="date">[ <abbr title="2010-09-25T18:30:51Z" class="timeago">Sep 25, 2010</abbr> ]</div>
   <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/caching-facebook-api-call-results-in-ruby-on-rails.html">Caching Facebook API Call Results in Ruby on Rails</a>
 </li>
@@ -921,14 +959,45 @@ new TWTR.Widget({
   <div class="date">[ <abbr title="2010-04-25T15:54:33Z" class="timeago">Apr 25, 2010</abbr> ]</div>
   <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/birthday-freebies.html">Birthday Freebies!</a>
 </li>
-  <li>
-  <div class="date">[ <abbr title="2010-04-23T21:16:50Z" class="timeago">Apr 23, 2010</abbr> ]</div>
-  <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/crawling-up-the-ranks.html">Crawling up the Ranks</a>
-</li>
     
 
 </ul>
 <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/" class="left-columns-archive float-right">Archive...</a>
+
+	      </div>
+	      <div class="featured-post">
+		<h4>Tags</h4>
+<ul>
+  <!-- sort tags in alphabetical order, and then generate links for each tag -->
+  <li>
+    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/apache.html">apache</a>
+    (1)
+  </li>
+  <li>
+    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/css.html">css</a>
+    (1)
+  </li>
+  <li>
+    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/facebook.html">facebook</a>
+    (2)
+  </li>
+  <li>
+    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/jquery.html">jquery</a>
+    (2)
+  </li>
+  <li>
+    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>
+    (4)
+  </li>
+  <li>
+    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby on rails.html">ruby on rails</a>
+    (2)
+  </li>
+  <li>
+    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/webby.html">webby</a>
+    (2)
+  </li>
+</ul>
 
 	      </div>
 	      <!-- end left-columns -->
@@ -1020,7 +1089,22 @@ new TWTR.Widget({
   
   
   
-   
+  
+  
+           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/apache.html">Tag - apache</a> | </span>
+      
+           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/css.html">Tag - css</a> | </span>
+      
+           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/facebook.html">Tag - facebook</a> | </span>
+      
+           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/jquery.html">Tag - jquery</a> | </span>
+      
+           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby on rails.html">Tag - ruby on rails</a> | </span>
+      
+           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">Tag - ruby</a> | </span>
+      
+           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/webby.html">Tag - webby</a> | </span>
+       
 </p>
 	
 	    </div>	

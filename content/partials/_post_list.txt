@@ -1,0 +1,28 @@
+---
+filter:
+  - erb
+---
+<%# pass in a tag if it's a tag page so we can bold the tag %>
+<% tag ||= '' -%>
+<div class="postothers" style="float:right">
+     [ Click on title to reveal post content ]
+</div>
+
+<% prev = nil
+    paginate(posts, 10) do |page| -%>
+    <%= render(:partial => "partials/post", 
+    	       :locals => {:p => page, 
+	       	       	   :c => '', 
+			   :prev => prev, 
+			   :displaycontents => false, 
+			   :tag => tag}) 
+    %>
+  <% if prev != page.created_at.strftime('%Y%m%d') -%>
+  <% prev = page.created_at.strftime('%Y%m%d')
+     end -%>
+<% end -%>
+
+<div class="postothers">
+ <%= link_to("&#171; Prev", @pager.prev) + "&nbsp;&nbsp;" if @pager.prev? %>
+ <%= link_to("Next &#187;", @pager.next) + "&nbsp;&nbsp;" if @pager.next? %>
+</div>

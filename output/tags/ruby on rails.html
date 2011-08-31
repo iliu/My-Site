@@ -3,17 +3,17 @@
 <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
   <head>
-    <title>Home - Isaac Liu's Website</title>
+    <title>Tag - ruby on rails - Isaac Liu's Website</title>
     <meta name="keywords" content="isaac liu, PRET, real-time systems, computer architecture, basketball, isaac, liu, berkeley, UCB, Precision Timed Machine, liuisaac, isaacliu, JQuery, Javascript, webby, web design, life" />
     <meta content="application/xhtml+xml; charset=UTF-8" http-equiv="content-type" />
     <meta name="author" content="Isaac Liu" />
     <meta name="description" content="Isaac Liu is currently a Ph.D student at the University of California, Berkeley in the EECS department. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines – PRET)." />
     
 
-      <link href="css/screen.css" rel="stylesheet" media="screen" type="text/css" />
+      <link href="../css/screen.css" rel="stylesheet" media="screen" type="text/css" />
 
-      <script src="scripts/jquery.min.js" type="text/javascript"></script>
-      <script src="scripts/jquery.timeago.js" type="text/javascript"></script>
+      <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+      <script src="../scripts/jquery.timeago.js" type="text/javascript"></script>
       <script type="text/javascript">
 	//<![CDATA[
       // initialize plugin code
@@ -29,8 +29,8 @@
       </script>
 
       <!-- SyntaxHighlighter -->
-      <script src="scripts/syntaxhighlight/shCore.js" type="text/javascript"></script>
-      <script src="scripts/syntaxhighlight/shAutoloader.js" type="text/javascript"></script>
+      <script src="../scripts/syntaxhighlight/shCore.js" type="text/javascript"></script>
+      <script src="../scripts/syntaxhighlight/shAutoloader.js" type="text/javascript"></script>
       
       <!-- google analytics -->
 <script type="text/javascript">
@@ -56,7 +56,7 @@
 	    <ul>
 	      
 	      
-	      <li id="current"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/index.html">Home</a></li>
+	      <li><a href="http://www.eecs.berkeley.edu/~liuisaac/site/index.html">Home</a></li>
 	      
 	      <li><a href="http://www.eecs.berkeley.edu/~liuisaac/site/personal.html">Personal</a></li>
 	      
@@ -70,7 +70,7 @@
 	  </div>		
 	  
 	  <div id="feed-icon-link">
-	    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/rss.xml"> <img src="images/icons/feed.png" id="feed-icon" alt="feed" /></a>  
+	    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/rss.xml"> <img src="../images/icons/feed.png" id="feed-icon" alt="feed" /></a>  
 	  </div>
  	  
 	  <form method="get" action="http://www.google.com/search" id="quick-search">
@@ -78,7 +78,7 @@
 	      <label for="qsearch">Search:</label>
 	      <input name="q" title="Start typing and hit ENTER" class="tbox" id="qsearch" value="Search my site through google..." type="text" onfocus="if(this.value=='Search my site through google...')this.value='';" />
 		<input name="sitesearch" value="http://www.eecs.berkeley.edu/~liuisaac/site/" type="hidden" />
-	      <input name="searchsubmit" title="Search" class="btn" src="images/search.gif" type="image" alt="Search" />
+	      <input name="searchsubmit" title="Search" class="btn" src="../images/search.gif" type="image" alt="Search" />
 	    </p>
 	  </form>					
 
@@ -91,43 +91,16 @@
 	  <!-- main -->
 	  <div class="grid_11 alpha" id="main">
 
-                
-<div class="post" id="adding-blog-tags-with-webby-posthead">
-  <div class="posthead">
-        <h2 class="posttitle">
-            <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201108/adding-blog-tags-with-webby.html">Added blog tags in Webby</a>
-          </h2>
-    
-            <p class="postdate">
-      <strong class="day">30th</strong>
-      <strong class="month">Aug</strong>
-      <strong class="year">2011</strong>
-    </p>
-
-    
-    <div class="postmeta"> 
-      <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201108/adding-blog-tags-with-webby.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed">
-	Tags: 
-	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/webby.html">webby</a>
-      </span>
-    </div>
-  </div> <!-- end posthead -->
-    <div class="postcontents" id="adding-blog-tags-with-webby-content">
-        	    <p>I just found out that Webby is no long under active development =(. What a sad piece of news. However, with the current Webby version, it&#8217;s still good enough for me to maintain my blog. Since it&#8217;s relatively easy to extend, I decided to add tags to Webby.</p>
-<p>I saved a link to <a href="https://github.com/aq1018/aaron-blog">Aarom Qian</a> blog post about adding tags to Webby a long time ago, but unfortunately the blog is no longer online. I dug around and was able to find his <a href="https://github.com/aq1018/aaron-blog">github</a>  repository and the raw textile/erb entry in there. You can see it here: <a href="http://www.eecs.berkeley.edu/~liuisaac/site/docs/adding-blog-tags-using-webby.txt">Adding Blog Tags using Webby</a>.</p>
-<p>In general his directions were pretty clear and everything worked well. It explained how to setup the tags framework and how to use rake tasks to generate the tag pages. However, I did need to make some minor hacks to get it working. I&#8217;ll try to add a tutorial blog entry if i have time. I&#8217;d also be more than happy to answer any questions if anyone is having trouble implementing tags.</p>
-<p>In the mean time, try to follow along his post. Enjoy!</p>
-	 	
-  </div>
+            
+<div class="postothers" style="float:right">
+     [ Click on title to reveal post content ]
 </div>
 
-
-        
+    
 <div class="post" id="caching-facebook-api-call-results-in-ruby-on-rails-posthead">
   <div class="posthead">
         <h2 class="posttitle">
-            <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/caching-facebook-api-call-results-in-ruby-on-rails.html">Caching Facebook API Call Results in Ruby on Rails</a>
+            <a href="#caching-facebook-api-call-results-in-ruby-on-rails">Caching Facebook API Call Results in Ruby on Rails</a>
           </h2>
     
             <p class="postdate">
@@ -141,11 +114,11 @@
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/caching-facebook-api-call-results-in-ruby-on-rails.html#disqus_thread">Comments</a></span>&nbsp;
       <span class="post-filed">
 	Tags: 
-	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby on rails.html">ruby on rails</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/facebook.html">facebook</a>
+	<u><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby on rails.html"><strong>ruby on rails</strong></a></u>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/facebook.html">facebook</a>
       </span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="caching-facebook-api-call-results-in-ruby-on-rails-content">
+    <div class="postcontents" id="caching-facebook-api-call-results-in-ruby-on-rails-content" style="display:none">
         	    <p>In my last entry I covered how to integrate facebook api with ruby on rails using fb_graph gem. There is one problem with integrating the facebook api with your website however, and that is if facebook goes down, then your site also crashes. Yesterday facebook went down, along with the graph.facebook.com api. As a result, one of the sites I was managing went down since it kept waiting to authenticate with the facebook graph api. Now there are definitely other solutions around this, but I also found that when using facebook integration on websites, the websites load a little slower because it has to connect to facebook first, fetch the data, then render the webpage, so the performance of the webpage will heavily depend on the speed of the facebook fetch. Thus, I decided to implement a caching scheme that synchronizes a local database with information fetched from facebook. This way my page only needs to access a local database every time it&#8217;s queried, but the database is synced with facebook information, so it&#8217;s pretty much like I&#8217;m accessing facebook!!</p>
 <p>The basic idea is as follows:</p>
 <ol>
@@ -344,7 +317,14 @@ end
 <pre title="Source code link:" class="brush: shell; gutter: false; highlight:[1]">
 http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 </pre>
-	 	
+	 	        <script type="text/javascript">
+//<![CDATA[
+	  $('#caching-facebook-api-call-results-in-ruby-on-rails-posthead').click(function(){
+	  $('#caching-facebook-api-call-results-in-ruby-on-rails-content').slideToggle('slow');
+	  });
+//]]>
+	</script>
+        
   </div>
 </div>
 
@@ -353,7 +333,7 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 <div class="post" id="ror-and-facebook-with-fb-graph-posthead">
   <div class="posthead">
         <h2 class="posttitle">
-            <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/ror-and-facebook-with-fb-graph.html">RoR and Facebook With fb_graph</a>
+            <a href="#ror-and-facebook-with-fb-graph">RoR and Facebook With fb_graph</a>
           </h2>
     
             <p class="postdate">
@@ -367,11 +347,11 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
       <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201009/ror-and-facebook-with-fb-graph.html#disqus_thread">Comments</a></span>&nbsp;
       <span class="post-filed">
 	Tags: 
-	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby on rails.html">ruby on rails</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/facebook.html">facebook</a>
+	<u><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby on rails.html"><strong>ruby on rails</strong></a></u>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/facebook.html">facebook</a>
       </span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="ror-and-facebook-with-fb-graph-content">
+    <div class="postcontents" id="ror-and-facebook-with-fb-graph-content" style="display:none">
         	    <p><b>(09/25/10) Edit:</b> A working version of this source code is uploaded <a href="http://github.com/iliu/mysite-examples/tree/fb_graph_gem">here</a>. Download it and follow the README to try it out!</p>
 <p>While working on our church website, integrating with our church&#8217;s facebook fan page became a desired feature so our site maintenance team can just add an event on facebook and have it synced up to our website.</p>
 <p>After learning about the <a href="http://developers.facebook.com/docs/api/">facebook graph api</a>, I was planning to write a library for ruby that sent out the queries and parsed the results to display on our site. However, I found the <a href="http://github.com/nov/fb_graph">fb_graph gem</a> written by Nov Matake and decided to try it out. The experience was extremely positive and Nov was very helpful and prompt in responding to my emails. Here&#8217;s how I integrated the facebook graph api into a ruby on rails app:</p>
@@ -492,42 +472,14 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 <pre><span class="no">1</span> % rails server
 </pre>
 </div><p>By pointing your browser to <em>localhost:3000</em> you should now see a simple page with your facebook page name and the events listed from your facebook page in your ruby on rails app! This is a very simple example of using fb_graph to access the facebook graph api to get data from facebook. To learn more about the facebook graph api see <a href="http://developers.facebook.com/docs/api">here</a>. Nov Matake also has a sample facebook app and documentation of the fb_graph api with some examples <a href="http://github.com/nov/fb_graph">here</a>. Note that is a simplified example, and there are several optimizations that could be done. I simply wanted a quick and easy tutorial to get people started with using the fb_graph gem. Hopefully this can help you integrate facebook into your next ruby on rails app!</p>
-	 	
-  </div>
-</div>
-
-
+	 	        <script type="text/javascript">
+//<![CDATA[
+	  $('#ror-and-facebook-with-fb-graph-posthead').click(function(){
+	  $('#ror-and-facebook-with-fb-graph-content').slideToggle('slow');
+	  });
+//]]>
+	</script>
         
-<div class="post" id="zoom-1-ie-fix-posthead">
-  <div class="posthead">
-        <h2 class="posttitle">
-            <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/zoom-1-ie-fix.html">Zoom:1 IE Fix</a>
-          </h2>
-    
-            <p class="postdate">
-      <strong class="day">28th</strong>
-      <strong class="month">Apr</strong>
-      <strong class="year">2010</strong>
-    </p>
-
-    
-    <div class="postmeta"> 
-      <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/zoom-1-ie-fix.html#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed">
-	Tags: 
-	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/jquery.html">jquery</a>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/css.html">css</a>
-      </span>
-    </div>
-  </div> <!-- end posthead -->
-    <div class="postcontents" id="zoom-1-ie-fix-content">
-        	    <p>After playing around with the layout and jQuery for a while, Internet Explorer 8 was really pissing me off. Everything that worked in Firefox, Safari Chrome didn&#8217;t work properly in Internet Explorer 8. I wonder why that browser is still around&#8230; Anyhow, I later found a quick solution that can fix most of the IE problems, and that&#8217;s the zoom:1 fix! All you need to do is add the following line to your css:</p>
-<div class="CodeRay">
-<pre><span class="no">1</span> <span class="ty">div</span> {
-<span class="no">2</span>     <span class="ke">zoom</span>: <span class="fl">1</span>; 
-<span class="no">3</span> }
-</pre>
-</div><p>And just that like, every problem that I was having disappeared. I can&#8217;t really explain why, and apparently neither can <a href="http://www.bennadel.com/blog/1354-The-Power-Of-ZOOM-Fixing-CSS-Issues-In-Internet-Explorer.htm">this blogger</a>. But the point is, use it and save yourself some trouble. Microsoft, when are you going to figure it out&#8230;?</p>
-	 	
   </div>
 </div>
 
@@ -535,11 +487,8 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
     
 <div class="postothers">
  
- <a href="http://www.eecs.berkeley.edu/~liuisaac/site/index2.html">Next &#187;</a>&nbsp;&nbsp;
- <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/">Archives...</a>
+ 
 </div>
-
-
 
 	    <script type="text/javascript">
 	      function path()
@@ -588,15 +537,15 @@ http://github.com/iliu/mysite-examples/tree/fb_graph_cache
 	  <!-- left-columns starts -->
  	  <div class="grid_5 omega" id="left-columns"> 
 	    <div class="featured-post">
-	      <p><img class="float-left" src="images/me.jpg" height="94" alt="my pic" width="80" /> <strong>Isaac Liu</strong> is currently a Ph.D student at the <a href="http://berkeley.edu/">University of California, Berkeley</a> in the <a href="http://www.eecs.berkeley.edu/">EECS</a> department. He is part of the <a href="http://chess.eecs.berkeley.edu/">CHESS</a> (Center for Hybrid and Embedded Software System) group advised by <a href="http://ptolemy.eecs.berkeley.edu/~eal/">Edward A. Lee</a>. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (<a href="http://chess.eecs.berkeley.edu/pret/">PREcision Timed Machines &#8211; PRET</a>).<br />
+	      <p><img class="float-left" src="../images/me.jpg" height="94" alt="my pic" width="80" /> <strong>Isaac Liu</strong> is currently a Ph.D student at the <a href="http://berkeley.edu/">University of California, Berkeley</a> in the <a href="http://www.eecs.berkeley.edu/">EECS</a> department. He is part of the <a href="http://chess.eecs.berkeley.edu/">CHESS</a> (Center for Hybrid and Embedded Software System) group advised by <a href="http://ptolemy.eecs.berkeley.edu/~eal/">Edward A. Lee</a>. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (<a href="http://chess.eecs.berkeley.edu/pret/">PREcision Timed Machines &#8211; PRET</a>).<br />
 <a href="http://www.eecs.berkeley.edu/~liuisaac/site/personal.html">read more&#8230;</a></p>
 <p><strong>office</strong> 545K Cory Hall, Berkeley, CA<br />
 <strong>email</strong> liuisaac (at) berkeley (dot) edu <br />
 <strong>cv</strong> <a href="http://www.eecs.berkeley.edu/~liuisaac/site/resume.html">html</a> / <a href="http://www.eecs.berkeley.edu/~liuisaac/site/docs/resume.pdf">pdf</a> [ <em>updated: 1/31/08</em> ]<br />
-<strong>others</strong> <a href="http://www.facebook.com/isaacliu"><img title="facebook" class="icons" src="images/icons/facebook.png" alt="facebook" /></a> <a href="http://www.linkedin.com/pub/isaac-liu/9/996/6a0"><img title="linkedin" class="icons" src="images/icons/linkedin.png" alt="linkedin" /></a> <a href="http://twitter.com/isaacliu"><img title="twitter" class="icons" src="images/icons/twitter.png" alt="twitter" /></a> <a href="http://picasaweb.google.com/liu.isaac"><img title="picasa" class="icons" src="images/icons/picasa.png" alt="picasa" /></a> <a href="http://github.com/iliu"><img title="github" class="icons" src="images/icons/github.png" alt="github" /></a></p>
+<strong>others</strong> <a href="http://www.facebook.com/isaacliu"><img title="facebook" class="icons" src="../images/icons/facebook.png" alt="facebook" /></a> <a href="http://www.linkedin.com/pub/isaac-liu/9/996/6a0"><img title="linkedin" class="icons" src="../images/icons/linkedin.png" alt="linkedin" /></a> <a href="http://twitter.com/isaacliu"><img title="twitter" class="icons" src="../images/icons/twitter.png" alt="twitter" /></a> <a href="http://picasaweb.google.com/liu.isaac"><img title="picasa" class="icons" src="../images/icons/picasa.png" alt="picasa" /></a> <a href="http://github.com/iliu"><img title="github" class="icons" src="../images/icons/github.png" alt="github" /></a></p>
 	      </div>
 	      <div class="featured-post">
-		<script src="scripts/twitterwidget.js" type="text/javascript"></script>
+		<script src="../scripts/twitterwidget.js" type="text/javascript"></script>
 <script type="text/javascript">
 //<![CDATA[
 new TWTR.Widget({
@@ -711,7 +660,7 @@ new TWTR.Widget({
 	  <div id="footer-content">
 	    
 	    <div class="grid_4">
-	      <a href="http://github.com/iliu/My-Site/commits/master.atom" class="float-right" style="margin-top: 17px; margin-right: 20px;"><img class="plain-img" src="images/icons/rss.png" alt="rss" /></a>
+	      <a href="http://github.com/iliu/My-Site/commits/master.atom" class="float-right" style="margin-top: 17px; margin-right: 20px;"><img class="plain-img" src="../images/icons/rss.png" alt="rss" /></a>
 <h3>Recent Changes</h3>
 <script type="text/javascript">
 //<![CDATA[
@@ -750,18 +699,18 @@ new TWTR.Widget({
 	    <div class="grid_4">
 	      <h3>Image Gallery </h3>					
 <p class="thumbs">
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>	
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
-  <a href="index.html"><img src="images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>	
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
 </p>	
 
 	      <h3> Sitemap </h3>

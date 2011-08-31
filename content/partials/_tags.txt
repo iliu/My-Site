@@ -1,0 +1,12 @@
+---
+filter: 
+ - haml
+---
+%h4 Tags 
+%ul
+  / sort tags in alphabetical order, and then generate links for each tag
+  -tags_hash.keys.sort.each do |tag|
+    %li
+      %a{:href=>"/tags/#{tag}.html"}= tag
+      ==(#{tags_hash[tag]})
+

@@ -11,6 +11,9 @@ content_type: tumblog
 sitemap: true
 priority: 0.7
 changefreq: weekly
+tags:
+  - jquery
+  - css
 ---
 After playing around with the layout and jQuery for a while, Internet Explorer 8 was really pissing me off. Everything that worked in Firefox, Safari Chrome didn't work properly in Internet Explorer 8. I wonder why that browser is still around... Anyhow, I later found a quick solution that can fix most of the IE problems, and that's the ==zoom:1== fix! All you need to do is add the following line to your css:
 

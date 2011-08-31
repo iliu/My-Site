@@ -11,6 +11,10 @@ content_type: tumblog
 sitemap: true
 priority: 0.7
 changefreq: weekly
+tags:
+  - ruby on rails
+  - ruby
+  - facebook
 ---
 **(09/25/10) Edit:** A working version of this source code is uploaded "here":http://github.com/iliu/mysite-examples/tree/fb_graph_gem. Download it and follow the README to try it out!
 

@@ -3,17 +3,17 @@
 <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
   <head>
-    <title>Birthday Freebies! - Isaac Liu's Website</title>
+    <title>Tag - webby - Isaac Liu's Website</title>
     <meta name="keywords" content="isaac liu, PRET, real-time systems, computer architecture, basketball, isaac, liu, berkeley, UCB, Precision Timed Machine, liuisaac, isaacliu, JQuery, Javascript, webby, web design, life" />
     <meta content="application/xhtml+xml; charset=UTF-8" http-equiv="content-type" />
     <meta name="author" content="Isaac Liu" />
     <meta name="description" content="Isaac Liu is currently a Ph.D student at the University of California, Berkeley in the EECS department. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines – PRET)." />
     
 
-      <link href="../../css/screen.css" rel="stylesheet" media="screen" type="text/css" />
+      <link href="../css/screen.css" rel="stylesheet" media="screen" type="text/css" />
 
-      <script src="../../scripts/jquery.min.js" type="text/javascript"></script>
-      <script src="../../scripts/jquery.timeago.js" type="text/javascript"></script>
+      <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+      <script src="../scripts/jquery.timeago.js" type="text/javascript"></script>
       <script type="text/javascript">
 	//<![CDATA[
       // initialize plugin code
@@ -29,8 +29,8 @@
       </script>
 
       <!-- SyntaxHighlighter -->
-      <script src="../../scripts/syntaxhighlight/shCore.js" type="text/javascript"></script>
-      <script src="../../scripts/syntaxhighlight/shAutoloader.js" type="text/javascript"></script>
+      <script src="../scripts/syntaxhighlight/shCore.js" type="text/javascript"></script>
+      <script src="../scripts/syntaxhighlight/shAutoloader.js" type="text/javascript"></script>
       
       <!-- google analytics -->
 <script type="text/javascript">
@@ -70,7 +70,7 @@
 	  </div>		
 	  
 	  <div id="feed-icon-link">
-	    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/rss.xml"> <img src="../../images/icons/feed.png" id="feed-icon" alt="feed" /></a>  
+	    <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/rss.xml"> <img src="../images/icons/feed.png" id="feed-icon" alt="feed" /></a>  
 	  </div>
  	  
 	  <form method="get" action="http://www.google.com/search" id="quick-search">
@@ -78,7 +78,7 @@
 	      <label for="qsearch">Search:</label>
 	      <input name="q" title="Start typing and hit ENTER" class="tbox" id="qsearch" value="Search my site through google..." type="text" onfocus="if(this.value=='Search my site through google...')this.value='';" />
 		<input name="sitesearch" value="http://www.eecs.berkeley.edu/~liuisaac/site/" type="hidden" />
-	      <input name="searchsubmit" title="Search" class="btn" src="../../images/search.gif" type="image" alt="Search" />
+	      <input name="searchsubmit" title="Search" class="btn" src="../images/search.gif" type="image" alt="Search" />
 	    </p>
 	  </form>					
 
@@ -92,63 +92,126 @@
 	  <div class="grid_11 alpha" id="main">
 
             
-<div class="post" id="birthday-freebies-posthead">
+<div class="postothers" style="float:right">
+     [ Click on title to reveal post content ]
+</div>
+
+    
+<div class="post" id="adding-blog-tags-with-webby-posthead">
   <div class="posthead">
         <h2 class="posttitle">
-            <a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/birthday-freebies.html">Birthday Freebies!</a>
+            <a href="#adding-blog-tags-with-webby">Added blog tags in Webby</a>
           </h2>
     
             <p class="postdate">
-      <strong class="day">25th</strong>
+      <strong class="day">30th</strong>
+      <strong class="month">Aug</strong>
+      <strong class="year">2011</strong>
+    </p>
+
+    
+    <div class="postmeta"> 
+      <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201108/adding-blog-tags-with-webby.html#disqus_thread">Comments</a></span>&nbsp;
+      <span class="post-filed">
+	Tags: 
+	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>, <u><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/webby.html"><strong>webby</strong></a></u>
+      </span>
+    </div>
+  </div> <!-- end posthead -->
+    <div class="postcontents" id="adding-blog-tags-with-webby-content" style="display:none">
+        	    <p>I just found out that Webby is no long under active development =(. What a sad piece of news. However, with the current Webby version, it&#8217;s still good enough for me to maintain my blog. Since it&#8217;s relatively easy to extend, I decided to add tags to Webby.</p>
+<p>I saved a link to <a href="https://github.com/aq1018/aaron-blog">Aarom Qian</a> blog post about adding tags to Webby a long time ago, but unfortunately the blog is no longer online. I dug around and was able to find his <a href="https://github.com/aq1018/aaron-blog">github</a>  repository and the raw textile/erb entry in there. You can see it here: <a href="http://www.eecs.berkeley.edu/~liuisaac/site/docs/adding-blog-tags-using-webby.txt">Adding Blog Tags using Webby</a>.</p>
+<p>In general his directions were pretty clear and everything worked well. It explained how to setup the tags framework and how to use rake tasks to generate the tag pages. However, I did need to make some minor hacks to get it working. I&#8217;ll try to add a tutorial blog entry if i have time. I&#8217;d also be more than happy to answer any questions if anyone is having trouble implementing tags.</p>
+<p>In the mean time, try to follow along his post. Enjoy!</p>
+	 	        <script type="text/javascript">
+//<![CDATA[
+	  $('#adding-blog-tags-with-webby-posthead').click(function(){
+	  $('#adding-blog-tags-with-webby-content').slideToggle('slow');
+	  });
+//]]>
+	</script>
+        
+  </div>
+</div>
+
+
+        
+<div class="post" id="webby-tricks-jquery-posthead">
+  <div class="posthead">
+        <h2 class="posttitle">
+            <a href="#webby-tricks-jquery">Webby Tricks - JQuery</a>
+          </h2>
+    
+            <p class="postdate">
+      <strong class="day">26th</strong>
       <strong class="month">Apr</strong>
       <strong class="year">2010</strong>
     </p>
 
     
     <div class="postmeta"> 
-      <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/birthday-freebies.html#disqus_thread">Comments</a></span>&nbsp;
+      <span class="post-comment"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/blog/201004/webby-tricks-jquery.html#disqus_thread">Comments</a></span>&nbsp;
       <span class="post-filed">
-	
-	
+	Tags: 
+	<a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/jquery.html">jquery</a>, <u><a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/webby.html"><strong>webby</strong></a></u>, <a href="http://www.eecs.berkeley.edu/~liuisaac/site/tags/ruby.html">ruby</a>
       </span>
     </div>
   </div> <!-- end posthead -->
-    <div class="postcontents" id="birthday-freebies-content">
-                    <p>My wife and I have the exact same birthday. So every year around this time I start looking for free stuff for our birthdays. Last year was perfect, because Disneyland was giving free admission on your birthday, so my wife and I gladly got to go to Disneyland together, both for free =D. This year although Disneyland isn&#8217;t free on birthdays anymore, there are still a lot of places that offer free stuff on birthdays! This day is becoming the day my wife and I go around and get free stuff! Here are some that I&#8217;ve used:</p>
-<ul>
-	<li><a href="https://www.baskinrobbins.com/bdayclub/RegisterInfo1.aspx">Baskin Robins</a></li>
-	<li><a href="http://www.coldstonecreamery.com/mycs/myCS_pub_home.aspx?ReturnUrl=%2fmycs%2fmyCS_my_bday_acct.aspx">Cold Stones</a></li>
-	<li><a href="http://www.blackangus.com/PrimeClub.htm">Black Angus free steak dinner</a></li>
-	<li><a href="http://www.buffet.com/eclub">Home Town Buffet</a></li>
-	<li><a href="http://www.redlobster.com/club/">Red Lobster</a></li>
-	<li><a href="http://www.redrobin.com/eclub/default.aspx?AspxAutoDetectCookieSupport=1">Red Robin</a></li>
-</ul>
-<p>You can definitely find more online, or you can go <a href="http://www.frugalliving.tv/free-stuff/birthday-freebies.html">here</a>. Please post some other good ones if you know of any.</p>
-		
+    <div class="postcontents" id="webby-tricks-jquery-content" style="display:none">
+        	    <p>Since I&#8217;ve had such a positive experience with <a href="http://webby.rubyforge.org/">Webby</a>, I&#8217;ve decided to blog a little about some stuff I&#8217;ve figured out when using <em>webby</em>. I know there are some amount of tutorial I&#8217;ve found only for Webby, so I&#8217;ll try to not repeat a lot of them. When I constructed this blog using webby, I wanted the dates to be in the format of <em>&#8220;2 minutes ago&#8221;</em> or <em>&#8220;1 month ago,&#8221;</em> instead of absolute dates. This cannot be achieved by using webby alone, since these dates can only be changed when the website is build. Thus, a little java script magic is needed. <a href="http://jquery.com/">JQuery</a> is a javascript library that allows plugins and has several AJAX functions. In particular, I&#8217;m using the <a href="http://timeago.yarp.com/">Timeago</a> plugin for JQuery. What this javascript does is turn any date you wish on your page into the &#8220;timeago&#8221; format. It also auto updates itself, so it&#8217;s perfect to be used with webby. First you want to follow the links above and download both the plugin and JQuery (go ahead and get the min version). In your main layout page (in the <em>layouts</em> folder), add the following lines between the &lt;head&gt; tags:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="ta">&lt;script</span> <span class="an">src</span>=<span class="s"><span class="dl">&quot;</span><span class="k">/scripts/jquery.min.js</span><span class="dl">&quot;</span></span> <span class="an">type</span>=<span class="s"><span class="dl">&quot;</span><span class="k">text/javascript</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span><span class="ta">&lt;/script&gt;</span>
+<span class="no">2</span> <span class="ta">&lt;script</span> <span class="an">src</span>=<span class="s"><span class="dl">&quot;</span><span class="k">/scripts/jquery.timeago.js</span><span class="dl">&quot;</span></span> <span class="an">type</span>=<span class="s"><span class="dl">&quot;</span><span class="k">text/javascript</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span><span class="ta">&lt;/script&gt;</span>
+<span class="no">3</span> <span class="ta">&lt;script</span> <span class="an">type</span>=<span class="s"><span class="dl">&quot;</span><span class="k">text/javascript</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span>
+<span class="no">4</span>   // initialize plugin code
+<span class="no">5</span>   jQuery(document).ready(function() {
+<span class="no">6</span>   jQuery(&quot;abbr.timeago&quot;).timeago();
+<span class="no">7</span>   });
+<span class="no">8</span> <span class="ta">&lt;/script&gt;</span>
+</pre>
+</div><p>When using webby, I created a <em>scripts</em> folder in my <em>contents</em> folder to hold my javascripts. That&#8217;s why the src of the &lt;scripts&gt; tag is <em>/scripts/jquery.*</em>. After doing this, then the javascript will find all the tags with the following format:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="ta">&lt;abbr</span> <span class="an">class</span>=<span class="s"><span class="dl">&quot;</span><span class="k">timeago</span><span class="dl">&quot;</span></span> <span class="an">title</span>=<span class="s"><span class="dl">&quot;</span><span class="k">2008-07-17T09:24:17Z</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span>July 17, 2008<span class="ta">&lt;/abbr&gt;</span>
+</pre>
+</div><p>into this:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="ta">&lt;abbr</span> <span class="an">class</span>=<span class="s"><span class="dl">&quot;</span><span class="k">timeago</span><span class="dl">&quot;</span></span> <span class="an">title</span>=<span class="s"><span class="dl">&quot;</span><span class="k">July 17, 2008</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span>about a year ago<span class="ta">&lt;/abbr&gt;</span>
+</pre>
+</div><p>which will yields the following: <strong><abbr title="2008-07-17T09:24:17Z" class="timeago">July 17, 2008</abbr></strong>. Notice the time format in the &lt;abbr&gt; tag must be in an <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8691</a> timestamp. When using <em>webby</em>, since you can use the erb filter, there are several ways to turn dates into the correct format. Here I show one way i used:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="il"><span class="idl">&lt;%</span>  recent = <span class="iv">@pages</span>.find(
+<span class="no"> 2</span>        <span class="sy">:limit</span> =&gt; <span class="i">6</span>,
+<span class="no"> 3</span>        <span class="sy">:content_type</span> =&gt; <span class="s"><span class="dl">'</span><span class="k">tumblog</span><span class="dl">'</span></span>,
+<span class="no"> 4</span>        <span class="sy">:sort_by</span> =&gt; <span class="sy">:created_at</span>,
+<span class="no"> 5</span>        <span class="sy">:reverse</span> =&gt; <span class="pc">true</span>
+<span class="no"> 6</span>    )
+<span class="no"> 7</span>    recent.each <span class="r">do</span> |e| <span class="idl">-%&gt;</span></span>;
+<span class="no"> 8</span> <span class="ta">&lt;li&gt;</span><span class="il"><span class="idl">&lt;%=</span> link_to_page(e); <span class="idl">%&gt;</span></span>
+<span class="no"> 9</span> <span class="ta">&lt;div</span> <span class="an">class</span>=<span class="s"><span class="dl">&quot;</span><span class="k">date</span><span class="dl">&quot;</span></span><span class="ta">&gt;</span>[ <span class="ta">&lt;abbr</span> <span class="an">class</span>=<span class="s"><span class="dl">&quot;</span><span class="k">timeago</span><span class="dl">&quot;</span></span> <span class="an">title</span>=<span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">&lt;%=</span> e.created_at.utc.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%Y-%m-%dT%H:%M:%SZ</span><span class="dl">&quot;</span></span>) <span class="idl">%&gt;</span></span><span class="dl">&quot;</span></span><span class="ta">&gt;</span><span class="il"><span class="idl">&lt;%=</span> e.created_at.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%b %d, %Y</span><span class="dl">&quot;</span></span>) <span class="idl">%&gt;</span></span><span class="ta">&lt;/abbr&gt;</span> ]<span class="ta">&lt;/div&gt;</span><span class="ta">&lt;/li&gt;</span>
+<span class="no"><strong>10</strong></span> <span class="il"><span class="idl">&lt;%</span> <span class="r">end</span> <span class="idl">-%&gt;</span></span>  
+</pre>
+</div><p>The above code is what I used for the right column <em>recent entries</em> section. I find all pages that are blog entries, and print out the linke and publish date. In particular, I used the following code to turn webby blog date format to the correct timestamp format. As you can see, all the dates on the right column are parsed into the &#8220;timeago&#8221; format.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="il"><span class="idl">&lt;%=</span> e.created_at.utc.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%Y-%m-%dT%H:%M:%SZ</span><span class="dl">&quot;</span></span>) <span class="idl">%&gt;</span></span>
+</pre>
+</div><p>As usual, all the source code for this website can be found in my <a href="http://github.com/iliu/My-Site">github</a> repository. Feel free to check it out and play with it.</p>
+	 	        <script type="text/javascript">
+//<![CDATA[
+	  $('#webby-tricks-jquery-posthead').click(function(){
+	  $('#webby-tricks-jquery-content').slideToggle('slow');
+	  });
+//]]>
+	</script>
+        
   </div>
 </div>
 
 
-
+    
 <div class="postothers">
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-  /**
-    * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
-    */
-    var disqus_developer = 1;
-  (function() {
-   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-   dsq.src = 'http://isaacliu.disqus.com/embed.js';
-   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=isaacliu">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+ 
 </div>
-
-
-
 
 	    <script type="text/javascript">
 	      function path()
@@ -197,15 +260,15 @@
 	  <!-- left-columns starts -->
  	  <div class="grid_5 omega" id="left-columns"> 
 	    <div class="featured-post">
-	      <p><img class="float-left" src="../../images/me.jpg" height="94" alt="my pic" width="80" /> <strong>Isaac Liu</strong> is currently a Ph.D student at the <a href="http://berkeley.edu/">University of California, Berkeley</a> in the <a href="http://www.eecs.berkeley.edu/">EECS</a> department. He is part of the <a href="http://chess.eecs.berkeley.edu/">CHESS</a> (Center for Hybrid and Embedded Software System) group advised by <a href="http://ptolemy.eecs.berkeley.edu/~eal/">Edward A. Lee</a>. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (<a href="http://chess.eecs.berkeley.edu/pret/">PREcision Timed Machines &#8211; PRET</a>).<br />
+	      <p><img class="float-left" src="../images/me.jpg" height="94" alt="my pic" width="80" /> <strong>Isaac Liu</strong> is currently a Ph.D student at the <a href="http://berkeley.edu/">University of California, Berkeley</a> in the <a href="http://www.eecs.berkeley.edu/">EECS</a> department. He is part of the <a href="http://chess.eecs.berkeley.edu/">CHESS</a> (Center for Hybrid and Embedded Software System) group advised by <a href="http://ptolemy.eecs.berkeley.edu/~eal/">Edward A. Lee</a>. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (<a href="http://chess.eecs.berkeley.edu/pret/">PREcision Timed Machines &#8211; PRET</a>).<br />
 <a href="http://www.eecs.berkeley.edu/~liuisaac/site/personal.html">read more&#8230;</a></p>
 <p><strong>office</strong> 545K Cory Hall, Berkeley, CA<br />
 <strong>email</strong> liuisaac (at) berkeley (dot) edu <br />
 <strong>cv</strong> <a href="http://www.eecs.berkeley.edu/~liuisaac/site/resume.html">html</a> / <a href="http://www.eecs.berkeley.edu/~liuisaac/site/docs/resume.pdf">pdf</a> [ <em>updated: 1/31/08</em> ]<br />
-<strong>others</strong> <a href="http://www.facebook.com/isaacliu"><img title="facebook" class="icons" src="../../images/icons/facebook.png" alt="facebook" /></a> <a href="http://www.linkedin.com/pub/isaac-liu/9/996/6a0"><img title="linkedin" class="icons" src="../../images/icons/linkedin.png" alt="linkedin" /></a> <a href="http://twitter.com/isaacliu"><img title="twitter" class="icons" src="../../images/icons/twitter.png" alt="twitter" /></a> <a href="http://picasaweb.google.com/liu.isaac"><img title="picasa" class="icons" src="../../images/icons/picasa.png" alt="picasa" /></a> <a href="http://github.com/iliu"><img title="github" class="icons" src="../../images/icons/github.png" alt="github" /></a></p>
+<strong>others</strong> <a href="http://www.facebook.com/isaacliu"><img title="facebook" class="icons" src="../images/icons/facebook.png" alt="facebook" /></a> <a href="http://www.linkedin.com/pub/isaac-liu/9/996/6a0"><img title="linkedin" class="icons" src="../images/icons/linkedin.png" alt="linkedin" /></a> <a href="http://twitter.com/isaacliu"><img title="twitter" class="icons" src="../images/icons/twitter.png" alt="twitter" /></a> <a href="http://picasaweb.google.com/liu.isaac"><img title="picasa" class="icons" src="../images/icons/picasa.png" alt="picasa" /></a> <a href="http://github.com/iliu"><img title="github" class="icons" src="../images/icons/github.png" alt="github" /></a></p>
 	      </div>
 	      <div class="featured-post">
-		<script src="../../scripts/twitterwidget.js" type="text/javascript"></script>
+		<script src="../scripts/twitterwidget.js" type="text/javascript"></script>
 <script type="text/javascript">
 //<![CDATA[
 new TWTR.Widget({
@@ -320,7 +383,7 @@ new TWTR.Widget({
 	  <div id="footer-content">
 	    
 	    <div class="grid_4">
-	      <a href="http://github.com/iliu/My-Site/commits/master.atom" class="float-right" style="margin-top: 17px; margin-right: 20px;"><img class="plain-img" src="../../images/icons/rss.png" alt="rss" /></a>
+	      <a href="http://github.com/iliu/My-Site/commits/master.atom" class="float-right" style="margin-top: 17px; margin-right: 20px;"><img class="plain-img" src="../images/icons/rss.png" alt="rss" /></a>
 <h3>Recent Changes</h3>
 <script type="text/javascript">
 //<![CDATA[
@@ -359,24 +422,24 @@ new TWTR.Widget({
 	    <div class="grid_4">
 	      <h3>Image Gallery </h3>					
 <p class="thumbs">
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>	
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
-  <a href="index.html"><img src="../../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>	
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>													
+  <a href="index.html"><img src="../images/thumb.jpg" height="40" alt="thumbnail" width="40" /></a>
 </p>	
 
 	      <h3> Sitemap </h3>
 <p> | 
 
-           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/">Home</a> | </span>
+           <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/index.html">Home</a> | </span>
       
            <span style="white-space: nowrap"><a href="http://www.eecs.berkeley.edu/~liuisaac/site/personal.html">Personal</a> | </span>
       

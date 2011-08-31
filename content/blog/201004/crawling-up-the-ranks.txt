@@ -11,6 +11,8 @@ content_type: tumblog
 sitemap: true
 priority: 0.7
 changefreq: weekly
+tags:
+  - apache
 ---
 Finally, I'm back at the first hit when you google "isaac liu". Because of all the webhost changing and redesigning of my page, my page rank started dropping, until eventually my site completely disappeared from google search when querying "isaac liu"! I did some researching and found out that by using the _< meta refresh = "" >_ tag to do redirection, my page rank took a penalty, and maybe even prevented the google crawler to index my site. This is because normal spam sites use this method to redirect people to their spam sites. Thus, I went out to find how to do redirection the correct way, which was using 301 permanent move. What that means is, the http code that's sent back to the requesting client should be 301, which means "permanently moved site." The _< meta refresh="" >_ method sends back the code 200, which means "Request OK," and then later does the redirection. That is extremely not search engine friendly. To change this required tweaking of the .htaccess file on my web host, which is using the UC Berkeley EECS department's webhost. If your curious, i added the following code to my .htaccess file: 
 

@@ -1,0 +1,27 @@
+---
+title:      Added blog tags in Webby
+created_at: 2011-08-30 09:08:17.224271 -07:00
+author:     Isaac Liu
+filter:
+  - textile
+  - erb
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+tags: 
+  - ruby
+  - webby
+---
+
+I just found out that Webby is no long under active development =(. What a sad piece of news. However, with the current Webby version, it's still good enough for me to maintain my blog. Since it's relatively easy to extend, I decided to add tags to Webby.
+
+I saved a link to "Aarom Qian":https://github.com/aq1018/aaron-blog blog post about adding tags to Webby a long time ago, but unfortunately the blog is no longer online. I dug around and was able to find his "github":https://github.com/aq1018/aaron-blog  repository and the raw textile/erb entry in there. You can see it here: "Adding Blog Tags using Webby":/docs/adding-blog-tags-using-webby.txt.
+
+In general his directions were pretty clear and everything worked well. It explained how to setup the tags framework and how to use rake tasks to generate the tag pages. However, I did need to make some minor hacks to get it working. I'll try to add a tutorial blog entry if i have time. I'd also be more than happy to answer any questions if anyone is having trouble implementing tags. 
+
+In the mean time, try to follow along his post. Enjoy!
+
+

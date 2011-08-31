@@ -149,6 +149,9 @@ filter:
 	      <div class="featured-post">
 		<%= render(:partial => "partials/recententries") %>
 	      </div>
+	      <div class="featured-post">
+		<%= render(:partial => "partials/tags") %>
+	      </div>
 	      <!-- end left-columns -->
 	    </div>		
 	    <!-- contents end here -->	

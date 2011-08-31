@@ -11,6 +11,10 @@ content_type: tumblog
 sitemap: true
 priority: 0.7
 changefreq: weekly
+tags:
+  - jquery
+  - webby
+  - ruby
 ---
 Since I've had such a positive experience with "Webby":http://webby.rubyforge.org/, I've decided to blog a little about some stuff I've figured out when using _webby_. I know there are some amount of tutorial I've found only for Webby, so I'll try to not repeat a lot of them. When I constructed this blog using webby, I wanted the dates to be in the format of _"2 minutes ago"_ or _"1 month ago,"_ instead of absolute dates. This cannot be achieved by using webby alone, since these dates can only be changed when the website is build. Thus, a little java script magic is needed. "JQuery":http://jquery.com/ is a javascript library that allows plugins and has several AJAX functions. In particular, I'm using the "Timeago":http://timeago.yarp.com/ plugin for JQuery. What this javascript does is turn any date you wish on your page into the "timeago" format. It also auto updates itself, so it's perfect to be used with webby. First you want to follow the links above and download both the plugin and JQuery (go ahead and get the min version). In your main layout page (in the _layouts_ folder), add the following lines between the &lt;head&gt; tags:
 

@@ -2,6 +2,8 @@
 filter: 
  - erb
 ---
+<%# pass in a tag if it's a tag page so we can bold the tag %>
+<% tag ||= '' -%>
 <div class="post" id="<%= p.filename %>-posthead">
   <div class="posthead" >
     <% if p.title -%>
@@ -20,7 +22,16 @@ filter:
 
     <div class="postmeta"> 
       <span class="post-comment"><a href="<%= p.url %>#disqus_thread">Comments</a></span>&nbsp;
-      <span class="post-filed"><!-- insert tags --></span>
+      <span class="post-filed">
+	<%= "Tags: " if p.tags %>
+	<%= p.tags.collect{ |t| 
+	    if t==tag
+	      "<u><a href='/tags/"+t+".html'><strong>"+t+"</strong></a></u>" 
+	    else
+	      "<a href='/tags/"+t+".html'>"+t+"</a>" 
+	    end
+	    }.join(", ") if p.tags %>
+      </span>
     </div>
   </div> <!-- end posthead -->
     <div class="postcontents" id="<%= p.filename %>-content" <%= "style=\"display:none\"" if !displaycontents %> >
