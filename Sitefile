@@ -3,9 +3,9 @@ Webby.site.tags_dir = 'tags'
 
 task :default => ['tags:regenerate', :autobuild]
 
-desc 'rebuild and commit to repository'
-task :commit do
-     `sh .commit_script.sh`
+desc 'rebuild with webhost base'
+task :build4host do
+     `sh .build4host.sh`
 end
 
 desc 'deploy the site to the webserver'
