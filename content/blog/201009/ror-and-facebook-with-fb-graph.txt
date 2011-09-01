@@ -117,7 +117,7 @@ class HomeController < ApplicationController
     acc_tok = my_app.get_access_token(config['production']['client_secret']);
 
     #Instantiate a new page class using the page_id specified 
-    @page = FbGraph::Page.new(config.['production']['page_id'], :access_token => acc_tok).fetch;
+    @page = FbGraph::Page.new(config['production']['page_id'], :access_token => acc_tok).fetch;
 
     #Grab the events from the page 
     events = @page.events.sort_by{|e| e.start_time};
