@@ -1,0 +1,59 @@
+---
+title: Adding excerpts to Webby
+created_at: 2011-08-31 17:29:21.407946 -07:00
+author:     Isaac Liu
+filter:
+  - erb
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+tags:
+  - webby
+  - ruby
+---
+<% @page[:excerpt] = capture_erb do -%> 
+So after revisiting my blog I realized that descriptive tutorial entries with code segments are helpful, but they are...long. The front page of my blog was being dragged way too long by those entries. Thus, I needed to add an "excerpt" feature that allows me to partially display an entry and add a 'read more...' link for the full post. "Rien Heinrichs":http://reinh.com/ has done exactly that with his blog created with Webby, and his "github":http://github.com/ReinH/reinh-com/tree/master page contains the source. I took a look and turns out it was a lot easier than i thought. Here is how to do it:
+<% end %> 
+<%= RedCloth.new(@page.excerpt).to_html %>
+
+First you need to choose which part of the article is the excerpt, i.e. what you want to show on the front page. You can easily do that when you are creating your blog entries. In the .txt file, just add a couple lines of embedded ruby as shown below.
+
+<pre class="brush: ruby;" title="your-entry.txt:">
+<%%# The entry meta data is above %>
+<%% @page[:excerpt] = capture_erb do %> 
+   Put the text here that you want to display as the excerpt 
+<%% end %> 
+<%%= @page.excerpt %>    # we have to insert the excerpt back into the page 
+
+The rest of your long entry text goes below
+</pre>
+
+Now you need to go to your front page (usually index.html) that displays the blog posts, and check if there is a page excerpt. If there is, display the excerpt, or else display the whole entry. The only tricky part here is that the excerpt doesn't exist until the page is rendered, so you want to render the page first, then decide whether to display an excerpt or the entry. See the example code below:
+
+<pre class="brush: ruby;" title="index.txt:">
+<%% posts = @pages.find(
+       :all,
+       :content_type => 'tumblog',
+       :sort_by => :created_at,
+       :reverse => true
+   )
+   paginate(posts, 4) do |p| -%>
+   <%% render(p) unless p.excerpt -%>
+   <%% if p.excerpt -%>
+     <%%= RedCloth.new(p.excerpt).to_html%>
+     <a href='<%%= p.url %>'>Read more...</a>
+   <%% else -%>
+     <%%= render(p) %>
+   <%% end -%>
+<%% end -%>
+</pre>
+
+You may notice that RedCloth is used to render the excerpt, this is because i use textile to write my entries, so i want to make sure that the textile in the excerpt gets rendered. Be sure to use whatever markup language engine you choose to render the excerpt.
+
+You can see some examples in my "repository":https://github.com/iliu/My-Site for this site. Look at the source of this entry and also check out this "partial":https://github.com/iliu/My-Site/blob/master/content/partials/_post.txt that i use to display posts. 
+
+And that's it, wasn't that easy!? No more detailed posts clogging up your blog index. 
