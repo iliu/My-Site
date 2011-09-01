@@ -54,6 +54,6 @@ Now you need to go to your front page (usually index.html) that displays the blo
 
 You may notice that RedCloth is used to render the excerpt, this is because i use textile to write my entries, so i want to make sure that the textile in the excerpt gets rendered. Be sure to use whatever markup language engine you choose to render the excerpt.
 
-You can see some examples in my "repository":https://github.com/iliu/My-Site for this site. Look at the source of this entry and also check out this "partial":https://github.com/iliu/My-Site/blob/master/content/partials/_post.txt that i use to display posts. 
+You can see some examples in my "repository":https://github.com/iliu/My-Site for this site. Look at the "source of this entry":https://github.com/iliu/My-Site/blob/master/content/blog/201108/adding-excerpts-to-webby.txt and also check out this "partial":https://github.com/iliu/My-Site/blob/master/content/partials/_post.txt that i use to display posts. 
 
 And that's it, wasn't that easy!? No more detailed posts clogging up your blog index. 
