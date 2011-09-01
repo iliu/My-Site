@@ -11,74 +11,108 @@ priority: 1.0
 changefreq: daily
 ---
 <h3> Resume </h3>
-<p>Click <a href="/docs/resume.pdf">here</a> to download a pdf version<br />Last Update: 01/31/08</p>
-  <table class="resume-table" width=100%  cellpadding="3">
+<p>Click <a href="/docs/resume.pdf">here</a> to download a pdf version [ Last Update: 08/30/11 ]</p>
+  <table class="resume-table" width="100%" cellpadding="0">
     <!--DWLayoutTable-->
     <tr>
       <td align="left" valign="top"><b>Education</b></td>
       <td align="left" valign="top">
-	<b>Ph.D Electrical Engineering</b>, University of California, Berkeley, 2007 - Present<br>
+	<b>Ph.D Electrical Engineering and Computer Science</b>, University of California, Berkeley, <br />Expected May, 2012<br/>
 
         <ul>
-	  <li>Graduate Researcher in CHESS (Center for Hybrid and Embedded Software Systems) with Professor Edward Lee</li>
-	  <li>Focus on Embedded Systems, Computer Architecture, Models of Computation, Real-Time Systems, Parallel Processors, Embedded Software</li>
+	  <li> Research in Real-Time Embedded Software Systems, Multi/Many Core Systems, Computer 
+Architecture, Memory System</li>
+	  <li>Certificate in the Management of Technology Program from Haas School of Business</li>
 	</ul><br />
 	<b>B.S. Computer Engineering</b>, University of California, Santa Barbara, 2007<br>
 
         <ul>
-	  <li>Valedictorian of the Computer Engineering class of 2007 with highest honors</li>
-	  <li>Received IEC William L. Everitt Student Awards of Excellence</li>
+	  <li>Graduate top of the Computer Engineering class of 2007 with highest honors</li>
+	  <li>Recipient of the 2006-2007 International Engineering Consortium's William L. Everitt Student Award of Excellence Scholarship</li>
+	  <li>Recipient of the 2006-2007 College of Engineering Glen Culler Scholarship</li>
+	  <li>Recipient of the 2006-2007 Faculty Women's Club Undergraduate Scholarship</li>
 	  <li>3.97 overall major GPA, college of engineering honor's program</li>
 	</ul>
       </td>
     </tr>
-    
-    
     <tr>
-      <td align="left" valign="top"><b>Experience &amp; Projects</b></td>
-      <td align="left" valign="top"><b>Software Design Engineer - Microsoft</b> Seattle, WA (6/2006 - 9/2006)<br>
-	<ul>
-	  <li>
-            Worked in Microsoft Windows core deployment team. Helped with the setup of windows vista. Read through current windows code base, understand data structures and design project to analyze Windows Imaging file format for Windows Vista. Develop tool to interact with file format and improve windows setup performance.
-	  </li>
-	</ul>
-	<b>Projects-</b><br>
-	<ul>
-	  <li>
-            <b>Real Time Processor </b> - Research in developing processors with timing predictability and repeatability. Modified open source SPARC core implementation in VHDL (leon3) to add interleaved threading and a new instruction specifying timing properties of processor to use for research.
-	  </li>
-	  <li>
-            <b>Processor Modeling </b> - Created a cycle accureate leon3 SPARC core model in SystemC to aid in better architectural exploration, and simulation, to observe effects of non-functional properties. 
-	  </li>
-	  <li>
-            <b>POV wand </b> - Persistence of Vision wand. Interfaced digital sensors and actuators with an 8 bit microprocessor to create a wand that shows words in the air when waved using persistence of vision. Also created light saber like sounds when waved. 
-	  </li>
-	  <li>
-            <b>BIAS</b> - Basic Integrated Audio System. Mp3 player integrating FM transmitter, voice recorder, and storage on Compact Flash with FAT file system. Designed and built the complete system, including choose components, drawing layout, coding firmware, integration and testing. 
-	  </li>
-	  <li>
-            <b>BURP</b> - Basic Undergrad RISC Processor. Using Verilog to write controller, modelsim to simulate processor, then loading controller onto FPGA, interfacing with ALU, RAM, and EEPROM to run RISC instructions. 
-	  </li>
-	</ul>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top"><b>Academic Summary</b></td>
+      <td align="left" valign="top"><b>Skills</b></td>
       <td align="left" valign="top">
 	<b>Programming and Software</b><br>
         <ul>
-	  <li>Languages: Java, C, C++, C#, SQL, UNIX shell scripting, PHP, Perl, XML, XHTML, AJAX, OpenGL, assembly, HTML, LateX, Network programming</li>
-	  <li>Course Work: Computer Networking, Computer Security, Operating Systems, Database, Programming Languages</li>
+	  <li>Java, C, C++, C#, SQL, UNIX shell scripting, PHP, Perl, XML, XHTML, AJAX, OpenGL, assembly, HTML, LateX, Network programming, Computer Networking, Computer Security, Operating Systems, Database, Programming Languages</li>
 	</ul>
 	<b>Systems and Hardware</b><br>
         <ul>
-	  <li>Labview, Matlab, ModelSim, VHDL, Verilog, SystemC, TTA-C, CAN, FlexRay, RTOS, Models of Computation, multi-core architectures, parallel processing, Real-Time systems.</li>
+	  <li>Labview, ModelSim, VHDL, Verilog, SystemC, TTA-C, RTOS, Models of Computation, multi-core architectures, parallel processing, Real-Time systems.</li>
 	  
 	</ul>
       </td>
     </tr>
     <tr>
-      <td align="left" valign="top"><b>Interests &amp; activities</b></td>
+      <td align="left" valign="top"><b>Experience</b></td>
+      <td align="left" valign="top">
+        <b>Software Engineer Intern - National Instruments</b> Berkeley, CA (5/2011 - 8/20011)<br>
+	<ul>
+	  <li>
+	    Implemented a Real-Time Common-Rail Fuel Injection Simulation using 1D Computational Fluid
+	    Dynamics on a multicore architecture with multiple soft cores on an FPGA.
+	  </li>
+	  <li>
+	    Added explicit precise timing control to the Xilinx Microblaze using a peripheral cores and FSL.
+	  </li>
+	</ul>
+
+        <b>Software Architect - 3PO Inc.</b> San Fransisco, CA (2/2009 - 12/2010)<br>
+	<ul>
+	  <li>
+	    Worked with this start up to design a multilingual instant text generation system
+	  </li>
+	  <li>
+	    Designed a multilingual classified ads prototype using ruby on rails backend with AJAX and jQuery            
+	  </li>
+	</ul>
+
+        <b>Software Engineer Intern - Nvidia</b> Santa Clara, CA (5/2008 - 8/2008)<br>
+	<ul>
+	  <li>
+	    Developed OpenGL-ES drivers for different platforms in the Embedded systems group
+	  </li>
+	  <li>
+	    Worked on porting a navigation system to different hardware platforms
+	  </li>
+	  <li>
+	    Developed scripts to aid in windows setup over the network for different hardware platforms
+	  </li>
+	</ul>
+
+        <b>Software Design Engineer - Microsoft</b> Seattle, WA (6/2006 - 9/2006)<br>
+	<ul>
+	  <li>
+	    Developed tools to analyze and improve internal data structures used for windows deployment
+	  </li>
+	</ul>
+        <b>Software Developer Intern - Novacoast Inc.</b> Santa Barbara, CA (12/2005 - 4/2006)<br>
+	<ul>
+	  <li>
+	    Renewed and restructured the Intranet invoice system using PHP/SQL with AJAX for cleaner and
+	    more efficient code
+	  </li>
+	</ul>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top"><b>Projects</b></td>
+      <td align="left" valign="top">
+	<b>Real time Computer Architecture Design</b> - Precision Timed Machines (PRET), a research project to re-design computer architecture for predictability and repeatability. Implemented on the FPGA as a soft core (in VHDL) along with a software level timing accurate simulator <br /><br />
+	<b>fantasysportstools.net</b> - ruby on rails app using the yahoo fantasy sports API to help manage fantasy basketball teams. Syncs NBA stats nightly to give projections and predictions. Aggregate news from various sites and use AJAX and jQuery for better user experience. <br /><br />
+	<b>gschristian.org</b> - ruby on rails app with facebook graph API to sync events with facebook group. Uses paperclip gem to manage uploading and organizing audio/powerpoint resources. <br /><br />
+	<b>Basic Integrated Audio System</b> - Senior capstone project, design and built an MP3 player from scratch with integrated FM transmitter, audio recorder, CF reader with FAT file system.
+      </td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top"><b>Activities</b></td>
       <td align="left" valign="top">
         <ul>
 	  <li>President of Asian American Christian Fellowship, UCSB</li>

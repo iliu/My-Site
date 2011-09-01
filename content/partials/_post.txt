@@ -36,13 +36,13 @@ filter:
   </div> <!-- end posthead -->
     <div class="postcontents" id="<%= p.filename %>-content" <%= "style=\"display:none\"" if !displaycontents %> >
         <% if c == '' -%>
-	    <%# puts p.excerpt -%>
-	    <%= render(p) unless p.excerpt %>
-	    <%= RedCloth.new(p.excerpt).to_html if p.excerpt %>
+	    <% render(p) unless p.excerpt -%>
 	    <% if p.excerpt -%>
-	    <div class="readmore"><a href='<%= p.url %>'>Read more...</a></div>
+	      <%= RedCloth.new(p.excerpt).to_html%>
+	      <div class="readmore"><a href='<%= p.url %>'>Read more...</a></div>
+	    <% else -%>
+	      <%= render(p) %>
 	    <% end -%>
-
 	 <% else -%>
             <%= c %>
 	<% end -%>
