@@ -18,7 +18,6 @@ tags:
 ---
 
 <% @page[:excerpt] = capture_erb do -%> 
-
 In my last entry I covered how to integrate facebook api with ruby on rails using fb_graph gem. There is one problem with integrating the facebook api with your website however, and that is if facebook goes down, then your site also crashes. Yesterday facebook went down, along with the graph.facebook.com api. As a result, one of the sites I was managing went down since it kept waiting to authenticate with the facebook graph api. Now there are definitely other solutions around this, but I also found that when using facebook integration on websites, the websites load a little slower because it has to connect to facebook first, fetch the data, then render the webpage, so the performance of the webpage will heavily depend on the speed of the facebook fetch. Thus, I decided to implement a caching scheme that synchronizes a local database with information fetched from facebook. This way my page only needs to access a local database every time it's queried, but the database is synced with facebook information, so it's pretty much like I'm accessing facebook!! 
 
 The basic idea is as follows:
@@ -29,8 +28,7 @@ The basic idea is as follows:
  # Sit back and let the webserver do the hard work!
 
 <% end %> 
-<%= RedCloth.new(@page.excerpt).to_html %>
-
+<%= @page.excerpt %>
 
 First, lets setup a database table storing the information that you want. I will build on my previous example of the fb_graph gem that polled events from a facebook page using the graph api provided by facebook. For this example we will just pull the events from a facebook page, so we'll just create a table storing the event information. We'll use the rails generator to generate a model to store the facebook events. This will generate the correct model files and migrations. 
 
