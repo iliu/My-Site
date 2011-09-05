@@ -11,7 +11,7 @@ priority: 1.0
 changefreq: daily
 ---
 <h3> Resume </h3>
-<p>Click <a href="/docs/resume.pdf">here</a> to download a pdf version [ Last Update: 08/30/11 ]</p>
+<p>Click <a href="/docs/resume.pdf">here</a> to download a pdf version [ Last Update: 09/05/11 ]</p>
   <table class="resume-table" width="100%" cellpadding="0">
     <!--DWLayoutTable-->
     <tr>
@@ -40,7 +40,7 @@ Architecture, Memory System</li>
       <td align="left" valign="top">
 	<b>Programming and Software</b><br>
         <ul>
-	  <li>Java, C, C++, C#, SQL, UNIX shell scripting, PHP, Perl, XML, XHTML, AJAX, OpenGL, assembly, HTML, LateX, Network programming, Computer Networking, Computer Security, Operating Systems, Database, Programming Languages</li>
+	  <li>C/C++, Java, Ruby, Python, PHP, SQL, AJAX, jQuery, Ruby on Rails, Django, HAML & SASS, shell scripts, network programming, web APIs, HTML5, node.js, Android development, Labview, VHDL, Verilog, SystemC</li>
 	</ul>
 	<b>Systems and Hardware</b><br>
         <ul>
@@ -105,9 +105,9 @@ Architecture, Memory System</li>
       <td align="left" valign="top"><b>Projects</b></td>
       <td align="left" valign="top">
 	<b>Real time Computer Architecture Design</b> - Precision Timed Machines (PRET), a research project to re-design computer architecture for predictability and repeatability. Implemented on the FPGA as a soft core (in VHDL) along with a software level timing accurate simulator <br /><br />
+	<b>YATAA</b> - Yet Another Twitter Android App. An app written to demonstrate android app development functionalities, including communication with web services, C2MD, background services, broadcast receivers, content providers and system services. <br /><br />
 	<b>fantasysportstools.net</b> - ruby on rails app using the yahoo fantasy sports API to help manage fantasy basketball teams. Syncs NBA stats nightly to give projections and predictions. Aggregate news from various sites and use AJAX and jQuery for better user experience. <br /><br />
-	<b>gschristian.org</b> - ruby on rails app with facebook graph API to sync events with facebook group. Uses paperclip gem to manage uploading and organizing audio/powerpoint resources. <br /><br />
-	<b>Basic Integrated Audio System</b> - Senior capstone project, design and built an MP3 player from scratch with integrated FM transmitter, audio recorder, CF reader with FAT file system.
+	<b>gschristian.org</b> - ruby on rails app with facebook graph API to sync events with facebook group. Uses paperclip gem to manage uploading and organizing audio/powerpoint resources.
       </td>
     </tr>
 
