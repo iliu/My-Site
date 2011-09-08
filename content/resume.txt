@@ -105,7 +105,7 @@ Architecture, Memory System</li>
       <td align="left" valign="top"><b>Projects</b></td>
       <td align="left" valign="top">
 	<b>Real time Computer Architecture Design</b> - Precision Timed Machines (PRET), a research project to re-design computer architecture for predictability and repeatability. Implemented on the FPGA as a soft core (in VHDL) along with a software level timing accurate simulator <br /><br />
-	<b>YATAA</b> - Yet Another Twitter Android App. An app written to demonstrate android app development functionalities, including communication with web services, C2MD, background services, broadcast receivers, content providers and system services. <br /><br />
+	<b>YATAA</b> - Yet Another Twitter Android App. An app written to demonstrate android app development functionalities, including communication with web services, C2DM, background services, broadcast receivers, content providers and system services. <br /><br />
 	<b>fantasysportstools.net</b> - ruby on rails app using the yahoo fantasy sports API to help manage fantasy basketball teams. Syncs NBA stats nightly to give projections and predictions. Aggregate news from various sites and use AJAX and jQuery for better user experience. <br /><br />
 	<b>gschristian.org</b> - ruby on rails app with facebook graph API to sync events with facebook group. Uses paperclip gem to manage uploading and organizing audio/powerpoint resources.
       </td>
