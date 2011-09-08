@@ -1,0 +1,30 @@
+---
+title:      Learning Android App Development
+created_at: 2011-09-07 00:34:31.401367 -07:00
+author:     Isaac Liu
+filter:
+  - erb
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+tags:
+  - android
+---
+
+I've been following this online book "Learning Android":http://ofps.oreilly.com/titles/9781449390501/index.html which I would highly recommend to anyone that wants to begin learning how to write android apps. It does a great job explaining the concepts of Android development through a non-trivial sample application - a twitter application. It also goes through the process of building the app step by step, improving the app when introducing more advanced concepts. This helps show how to use the building blocks that's learned to improve an application. It goes through all the building blocks of android apps, and even the more advanced concepts like Android Interface Definition Language (AIDL) and using the Native Development Kit (NDK). I have followed along and built the demo apps while publishing the source code in my "github":https://github.com/iliu repositories. If you want to learn how to write Android apps, follow along the book and I guarantee that you will not be disappointed! 
+
+However, I found that there are some concepts that are missing in this textbook, namely:
+* context menus
+* android testing framework
+* c2dm (cloud to device messaging)
+
+If you do follow along, here are some things to note:
+* The "System Services":http://ofps.oreilly.com/titles/9781449390501/Android_System_Services.html chapter has some bugs in the code posted. 
+* The "AIDL":http://ofps.oreilly.com/titles/9781449390501/AIDL.html chapter doesn't fully explain how to setup the AIDL client app. 
+* From a design standpoint there are several design choices that are poorly made for the app in the text. But it does demonstrate how to code the functionality. 
+
+Just be sure to read the comments left on the side, as I have left several comments noting the above issues in the text. Enjoy!
