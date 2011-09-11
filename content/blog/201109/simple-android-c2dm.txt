@@ -1,0 +1,250 @@
+---
+title:      Simple Android C2DM
+created_at: 2011-09-10 23:49:42.464840 -07:00
+author:     Isaac Liu
+filter:
+  - erb
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+tags:
+  - android
+  - java
+---
+
+<% @page[:excerpt] = capture_erb do -%> 
+As I mentioned in my previous post, "Learning Android":http://ofps.oreilly.com/titles/9781449390501/ didn't cover a couple topics, and one of them is Cloud to Device Messaging, or push notifications. When applications are getting data from the internet, there are two ways to keep the data fresh. First is called polling. It means that the app initiates a connection to the server at set intervals to see if there are new data. The problem is determining the polling frequency. Poll too often, you waste a lot of batteries without always getting new data. Poll too rarely, then you risk not getting new data in a timely fashion. The alternative is called pushing, or push notifications (iphone users should be familiar with the term). Instead of the client initiating a connection, the server sends a data packet to the client whenever there is new data, then the client reacts to it. Because there is some overhead to maintain a persistent connection to the server, rolling out a push notification service isn't a trivial task, but google has done that for us! It's called Cloud to Device Messaging (C2DM). We piggy back off of the connection that android maintains for gmail, google voice, gchat etc, and register our app to be "waken up" only when the server pings us. Note that the server doesn't actually send the new data, it only sends an alert that new data is available. This keeps the ping packet small so there is less overhead. It's up to the client app to receive the notification and then go to the server to retrieve the fresh data. In this post I will explain how to setup this service for your app. I will assume that you went through "Learning Android," or at least have a basic understanding of the building blocks of Android programming. For the sake of keeping this post under a tolerable reading length, I will only go over the mechanisms. I have checked in a sample c2dm app that's commented in my "github":https://github.com/iliu/Android-C2DM repository, so clone the repository to see the whole picture. I also included a small ruby script to mimic a web server sending c2dm packets to the client device, this way you can debug your implementation without needing to setup a server. By the end of this post you should have an app that you can install on your phone or emulator, and then a way to send it push notifications without requiring any server side coding! 
+<% end %> 
+<%= @page.excerpt %>
+
+There are a couple requirements before we begin:
+* The phone must have android 2.2 (froyo) or above installed. The API level should be above 8.
+* The phone that's using the client must have at least one google account on the phone (since c2dm piggy backs off of existing google services)
+* You (the developer) must register for to use c2dm "here":http://code.google.com/android/c2dm/signup.html (usually you get approved for developer quota pretty fast)
+* To use the ruby script for debugging, you must have ruby and rubygems install on your computer and install the 'c2dm' gem (I'll show you how to install it)
+
+Ok, let us begin! To add c2dm to your app requires work on both the server side and the client side (phone app). The web server's job is to send notifications to the phone when new data arrives. But in order to reach the phone, the web server needs to send the messages through the google server, to ensure it goes through the c2dm channels. There's obviously a lot of details that goes on behind the scenes here, but this post will focus on the client side code. At the end of the post I'll show how to send messages through the google server using a ruby gem called 'c2dm'. If your interested in the details and the authentication that goes on, you can read more about it "here":http://code.google.com/android/c2dm/#push. From here on I will refer to the app installed on the phone as the client app, and your web service the server app. 
+
+How does the google server know what phone to send the message to? It uses a registration Id that is given to the phones when the client app registers itself with the google server. Thus, the main responsibility of the client app is to register itself with google to obtain the id, and then send the id to your server app. Then just sit back and wait to receive push notifications. To start the registration process for your device, you send an intent to the google c2dm registration server. You can do this any number of ways, in my app i put it in a button onClickListener so it would start registration when the user clicks the button. 
+
+<pre class="brush: java;" title="Sending the registration intent">
+// Add an on click listener to the button Register. When it is clicked
+// we want to send out the intent to register our device
+buttonReg.setOnClickListener(new OnClickListener() {
+	@Override
+	    public void onClick(View v) {
+	    // Create registration intent
+	    Intent regIntent = new Intent("com.google.android.c2dm.intent.REGISTER");
+	    // Identify your app
+	    regIntent.putExtra("app", PendingIntent.getBroadcast(HomeActivity.this, 0, new Intent(), 0));
+	    // Identify role account server will use to send
+	    regIntent.putExtra("sender", "roleemail@gmail.com");
+	    // Start the registration process
+	    startService(regIntent);
+	}
+    });
+</pre>
+
+It's pretty straight forward. Essentially your sending an intent to the google c2dm service running on your phone stating that you want to register this device and this app to receive c2dm messages. Note that you must change the role account to your own role email which you used to register online for the c2dm account (the 3rd requirement listed above). Once this intent is sent out, you will receive an incoming intent that is suppose to assign you a registration id. We will create a BroadcastReceiver to receive that intent and grab the registration id. 
+
+<pre class="brush: java; highlight:[5,18,28,40]" title="C2DMReceiver class that extends BroadcastReceiver">
+public void onReceive(Context context, Intent intent) {
+
+    String action = intent.getAction();
+    // The action for registration reply is com.google.android.c2dm.intent.REGISTRATION
+    if (action.equals("com.google.android.c2dm.intent.REGISTRATION")) {
+       Log.d(TAG, "Received C2DM Registration Packet");
+       // Call the handleRegistration function to handle registration
+       handleRegistration(context, intent);
+    } 
+}
+
+private void handleRegistration (Context context, Intent intent) {
+    // These strings are sent back by google
+    String regId = intent.getStringExtra("registration_id");
+    String error = intent.getStringExtra("error"); 
+    String unregistered = intent.getStringExtra("unregistered");
+                
+    if (error != null) {
+       // If there is an error, then we log the error
+       Log.e(TAG, String.format("Received error: %s\n", error));
+       if (error.equals("ACCOUNT MISSING")) {
+          // ACCOUNT MISSING is sent back when the device doesn't have a google account registered
+          Toast.makeText(context, "Please add a google account to your device.", Toast.LENGTH_LONG).show();
+        } else {
+          // Other errors
+          Toast.makeText(context, "Registration Error: " + error, Toast.LENGTH_LONG).show();
+        }
+    } else if (unregistered != null) {
+      // This is returned when you are unregistering your device from c2dm
+      Log.d(TAG, String.format("Unregistered: %s\n", unregistered));
+      Toast.makeText(context, "Unregistered: " + unregistered, Toast.LENGTH_LONG).show();
+
+      // TODO: send POST to web server to unregister device from sending list
+
+      //Clear the shared prefs
+      ((C2DMSampleApplication)context.getApplicationContext()).setRegId(null);
+      //Update our Home Activity
+      updateHome(context);
+
+    } else if (regId != null) {
+      // You will get a regId if nothing goes wrong and you tried to register a device
+      Log.d(TAG, String.format("Got regId: %s", regId));
+      
+      // TODO send regID to server in ANOTHER THREAD
+
+      //Store it into shared prefs
+      ((C2DMSampleApplication)context.getApplicationContext()).setRegId(regId);
+      //Update our Home Activity
+      updateHome(context);
+    } 
+}
+</pre>
+
+We override the onReceive method in BroadcastReceiver to receive intents. On line 5 we see that we need to check for intents with the action "com.google.android.c2dm.intent.REGISTRATION", once we receive the intent, we can process it to grab the registration id. Google passes back 3 strings to give us the status of registration. We grab those on line 14,15,16. If the error string is present, then an error occurred. I create a Toast message to alert the user. If the unregistered string is present, then the intent is returned from a request to unregister the device. If both are null, then we should have the registration id passed back from google. I chose to store this id in the sharedPreference on the phone. The sharedPreference is stored in a separate Application class (you can see the source code "here":https://github.com/iliu/Android-C2DM/blob/master/src/com/liuapps/c2dmsample/C2DMSampleApplication.java), which is what line 36 and 47 are doing. You would also need to send this registration id to your own web server, as the server needs it to send the message to the phone. However, an important but subtle issue here is that you should do the server requests in a separate thread. However, an Async task in this case should not be used because an Async task needs to return to the thread it stemmed from, but a BroadcastReceiver only exists during the call of onReceive, so it an Async task would fail to return. In this case an Intent Service would be a good choice. In my example there is no web service, so i omit the sending to the web server. Instead, i send it out to the log and copy it to clipboard (so if your trying it on a phone you can text or emial it to yourself), you will need it for the server script. 
+
+Once we obtain the registration id, most of the work of registration has been done! Now we have to setup our app to receive a c2dm message. We can use the same BroadcastReceiver and check for the intent with action "com.google.android.c2dm.intent.RECEIVE". Our complete onReceive code looks like this:
+
+<pre class="brush: java; highlight:[11]" title="C2DMReceiver class that extends BroadcastReceiver">
+public void onReceive(Context context, Intent intent) {
+
+    String action = intent.getAction();
+    // The action for registration reply is com.google.android.c2dm.intent.REGISTRATION
+    if (action.equals("com.google.android.c2dm.intent.REGISTRATION")) {
+        Log.d(TAG, "Received C2DM Registration Packet");
+        // Call the handleRegistration function to handle registration
+        handleRegistration(context, intent);
+
+        // The action for data reply is com.google.android.c2dm.intent.RECEIVE
+    } else if (action.equals("com.google.android.c2dm.intent.RECEIVE")) {
+        Log.d(TAG, "Received C2DM Data Packet");
+        // Call the handleData function to handle c2dm packet
+        handleData(context, intent); 
+    }
+}
+</pre>
+
+You can choose how you want to handle the data packet. Usually you just want to notify the user to open your application activity to retrieve data from the server. I create a notification so it shows up on the phone's status bar. The code looks like this:
+
+<pre class="brush: java; " title="Function to handle the c2dm data messages">
+private void handleData(Context context, Intent intent) {
+    String app_name = (String)context.getText(R.string.app_name);
+    String message =  intent.getStringExtra("message");
+
+    // Use the Notification manager to send notification
+    NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+    // Create a notification using android stat_notify_chat icon. 
+    Notification notification = new Notification(android.R.drawable.stat_notify_chat, app_name + ": " + message, 0);
+
+    // Create a pending intent to call the HomeActivity when the notification is clicked
+    PendingIntent pendingIntent = PendingIntent.getActivity(context, -1, new Intent(context, HomeActivity.class), PendingIntent.FLAG_UPDATE_CURRENT); // 
+    notification.when = System.currentTimeMillis();  
+    notification.flags |= Notification.FLAG_AUTO_CANCEL; 
+    // Set the notification and register the pending intent to it
+    notification.setLatestEventInfo(context, app_name, message, pendingIntent); //
+                
+    // Trigger the notification
+    notificationManager.notify(0, notification);
+}
+</pre>
+
+Finally, you want to add permissions and register intent filters in your android manifest so your BroadcastReceiver can receive and send intents to the google c2dm service. 
+
+<pre class="brush: xml; highlight:[9,10,11,12,13,14,15,16,17,18,19,28,29,30,31]" title="Application Manifest">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.liuapps.c2dmsample" android:versionCode="1"
+        android:versionName="1.0">
+        <uses-sdk android:minSdkVersion="8" />
+
+        <application android:icon="@drawable/icon" android:label="@string/app_name"
+                android:name=".C2DMSampleApplication">
+                <receiver android:name=".C2DMReceiver"
+                        android:permission="com.google.android.c2dm.permission.SEND">
+                        <intent-filter>
+                                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                                <category android:name="com.liuapps.c2dmsample" />
+                        </intent-filter>
+                        <intent-filter>
+                                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                                <category android:name="com.liuapps.c2dmsample" />
+                        </intent-filter>
+                </receiver>
+                <activity android:name=".HomeActivity" android:label="@string/app_name">
+                        <intent-filter>
+                                <action android:name="android.intent.action.MAIN" />
+                                <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>
+                </activity>
+        </application>
+
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+        <uses-permission android:name="com.liuapps.c2dmsample.permission.C2D_MESSAGE" />
+        <permission android:name="com.liuapps.c2dmsample.permission.C2D_MESSAGE"
+                android:protectionLevel="signature" />
+                
+                <permission android:name="com.liuapps.c2dmsample.SEND_NOTIFICATIONS"
+                android:label="@string/sendPermissionLabel"
+                android:description="@string/sendPermissionSummary"
+                android:permissionGroup="android.permission-group.PERSONAL_INFO"
+                android:protectionLevel="normal" />
+
+        <permission android:name="com.liuapps.c2dmsample.RECEIVE_NOTIFICATIONS"
+                android:label="@string/receivePermissionLabel"
+                android:description="@string/receivePermissionSummary"
+                android:permissionGroup="android.permission-group.PERSONAL_INFO"
+                android:protectionLevel="normal" />
+
+        <uses-permission android:name="com.liuapps.c2dmsample.SEND_NOTIFICATIONS" />
+        <uses-permission android:name="com.liuapps.c2dmsample.RECEIVE_NOTIFICATIONS" />
+                
+</manifest>
+</pre>
+
+The intent filters register the receiver class to receive broadcast intents from the google c2dm service. Now at this point, the client app is finished and you can start sending messages to it!
+
+To send a push notification to your phone, the web service sends a HTTP POST message to google with the registration id, and google back end will forward the message to the phone device. The details can be found "here":http://code.google.com/android/c2dm/#push. We just want a quick way to send messages to our phone, so we will use the "c2dm gem":http://rubygems.org/gems/c2dm written by Amro Mousa to send a message. You need to have "ruby":http://www.ruby-lang.org/en/downloads/, "rubygems":http://rubygems.org/pages/download, and the "c2dm gem":http://rubygems.org/gems/c2dm installed. With those installed, we can write a simple ruby script to send messages to the server.
+
+<pre class="brush: ruby; highlight: [17,18,19]" title="sendC2DM.rb">
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'c2dm'
+
+settings = YAML::parse( File.open( "config.yml" ) ).transform
+regId = settings['regId']
+email = settings['email']
+password = settings['password']
+
+if ARGV.empty? 
+  puts 'Usage: ./sendC2DM "message to be sent"'
+  exit
+end
+
+puts 'Sending C2DM Packet...'
+c2dm = C2DM.new(email, password, settings['app_name'])
+notification = { :registration_id => regId, :data => { :message => ARGV[0] }, :collapse_key => "biteme" }
+c2dm.send_notification(notification)
+</pre>
+
+A separate "config.yml":https://github.com/iliu/Android-C2DM/blob/master/c2dmServer/config.yml file should be created and saved in the same folder as the script. Is parsed before the c2dm library is used. You need to copy and paste the registration id received from google (you can do that by copying the logcat from your phone, or texting it to yourself when the registration id is copied to the clipboard in the client app). Lines 17, 18, and 19 do the actual work of creating a message and sending it to the server. The collapse key is a key to tell the google server to collapse messages if two messages with the same collapse key arrive. Here's how to use this script:
+  
+<pre class="brush: shell;">
+ruby sendC2dm.rb "this is my message"
+</pre>
+
+If everything was done correctly, you should see a pop up notification from your phone receiving the push notification! Instant gratification! 
+
+The source code of the complete client app and ruby script can be found in "this":https://github.com/iliu/Android-C2DM repository. I mostly covered how to setup the phone client app to receive push notifications. Hopefully we can start seeing better apps that use less battery but get more real-time updates!
+
+
+
+
+
+
