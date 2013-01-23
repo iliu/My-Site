@@ -13,7 +13,7 @@ filter:
     <meta name="keywords" content="isaac liu, PRET, real-time systems, computer architecture, basketball, isaac, liu, berkeley, UCB, Precision Timed Machine, liuisaac, isaacliu, JQuery, Javascript, webby, web design, life" />
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
     <meta name="author" content="Isaac Liu" />
-    <meta name="description" content="Isaac Liu is currently a Ph.D student at the University of California, Berkeley in the EECS department. He is part of the CHESS (Center for Hybrid and Embedded Software System) group advised by Edward A. Lee. His research interests are in real time systems, parallel architectures and programming models. His current research project is on real time computer architectures (PREcision Timed Machines – PRET)." />
+    <meta name="description" content="Isaac Liu is currently a software engineer at Apple Inc. working on the iOS performance team. He received his Ph.D in Electrical Engineering and Computer Science at the University of California, Berkeley. His research focus was in real time systems, parallel architectures and programming models. His thesis is titled PREcision Timed Machines – PRET." />
     <% if @page.noindex -%>
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
       <% end -%>
@@ -79,7 +79,7 @@ filter:
 	      <label for="qsearch">Search:</label>
 	      <input class="tbox" id="qsearch" type="text" name="q" value="Search my site through google..." title="Start typing and hit ENTER" onfocus="if(this.value=='Search my site through google...')this.value='';" />
 		<input type="hidden"  name="sitesearch"
-		        value="http://www.eecs.berkeley.edu/~liuisaac/site/" />
+		        value="http://isaacliu.info/site/" />
 	      <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="/images/search.gif" />
 	    </p>
 	  </form>					
@@ -143,10 +143,10 @@ filter:
 	    <div class="featured-post">
 	      <%= render(:partial => "partials/about") %>
 	      </div>
-	      <div class="featured-post">
+<!-- 	      <div class="featured-post">
 		<%= render(:partial => "partials/twitterfeed") %>
 	      </div>
-	      <div class="featured-post">
+ -->	      <div class="featured-post">
 		<%= render(:partial => "partials/recententries") %>
 	      </div>
 	      <div class="featured-post">
