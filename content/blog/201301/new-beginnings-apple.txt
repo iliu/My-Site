@@ -1,0 +1,25 @@
+---
+title:      New Beginnings - Apple 
+created_at: 2013-01-22 18:09:14.457373 -08:00
+author:     Isaac Liu
+filter:
+  - erb
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+tags:
+  - life
+---
+
+<% @page[:excerpt] = capture_erb do -%> 
+It's been a while since I updated my site. A lot has happened and my life has taken on a different direction! First I finished my thesis and thus completed my Ph.D degree at Berkeley! I accepted an offer from Apple Inc. and now work on the iOS Performance Team that oversees the performance of all iOS devices (iPhones, iPads etc). My team works across the whole programming stack, from app level down to kernel and device drivers, and we focus on issues related to performance, including memory, latency, framerate etc. It has been great! 
+
+This site has been down for a while because I forgot that i was hosting on the berkeley school servers, and when I graduated my account expired, but now everything should be back up and running! I will try to update the other portions of the site as well. But for now, have a great 2013!
+<% end %> 
+<%= @page.excerpt %>
+
+
