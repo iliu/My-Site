@@ -1,0 +1,57 @@
+---
+title:      iMessage Crashing From file:///??
+created_at: 2013-02-05 09:48:23.593937 -08:00
+author:     Isaac Liu
+filter:
+  - erb
+  - textile
+layout:       tumblog/post
+tumblog_type: regular
+content_type: tumblog
+sitemap: true
+priority: 0.7
+changefreq: weekly
+tags:
+  - osx
+  - sqlite3
+---
+
+<% @page[:excerpt] = capture_erb do -%> 
+By now this is a pretty well known bug that if you type in file:/// (f in caps) in a lot of OSX apps, it will crash it. If you haven't heard, see "here":http://www.macobserver.com/tmo/article/crash-almost-any-os-x-app-by-typing-these-specific-characters or "here":http://www.geekosystem.com/how-to-crash-mac-apps/ or "here":https://www.google.com/search?client=safari&rls=en&q=file+crashes+osx&ie=UTF-8&oe=UTF-8#q=file+crashes+osx&hl=en&client=safari&tbo=u&rls=en&source=univ&tbm=nws&sa=X&ei=WkYRUeeHJYL2iwKekIHIDg&ved=0CEcQqAI&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.&bvm=bv.41934586,d.cGE&fp=409c952204421c1&biw=1440&bih=786. The worst part about this is someone could easily perform a denial of service attack on your iMessage app on any of your OSX machines by just sending you a quick message with 8 characters. You can try it right now as well......Oops, did I forget to mention? You will also send your own iMessage into a frezny crash loop.....
+
+If you google around how to fix this, most blog posts would suggest you go and delete anything that starts with 'chat' in your ~/Library/Message folder (for example, "Gizmodo":http://gizmodo.com/5981433/how-to-fix-imessage-if-someone-crashes-you-with-file). I would advice against it unless you don't care about your chat history being completely erased. With a little terminal and sql you can easily fix it without having to remove your entire chat history. 
+
+The idea is pretty simple. The chat.db file that you were told to remove contains your chat history for iMessage. Instead of deleting the whole thing, you simply need to delete the culprit chat message that crashed your iMessage. We can easily do this with sqlite3 and a couple simple sql commands. Let's get crackin.
+
+<% end %> 
+<%= @page.excerpt %>
+
+
+So let's fire up that terminal and type in:
+
+<pre class="brush: shell;">
+cd ~/Library/Message
+</pre>
+
+This will bring you to your Message folder. If you run the command 'ls' in the terminal you will see a chat.db file, that's the file we _DO NOT_ want to delete. The .db file extension tells us this is a database file, and in this case, it is an "sqlite":http://www.sqlite.org database file. So we can use sqlite3 to read the contents. (NOTE: if you run sqlite3 and get a 'command not found', then please google around on how to install sqlite3 in your terminal.) So lets fire up sqlite3:
+
+<pre class="brush: shell;">
+sqlite3 chat.db
+</pre>
+
+You should see an sqlite3 prompt appear that looks like this: 
+
+<pre class="brush: shell;">
+sqlite> 
+</pre>
+
+This is where all the fun begins. Since this won't be a blog post about sql, I'll cut to the chase and show how to remove the culprit message. However, if you know sql queries, you pretty much and poke around here and do whatever you like. To delete the message that crashed iMessage, simply type this in the sqlite3 prompt:
+
+<pre class="brush: shell;" title="NOTE: Enter everything after the sqlite prompt">
+sqlite> delete from message where text LIKE '%File:///%';
+</pre>
+
+This will find and delete the individual messages that contain the text file:/// (with capital f). Now just use ctlr+d to exit out of sqlite3 and open up iMessage, you should be good to go! 
+
+
+
