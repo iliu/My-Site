@@ -81,6 +81,17 @@ Some of the special features on this site (besides the built in webby features) 
 * Integrated jabref(http://jabref.sourceforge.net/) generated html table to display my publications
 * Use SyntaxHighlighter (http://alexgorbatchev.com/SyntaxHighlighter/) to display code
 * Added tags based upon Aaron Qian's blog post
+* use rack to deploy on webby
+
+
+DEPLOYING TO HEROKU:
+------------------------
+Currently there is a master branch that pushes to github. The heroku-deploy branch
+is meant to mirror the master branch but adds the output public folder to the repository.
+Whenever changes are made on the master branch, rebase the heroku-deploy branch of master,
+and run `webby clobber; webby build` to rebuild the site. Then push the repository to the
+remote branch `git push heroku heroku-deploy:master`. You might need to add -f flag.
+
 
 LINKS
 -----
