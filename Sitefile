@@ -1,5 +1,6 @@
 Webby.site.base = ''
 Webby.site.tags_dir = 'tags'
+Webby.site.output_dir = 'public'
 
 task :default => ['tags:regenerate', :autobuild]
 
