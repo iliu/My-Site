@@ -1,0 +1,14 @@
+---
+title:  Tag - java
+author: Isaac Liu
+layout: main
+filter: 
+  - haml
+dirty:  true
+priority: 0.9
+changefreq: daily
+---
+- posts = @pages.find(:all, :content_type => 'tumblog', :sort_by => :created_at, :reverse => true).select{ |p| p.tags && p.tags.include?("java")}
+= render(:partial => 'partials/post_list', :locals => {:posts => posts, :tag => "java"})
+
+
